@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/core/helper_functions/on_generate_route.dart';
+import 'package:ecommerce_app/core/helper_functions/on_generate_routes.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class FruitHubApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: onGenerateRoute,
+      onGenerateRoute: onGenerateRoutes,
       initialRoute: SplashView.splashViewRoute,
     );
   }
