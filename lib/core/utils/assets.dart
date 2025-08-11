@@ -14,6 +14,22 @@ class Assets {
   /// assets/images/logo_splash.svg
   static const String assetsImagesLogoSplash = "assets/images/logo_splash.svg";
 
+  /// Assets for assetsImagesOnBoardingBackgroundImage1
+  /// assets/images/on_boarding_background_image1.svg
+  static const String assetsImagesOnBoardingBackgroundImage1 = "assets/images/on_boarding_background_image1.svg";
+
+  /// Assets for assetsImagesOnBoardingBackgroundImage2
+  /// assets/images/on_boarding_background_image2.svg
+  static const String assetsImagesOnBoardingBackgroundImage2 = "assets/images/on_boarding_background_image2.svg";
+
+  /// Assets for assetsImagesOnBoardingImage1
+  /// assets/images/on_boarding_image1.svg
+  static const String assetsImagesOnBoardingImage1 = "assets/images/on_boarding_image1.svg";
+
+  /// Assets for assetsImagesOnBoardingImage2
+  /// assets/images/on_boarding_image2.svg
+  static const String assetsImagesOnBoardingImage2 = "assets/images/on_boarding_image2.svg";
+
   /// Assets for assetsImagesPlant
   /// assets/images/plant.svg
   static const String assetsImagesPlant = "assets/images/plant.svg";
