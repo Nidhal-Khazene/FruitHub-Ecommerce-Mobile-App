@@ -5,6 +5,8 @@ import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../auth/presentation/views/login_view.dart';
+
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
 
@@ -55,7 +57,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             maintainSize: true,
             maintainAnimation: true,
             maintainState: true,
-            child: CustomButton(onPressed: () {}, text: "ابدأ الان"),
+            child: CustomButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+              },
+              text: "ابدأ الان",
+            ),
           ),
         ),
         const SizedBox(height: 43),

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -43,9 +44,16 @@ class PageViewItem extends StatelessWidget {
                 ),
                 child: Visibility(
                   visible: isVisible,
-                  child: const Opacity(
-                    opacity: 0.5,
-                    child: Text("تخط", style: TextStyle(fontSize: 16)),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(
+                        context,
+                      ).pushReplacementNamed(LoginView.routeName);
+                    },
+                    child: const Opacity(
+                      opacity: 0.5,
+                      child: Text("تخط", style: TextStyle(fontSize: 16)),
+                    ),
                   ),
                 ),
               ),
