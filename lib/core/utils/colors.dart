@@ -2,4 +2,5 @@ import 'dart:ui';
 
 abstract class ColorData {
   static Color kPrimaryColor = const Color(0xff1B5E37);
+  static Color kSecondaryColor = const Color(0xffF4A91F);
 }
