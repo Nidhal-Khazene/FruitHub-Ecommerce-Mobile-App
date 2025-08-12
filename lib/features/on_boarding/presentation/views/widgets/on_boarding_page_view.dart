@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class OnBoardingPageView extends StatelessWidget {
   const OnBoardingPageView({super.key, required this.pageController});
+
   final PageController pageController;
 
   @override
@@ -11,13 +12,11 @@ class OnBoardingPageView extends StatelessWidget {
     return PageView(
       controller: pageController,
       children: [
-        PageViewItem(
-          isVisible:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-              0,
+        const PageViewItem(
+          isVisible: true,
           image: Assets.assetsImagesOnBoardingImage1,
           backgroundImage: Assets.assetsImagesOnBoardingBackgroundImage1,
-          subtitleWidget: const Text(
+          subtitleWidget: Text(
             'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -28,7 +27,7 @@ class OnBoardingPageView extends StatelessWidget {
               height: 1.70,
             ),
           ),
-          titleWidget: const Text.rich(
+          titleWidget: Text.rich(
             TextSpan(
               children: [
                 TextSpan(
@@ -63,13 +62,11 @@ class OnBoardingPageView extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        PageViewItem(
-          isVisible:
-              (pageController.hasClients ? pageController.page!.round() : 0) !=
-              0,
+        const PageViewItem(
+          isVisible: false,
           image: Assets.assetsImagesOnBoardingImage2,
           backgroundImage: Assets.assetsImagesOnBoardingBackgroundImage2,
-          subtitleWidget: const Text(
+          subtitleWidget: Text(
             'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -80,7 +77,7 @@ class OnBoardingPageView extends StatelessWidget {
               height: 1.70,
             ),
           ),
-          titleWidget: const SizedBox(
+          titleWidget: SizedBox(
             width: 301,
             child: Text(
               'ابحث وتسوق',
