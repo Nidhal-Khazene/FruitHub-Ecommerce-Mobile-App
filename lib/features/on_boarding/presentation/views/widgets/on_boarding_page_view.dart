@@ -3,16 +3,21 @@ import 'package:ecommerce_app/features/on_boarding/presentation/views/widgets/pa
 import 'package:flutter/material.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
+  const OnBoardingPageView({super.key, required this.pageController});
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     return PageView(
-      children: const [
+      controller: pageController,
+      children: [
         PageViewItem(
+          isVisible:
+              (pageController.hasClients ? pageController.page!.round() : 0) ==
+              0,
           image: Assets.assetsImagesOnBoardingImage1,
           backgroundImage: Assets.assetsImagesOnBoardingBackgroundImage1,
-          subtitleWidget: Text(
+          subtitleWidget: const Text(
             'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -23,7 +28,7 @@ class OnBoardingPageView extends StatelessWidget {
               height: 1.70,
             ),
           ),
-          titleWidget: Text.rich(
+          titleWidget: const Text.rich(
             TextSpan(
               children: [
                 TextSpan(
@@ -59,9 +64,12 @@ class OnBoardingPageView extends StatelessWidget {
           ),
         ),
         PageViewItem(
+          isVisible:
+              (pageController.hasClients ? pageController.page!.round() : 0) !=
+              0,
           image: Assets.assetsImagesOnBoardingImage2,
           backgroundImage: Assets.assetsImagesOnBoardingBackgroundImage2,
-          subtitleWidget: Text(
+          subtitleWidget: const Text(
             'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -72,7 +80,7 @@ class OnBoardingPageView extends StatelessWidget {
               height: 1.70,
             ),
           ),
-          titleWidget: SizedBox(
+          titleWidget: const SizedBox(
             width: 301,
             child: Text(
               'ابحث وتسوق',
