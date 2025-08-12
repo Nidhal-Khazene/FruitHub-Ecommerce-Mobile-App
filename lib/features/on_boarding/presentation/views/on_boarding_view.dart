@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
 
-  static const onBoardingViewRoute = "/OnBoardingView";
+  static const routeName = "/OnBoardingView";
 
   @override
   Widget build(BuildContext context) {
