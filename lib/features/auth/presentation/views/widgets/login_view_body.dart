@@ -10,7 +10,21 @@ class LoginViewBody extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: SingleChildScrollView(
-        child: Column(children: [CustomTextFormField()]),
+        child: Column(
+          children: [
+            SizedBox(height: 24),
+            CustomTextFormField(
+              hintText: "البريد الإلكتروني",
+              textInputType: TextInputType.emailAddress,
+            ),
+            SizedBox(height: 16),
+            CustomTextFormField(
+              hintText: "كلمة المرور",
+              suffixIcon: Icon(Icons.visibility),
+              textInputType: TextInputType.visiblePassword,
+            ),
+          ],
+        ),
       ),
     );
   }
