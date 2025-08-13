@@ -7,7 +7,7 @@ AppBar buildAppBar(context, {required String title}) {
       onTap: () {
         Navigator.pop(context);
       },
-      child: const Icon(Icons.arrow_back),
+      child: const Icon(Icons.arrow_back_ios_new_outlined, size: 22),
     ),
     centerTitle: true,
     title: Text(title, style: Styles.bold19),
