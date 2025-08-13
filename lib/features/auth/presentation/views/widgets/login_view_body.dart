@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -5,6 +7,11 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(child: Column(children: []));
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+      child: SingleChildScrollView(
+        child: Column(children: [CustomTextFormField()]),
+      ),
+    );
   }
 }
