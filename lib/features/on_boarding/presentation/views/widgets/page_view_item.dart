@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -46,6 +48,10 @@ class PageViewItem extends StatelessWidget {
                   visible: isVisible,
                   child: GestureDetector(
                     onTap: () {
+                      SharedPreferencesSingleton.setBool(
+                        kIsOnBoardingViewSeen,
+                        true,
+                      );
                       Navigator.of(
                         context,
                       ).pushReplacementNamed(LoginView.routeName);
