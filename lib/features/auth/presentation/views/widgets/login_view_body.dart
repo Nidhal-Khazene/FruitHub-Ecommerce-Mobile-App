@@ -6,6 +6,8 @@ import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/do_not_have_account.dart';
 import 'package:flutter/material.dart';
 
+import 'or_divider.dart';
+
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
 
@@ -43,6 +45,8 @@ class LoginViewBody extends StatelessWidget {
             CustomButton(onPressed: () {}, text: "تسجيل دخول"),
             const SizedBox(height: 33),
             const DoNotHaveAccount(),
+            const SizedBox(height: 33),
+            const OrDivider(),
           ],
         ),
       ),
