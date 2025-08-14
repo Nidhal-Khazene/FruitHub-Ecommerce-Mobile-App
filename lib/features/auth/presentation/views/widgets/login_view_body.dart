@@ -1,8 +1,10 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/utils/assets.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_social_media_button.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/do_not_have_account.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +49,24 @@ class LoginViewBody extends StatelessWidget {
             const DoNotHaveAccount(),
             const SizedBox(height: 33),
             const OrDivider(),
+            const SizedBox(height: 16),
+            CustomSocialMediaButton(
+              onPressed: () {},
+              title: "تسجيل بواسطة جوجل",
+              socialIcon: Assets.assetsImagesGoogleIcon,
+            ),
+            const SizedBox(height: 16),
+            CustomSocialMediaButton(
+              onPressed: () {},
+              title: "تسجيل بواسطة أبل",
+              socialIcon: Assets.assetsImagesAppleIcon,
+            ),
+            const SizedBox(height: 16),
+            CustomSocialMediaButton(
+              onPressed: () {},
+              title: "تسجيل بواسطة فيسبوك",
+              socialIcon: Assets.assetsImagesFacebookIcon,
+            ),
           ],
         ),
       ),
