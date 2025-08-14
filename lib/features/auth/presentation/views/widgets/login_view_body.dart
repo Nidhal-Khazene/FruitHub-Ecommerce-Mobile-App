@@ -1,4 +1,7 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/utils/colors.dart';
+import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -7,21 +10,54 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 24),
-            CustomTextFormField(
+            const SizedBox(height: 24),
+            const CustomTextFormField(
               hintText: "البريد الإلكتروني",
               textInputType: TextInputType.emailAddress,
             ),
-            SizedBox(height: 16),
-            CustomTextFormField(
+            const SizedBox(height: 16),
+            const CustomTextFormField(
               hintText: "كلمة المرور",
-              suffixIcon: Icon(Icons.visibility),
+              suffixIcon: Icon(Icons.remove_red_eye),
               textInputType: TextInputType.visiblePassword,
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "نسيت كلمة المرور؟",
+                  style: TextStyles.semiBold13.copyWith(
+                    color: ColorData.kLightPrimaryColor,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 33),
+            CustomButton(onPressed: () {}, text: "تسجيل دخول"),
+            const SizedBox(height: 33),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: " لا تملك حساب?  ",
+                    style: TextStyles.semiBold16.copyWith(
+                      color: const Color(0xFF616A6B),
+                    ),
+                  ),
+                  TextSpan(
+                    text: "قم بإنشاء حساب",
+                    style: TextStyles.semiBold16.copyWith(
+                      color: const Color(0xFF1B5E37),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

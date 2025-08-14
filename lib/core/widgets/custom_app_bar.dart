@@ -11,6 +11,6 @@ AppBar buildAppBar(context, {required String title}) {
     ),
     centerTitle: true,
     backgroundColor: Colors.white,
-    title: Text(title, style: Styles.bold19),
+    title: Text(title, style: TextStyles.bold19),
   );
 }
