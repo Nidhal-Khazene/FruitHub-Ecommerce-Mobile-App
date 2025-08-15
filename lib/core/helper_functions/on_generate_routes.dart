@@ -3,6 +3,8 @@ import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boardin
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/auth/presentation/views/signup_view.dart';
+
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
     case SplashView.routeName:
@@ -11,7 +13,9 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const OnBoardingView());
     case LoginView.routeName:
       return MaterialPageRoute(builder: (context) => const LoginView());
+    case SignUpView.routeName:
+      return MaterialPageRoute(builder: (context) => const SignUpView());
     default:
-      return MaterialPageRoute(builder: (context) => const Scaffold());
+      return MaterialPageRoute(builder: (context) => const OnBoardingView());
   }
 }
