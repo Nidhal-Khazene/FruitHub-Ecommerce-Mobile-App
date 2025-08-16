@@ -4,8 +4,8 @@ import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/widgets/ask_user_auth.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_social_media_button.dart';
-import 'package:ecommerce_app/features/auth/presentation/views/widgets/do_not_have_account.dart';
 import 'package:flutter/material.dart';
 
 import 'or_divider.dart';
@@ -46,7 +46,10 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(height: kSizedBoxHeight33),
             CustomButton(onPressed: () {}, text: "تسجيل دخول"),
             const SizedBox(height: kSizedBoxHeight33),
-            const DoNotHaveAccount(),
+            const AskUserAuth(
+              questionText: " لا تملك حساب?  ",
+              doText: "قم بإنشاء حساب",
+            ),
             const SizedBox(height: kSizedBoxHeight33),
             const OrDivider(),
             const SizedBox(height: kSizedBoxHeight16),

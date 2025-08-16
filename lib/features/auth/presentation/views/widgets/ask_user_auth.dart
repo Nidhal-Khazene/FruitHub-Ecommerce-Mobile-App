@@ -4,16 +4,21 @@ import 'package:flutter/material.dart';
 
 import '../signup_view.dart';
 
-class DoNotHaveAccount extends StatelessWidget {
-  const DoNotHaveAccount({super.key});
-
+class AskUserAuth extends StatelessWidget {
+  const AskUserAuth({
+    super.key,
+    required this.questionText,
+    required this.doText,
+  });
+  final String questionText;
+  final String doText;
   @override
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
         children: [
           TextSpan(
-            text: " لا تملك حساب?  ",
+            text: questionText,
             style: TextStyles.semiBold16.copyWith(
               color: const Color(0xFF616A6B),
             ),
@@ -23,7 +28,7 @@ class DoNotHaveAccount extends StatelessWidget {
               ..onTap = () {
                 Navigator.of(context).pushNamed(SignUpView.routeName);
               },
-            text: "قم بإنشاء حساب",
+            text: doText,
             style: TextStyles.semiBold16.copyWith(
               color: const Color(0xFF1B5E37),
             ),
