@@ -26,7 +26,6 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
       currentPage = pageController.page!.round();
       setState(() {});
     });
-
     super.initState();
   }
 
