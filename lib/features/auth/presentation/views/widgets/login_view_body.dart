@@ -6,8 +6,10 @@ import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/ask_user_auth.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_social_media_button.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../signup_view.dart';
 import 'or_divider.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -46,7 +48,11 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(height: kSizedBoxHeight33),
             CustomButton(onPressed: () {}, text: "تسجيل دخول"),
             const SizedBox(height: kSizedBoxHeight33),
-            const AskUserAuth(
+            AskUserAuth(
+              gestureRecognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Navigator.of(context).pushNamed(SignUpView.routeName);
+                },
               questionText: " لا تملك حساب?  ",
               doText: "قم بإنشاء حساب",
             ),

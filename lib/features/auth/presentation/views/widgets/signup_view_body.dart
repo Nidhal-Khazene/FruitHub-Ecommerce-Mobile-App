@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/widgets/ask_user_auth.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/terms_and_conditions.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -14,6 +16,7 @@ class SignUpViewBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(height: 24),
             const CustomTextFormField(
               hintText: "الاسم كامل",
               textInputType: TextInputType.name,
@@ -30,9 +33,18 @@ class SignUpViewBody extends StatelessWidget {
               textInputType: TextInputType.visiblePassword,
             ),
             const SizedBox(height: kSizedBoxHeight16),
-            const TermsAndConditions(),
-            const SizedBox(height: 30),
+            TermsAndConditions(),
+            const SizedBox(height: kSizedBoxHeight33),
             CustomButton(onPressed: () {}, text: 'إنشاء حساب جديد'),
+            const SizedBox(height: 26),
+            AskUserAuth(
+              gestureRecognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Navigator.of(context).pop();
+                },
+              questionText: "تمتلك حساب بالفعل؟ ",
+              doText: "تسجيل دخول",
+            ),
           ],
         ),
       ),

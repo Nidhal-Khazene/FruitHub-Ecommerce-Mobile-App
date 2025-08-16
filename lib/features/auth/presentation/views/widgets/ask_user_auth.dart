@@ -2,16 +2,16 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../signup_view.dart';
-
 class AskUserAuth extends StatelessWidget {
   const AskUserAuth({
     super.key,
     required this.questionText,
     required this.doText,
+    required this.gestureRecognizer,
   });
   final String questionText;
   final String doText;
+  final GestureRecognizer gestureRecognizer;
   @override
   Widget build(BuildContext context) {
     return Text.rich(
@@ -24,10 +24,7 @@ class AskUserAuth extends StatelessWidget {
             ),
           ),
           TextSpan(
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Navigator.of(context).pushNamed(SignUpView.routeName);
-              },
+            recognizer: gestureRecognizer,
             text: doText,
             style: TextStyles.semiBold16.copyWith(
               color: const Color(0xFF1B5E37),

@@ -5,14 +5,27 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_check_box.dart';
 
-class TermsAndConditions extends StatelessWidget {
+class TermsAndConditions extends StatefulWidget {
   const TermsAndConditions({super.key});
+
+  @override
+  State<TermsAndConditions> createState() => _TermsAndConditionsState();
+}
+
+class _TermsAndConditionsState extends State<TermsAndConditions> {
+  bool isTermsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CustomCheckBox(),
+        CustomCheckBox(
+          isChecked: isTermsAccepted,
+          onChecked: (bool value) {
+            isTermsAccepted = value;
+            setState(() {});
+          },
+        ),
         const SizedBox(width: kSizedBoxHeight16),
         Expanded(
           child: Text.rich(
