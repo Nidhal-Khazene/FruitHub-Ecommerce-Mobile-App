@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
-import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_check_box.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/widgets/terms_and_conditions.dart';
 import 'package:flutter/material.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -29,7 +29,7 @@ class SignUpViewBody extends StatelessWidget {
               textInputType: TextInputType.visiblePassword,
             ),
             SizedBox(height: kSizedBoxHeight16),
-            Row(children: [CustomCheckBox()]),
+            TermsAndConditions(),
           ],
         ),
       ),
