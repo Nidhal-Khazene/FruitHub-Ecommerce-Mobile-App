@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/helper_functions/on_generate_routes.dart';
+import 'package:ecommerce_app/core/services/service_locator.dart';
 import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
@@ -13,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SharedPreferencesSingleton.init();
+  setupGetIt();
   runApp(const FruitHubApp());
 }
 

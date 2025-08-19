@@ -1,51 +1,90 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
+import 'package:ecommerce_app/features/auth/presentation/manager/cubits/sign_up_cubit.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/ask_user_auth.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/terms_and_conditions.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpViewBody extends StatelessWidget {
+class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
+
+  @override
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+}
+
+class _SignUpViewBodyState extends State<SignUpViewBody> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  late String name, emailAddress, password;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 24),
-            const CustomTextFormField(
-              hintText: "الاسم كامل",
-              textInputType: TextInputType.name,
-            ),
-            const SizedBox(height: kSizedBoxHeight16),
-            const CustomTextFormField(
-              hintText: "البريد الإلكتروني",
-              textInputType: TextInputType.emailAddress,
-            ),
-            const SizedBox(height: kSizedBoxHeight16),
-            const CustomTextFormField(
-              hintText: "كلمة المرور",
-              suffixIcon: Icon(Icons.remove_red_eye),
-              textInputType: TextInputType.visiblePassword,
-            ),
-            const SizedBox(height: kSizedBoxHeight16),
-            TermsAndConditions(),
-            const SizedBox(height: kSizedBoxHeight33),
-            CustomButton(onPressed: () {}, text: 'إنشاء حساب جديد'),
-            const SizedBox(height: 26),
-            AskUserAuth(
-              gestureRecognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  Navigator.of(context).pop();
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              const SizedBox(height: 24),
+              CustomTextFormField(
+                onSaved: (value) {
+                  name = value!;
                 },
-              questionText: "تمتلك حساب بالفعل؟ ",
-              doText: "تسجيل دخول",
-            ),
-          ],
+                hintText: "الاسم كامل",
+                textInputType: TextInputType.name,
+              ),
+              const SizedBox(height: kSizedBoxHeight16),
+              CustomTextFormField(
+                onSaved: (value) {
+                  emailAddress = value!;
+                },
+                hintText: "البريد الإلكتروني",
+                textInputType: TextInputType.emailAddress,
+              ),
+              const SizedBox(height: kSizedBoxHeight16),
+              CustomTextFormField(
+                onSaved: (value) {
+                  password = value!;
+                },
+                hintText: "كلمة المرور",
+                suffixIcon: const Icon(Icons.remove_red_eye),
+                textInputType: TextInputType.visiblePassword,
+              ),
+              const SizedBox(height: kSizedBoxHeight16),
+              const TermsAndConditions(),
+              const SizedBox(height: kSizedBoxHeight33),
+              CustomButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    context.read<SignUpCubit>().createUserWithEmailAndPassword(
+                      emailAddress,
+                      password,
+                      name,
+                    );
+                  } else {
+                    setState(() {
+                      autoValidateMode = AutovalidateMode.always;
+                    });
+                  }
+                },
+                text: 'إنشاء حساب جديد',
+              ),
+              const SizedBox(height: 26),
+              AskUserAuth(
+                gestureRecognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.of(context).pop();
+                  },
+                questionText: "تمتلك حساب بالفعل؟ ",
+                doText: "تسجيل دخول",
+              ),
+            ],
+          ),
         ),
       ),
     );
