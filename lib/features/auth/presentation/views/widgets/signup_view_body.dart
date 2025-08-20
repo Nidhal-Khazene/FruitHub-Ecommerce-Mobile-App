@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/manager/cubits/sign_up_cubit.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/ask_user_auth.dart';
+import 'package:ecommerce_app/features/auth/presentation/views/widgets/password_field.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/terms_and_conditions.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -46,13 +47,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 textInputType: TextInputType.emailAddress,
               ),
               const SizedBox(height: kSizedBoxHeight16),
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                hintText: "كلمة المرور",
-                suffixIcon: const Icon(Icons.remove_red_eye),
-                textInputType: TextInputType.visiblePassword,
               ),
               const SizedBox(height: kSizedBoxHeight16),
               const TermsAndConditions(),
