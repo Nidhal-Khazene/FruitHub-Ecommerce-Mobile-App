@@ -19,11 +19,11 @@ class BlocConsumerSignUpViewBody extends StatelessWidget {
         );
       },
       listener: (context, state) {
-        if (state is SignUpFailure) {
-          showSnackBar(context, state.message);
-        }
         if (state is SignUpSuccess) {
           Navigator.pop(context);
+        }
+        if (state is SignUpFailure) {
+          showSnackBar(context, state.message);
         }
       },
     );

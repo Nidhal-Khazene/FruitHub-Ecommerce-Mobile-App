@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/errors/custom_exceptions.dart';
 import 'package:ecommerce_app/core/errors/failures.dart';
@@ -26,7 +28,12 @@ class AuthRepoImpl extends AuthRepo {
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
     } catch (e) {
-      return left(ServerFailure(message: e.toString()));
+      log(
+        "Exception: Firebase.createUserWithEmailAndPassword ${e.toString()}.",
+      );
+      return left(
+        ServerFailure(message: 'لقد حدث خطأ ما يرجى المحاولة لاحقا.'),
+      );
     }
   }
 }
