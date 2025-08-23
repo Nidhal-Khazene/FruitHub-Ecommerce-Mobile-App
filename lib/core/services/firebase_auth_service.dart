@@ -23,6 +23,8 @@ class FirebaseAuthService {
         throw CustomException(message: ".كلمة المرور صعيفة جدا");
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(message: "هناك حساب يستخدم نفس الإيميل.");
+      } else if (e.code == "network-request-failed") {
+        throw CustomException(message: "تأكد من إتصالك بالأنترنت.");
       } else {
         throw CustomException(message: "لقد حدث خطأ ما، يرجي المحاولة لاحقا!");
       }

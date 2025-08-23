@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/core/helper/show_snack_bar.dart';
 import 'package:ecommerce_app/core/utils/assets.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
