@@ -13,6 +13,7 @@ class LoginCubit extends Cubit<LoginState> {
     String emailAddress,
     String password,
   ) async {
+    emit(LoginLoading());
     var result = await authRepo.signInWithEmailAndPassword(
       emailAddress,
       password,
