@@ -85,7 +85,7 @@ class FirebaseAuthService {
     return (await FirebaseAuth.instance.signInWithCredential(credential)).user;
   }
 
-  Future<UserCredential?> signInWithFacebook() async {
+  Future<User?> signInWithFacebook() async {
     final LoginResult result = await FacebookAuth.instance.login();
     if (result.status == LoginStatus.success) {
       // Create a credential from the access token
@@ -93,7 +93,9 @@ class FirebaseAuthService {
         result.accessToken!.tokenString,
       );
       // Once signed in, return the UserCredential
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+      return (await FirebaseAuth.instance.signInWithCredential(
+        credential,
+      )).user!;
     }
     return null;
   }

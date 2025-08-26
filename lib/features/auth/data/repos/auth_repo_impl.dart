@@ -59,7 +59,7 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> signWithGoogle() async {
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
     {
       try {
         var user = await firebaseAuthService.signInWithGoogle();
@@ -70,6 +70,19 @@ class AuthRepoImpl extends AuthRepo {
           ServerFailure(message: 'لقد حدث خطأ ما يرجى المحاولة لاحقا.'),
         );
       }
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(user!));
+    } catch (e) {
+      log("Exception: Firebase.signInWithFacebook ${e.toString()}.");
+      return left(
+        ServerFailure(message: 'لقد حدث خطأ ما يرجى المحاولة لاحقا.'),
+      );
     }
   }
 }
