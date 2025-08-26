@@ -24,7 +24,7 @@ class LoginViewBody extends StatefulWidget {
 
 class _LoginViewBodyState extends State<LoginViewBody> {
   GlobalKey<FormState> keyForm = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   late String emailAddress, password;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       child: SingleChildScrollView(
         child: Form(
           key: keyForm,
-          autovalidateMode: autovalidateMode,
+          autovalidateMode: autoValidateMode,
           child: Column(
             children: [
               const SizedBox(height: 24),
@@ -73,7 +73,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     );
                   } else {
                     setState(() {
-                      autovalidateMode = AutovalidateMode.always;
+                      autoValidateMode = AutovalidateMode.always;
                     });
                   }
                 },
@@ -92,7 +92,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const OrDivider(),
               const SizedBox(height: kSizedBoxHeight16),
               CustomSocialMediaButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<LoginCubit>().loginWithGoogle();
+                },
                 title: "تسجيل بواسطة جوجل",
                 socialIcon: Assets.assetsImagesGoogleIcon,
               ),
