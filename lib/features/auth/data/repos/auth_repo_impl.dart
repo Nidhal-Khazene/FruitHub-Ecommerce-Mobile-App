@@ -3,15 +3,21 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/errors/custom_exceptions.dart';
 import 'package:ecommerce_app/core/errors/failures.dart';
+import 'package:ecommerce_app/core/services/database_service.dart';
 import 'package:ecommerce_app/core/services/firebase_auth_service.dart';
+import 'package:ecommerce_app/core/utils/backend_breakpoint.dart';
 import 'package:ecommerce_app/features/auth/data/models/user_model.dart';
 import 'package:ecommerce_app/features/auth/domain/entities/user_entity.dart';
 import 'package:ecommerce_app/features/auth/domain/repos/auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
+  final DatabaseService databaseService;
 
-  AuthRepoImpl({required this.firebaseAuthService});
+  AuthRepoImpl({
+    required this.databaseService,
+    required this.firebaseAuthService,
+  });
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
@@ -24,7 +30,9 @@ class AuthRepoImpl extends AuthRepo {
         emailAddress: emailAddress,
         password: password,
       );
-      return right(UserModel.fromFirebaseUser(user));
+      var userEntity = UserModel.fromFirebaseUser(user);
+      addUserData(user: userEntity);
+      return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
     } catch (e) {
@@ -87,8 +95,10 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<void> addData({required UserEntity user}) {
-    // TODO: implement addData
-    throw UnimplementedError();
+  Future<void> addUserData({required UserEntity user}) async {
+    await databaseService.addData(
+      path: BackendBreakPoint.addUserData,
+      data: user.toMap(),
+    );
   }
 }

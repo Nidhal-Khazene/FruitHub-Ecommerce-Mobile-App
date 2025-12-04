@@ -50,6 +50,9 @@ dependencies:
   firebase_core: ^2.20.0   # works with Flutter 3.x
   firebase_auth: ^4.6.0    # compatible with firebase_core 2.x
   google_sign_in: ^5.4.2   # last version with old API
+#  firebase_core: ^2.20.0   # works with Flutter 3.x
+#  firebase_auth: ^4.6.0    # compatible with firebase_core 2.x
+#  google_sign_in: ^5.4.2   # last version with old API
   cloud_firestore: ^4.17.5
 
 
