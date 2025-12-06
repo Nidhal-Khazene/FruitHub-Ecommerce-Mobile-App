@@ -5,10 +5,12 @@ import 'package:ecommerce_app/core/errors/custom_exceptions.dart';
 import 'package:ecommerce_app/core/errors/failures.dart';
 import 'package:ecommerce_app/core/services/database_service.dart';
 import 'package:ecommerce_app/core/services/firebase_auth_service.dart';
-import 'package:ecommerce_app/core/utils/backend_breakpoint.dart';
 import 'package:ecommerce_app/features/auth/data/models/user_model.dart';
 import 'package:ecommerce_app/features/auth/domain/entities/user_entity.dart';
 import 'package:ecommerce_app/features/auth/domain/repos/auth_repo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../../core/utils/backend_breakpoint.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
@@ -25,17 +27,24 @@ class AuthRepoImpl extends AuthRepo {
     String password,
     String name,
   ) async {
+    User? user;
     try {
-      var user = await firebaseAuthService.createUserWithEmailAndPassword(
+      user = await firebaseAuthService.createUserWithEmailAndPassword(
         emailAddress: emailAddress,
         password: password,
       );
-      var userEntity = UserModel.fromFirebaseUser(user);
-      addUserData(user: userEntity);
+      var userEntity = UserModel.fromFirebaseUser(user!);
+      await addUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       return left(ServerFailure(message: e.message));
     } catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       log(
         "Exception: Firebase.createUserWithEmailAndPassword ${e.toString()}.",
       );
@@ -51,11 +60,11 @@ class AuthRepoImpl extends AuthRepo {
     String password,
   ) async {
     try {
-      var user = await firebaseAuthService.signInWithEmailAndPassword(
+      var userCredential = await firebaseAuthService.signInWithEmailAndPassword(
         emailAddress: emailAddress,
         password: password,
       );
-      return right(UserModel.fromFirebaseUser(user));
+      return right(UserModel.fromFirebaseUser(userCredential.user!));
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
     } catch (e) {
@@ -70,8 +79,8 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
     {
       try {
-        var user = await firebaseAuthService.signInWithGoogle();
-        return right(UserModel.fromFirebaseUser(user));
+        var userCredential = await firebaseAuthService.signInWithGoogle();
+        return right(UserModel.fromFirebaseUser(userCredential.user!));
       } catch (e) {
         log("Exception: Firebase.signInWithGoogle ${e.toString()}.");
         return left(
@@ -84,8 +93,8 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<Either<Failure, UserEntity>> signInWithFacebook() async {
     try {
-      var user = await firebaseAuthService.signInWithFacebook();
-      return right(UserModel.fromFirebaseUser(user!));
+      var userCredential = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(userCredential!.user!));
     } catch (e) {
       log("Exception: Firebase.signInWithFacebook ${e.toString()}.");
       return left(
