@@ -64,7 +64,8 @@ class AuthRepoImpl extends AuthRepo {
         emailAddress: emailAddress,
         password: password,
       );
-      return right(UserModel.fromFirebaseUser(userCredential.user!));
+      UserEntity userEntity = await getUserData(uId: userCredential.user!.uid);
+      return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
     } catch (e) {
@@ -116,6 +117,7 @@ class AuthRepoImpl extends AuthRepo {
     await databaseService.addData(
       path: BackendBreakPoint.addUserData,
       data: user.toMap(),
+      documentId: user.userId,
     );
   }
 
