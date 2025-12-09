@@ -77,25 +77,33 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
-    {
-      try {
-        var userCredential = await firebaseAuthService.signInWithGoogle();
-        return right(UserModel.fromFirebaseUser(userCredential.user!));
-      } catch (e) {
-        log("Exception: Firebase.signInWithGoogle ${e.toString()}.");
-        return left(
-          ServerFailure(message: 'لقد حدث خطأ ما يرجى المحاولة لاحقا.'),
-        );
-      }
+    User? user;
+    try {
+      var userCredential = await firebaseAuthService.signInWithGoogle();
+      user = userCredential.user!;
+      UserEntity userEntity = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userEntity);
+      return right(userEntity);
+    } catch (e) {
+      await deleteUser(user);
+      log("Exception: Firebase.signInWithGoogle ${e.toString()}.");
+      return left(
+        ServerFailure(message: 'لقد حدث خطأ ما يرجى المحاولة لاحقا.'),
+      );
     }
   }
 
   @override
   Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    User? user;
     try {
       var userCredential = await firebaseAuthService.signInWithFacebook();
-      return right(UserModel.fromFirebaseUser(userCredential!.user!));
+      user = userCredential!.user!;
+      UserEntity userEntity = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userEntity);
+      return right(userEntity);
     } catch (e) {
+      await deleteUser(user);
       log("Exception: Firebase.signInWithFacebook ${e.toString()}.");
       return left(
         ServerFailure(message: 'لقد حدث خطأ ما يرجى المحاولة لاحقا.'),
