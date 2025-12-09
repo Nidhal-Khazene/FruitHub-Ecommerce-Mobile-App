@@ -41,14 +41,10 @@ class AuthRepoImpl extends AuthRepo {
       await addUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
-      if (user != null) {
-        await firebaseAuthService.deleteUser();
-      }
+      await deleteUser(user);
       return left(ServerFailure(message: e.message));
     } catch (e) {
-      if (user != null) {
-        await firebaseAuthService.deleteUser();
-      }
+      await deleteUser(user);
       log(
         "Exception: Firebase.createUserWithEmailAndPassword ${e.toString()}.",
       );
@@ -113,5 +109,11 @@ class AuthRepoImpl extends AuthRepo {
       path: BackendBreakPoint.addUserData,
       data: user.toMap(),
     );
+  }
+
+  Future<void> deleteUser(User? user) async {
+    if (user != null) {
+      await firebaseAuthService.deleteUser();
+    }
   }
 }
