@@ -8,4 +8,8 @@ abstract class DatabaseService {
     required String documentsId,
     required String path,
   });
+  Future<bool> checkIfDocumentExists({
+    required String documentId,
+    required String path,
+  });
 }
