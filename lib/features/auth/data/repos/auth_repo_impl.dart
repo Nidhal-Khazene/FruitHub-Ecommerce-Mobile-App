@@ -124,4 +124,13 @@ class AuthRepoImpl extends AuthRepo {
       await firebaseAuthService.deleteUser();
     }
   }
+
+  @override
+  Future<UserEntity> getUserData({required String uId}) async {
+    var userData = await databaseService.getData(
+      documentsId: uId,
+      path: BackendBreakPoint.getUserData,
+    );
+    return UserModel.fromJson(userData);
+  }
 }
