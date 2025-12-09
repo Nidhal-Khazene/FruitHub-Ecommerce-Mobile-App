@@ -47,9 +47,9 @@ dependencies:
   modal_progress_hud_nsn: ^0.5.1
   loading_indicator: ^3.1.1
   flutter_facebook_auth: ^7.1.2
-  firebase_core: ^4.2.1   # works with Flutter 3.x
-  firebase_auth: ^6.1.2    # compatible with firebase_core 2.x
-  google_sign_in: ^7.2.0   # last version with old API
+  firebase_core: ^4.2.1   
+  firebase_auth: ^6.1.2    
+  google_sign_in: ^5.4.2   
 #  firebase_core: ^2.20.0   # works with Flutter 3.x
 #  firebase_auth: ^4.6.0    # compatible with firebase_core 2.x
 #  google_sign_in: ^5.4.2   # last version with old API
