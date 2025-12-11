@@ -43,7 +43,7 @@ class FruitHubApp extends StatelessWidget {
       locale: const Locale("ar"),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoutes,
-      initialRoute: HomeView.routeName,
+      initialRoute: SplashView.routeName,
     );
   }
 }
