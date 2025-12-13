@@ -9,13 +9,24 @@ class CustomTextFormField extends StatelessWidget {
     this.textInputType,
     this.onSaved,
     this.obscureText = false,
+    this.prefixIcon,
+    this.prefixIconColor,
+    this.fillColor,
+    this.suffixIconColor,
+    this.borderWidth,
   });
 
   final String hintText;
   final Widget? suffixIcon;
+  final Color? suffixIconColor;
+  final Widget? prefixIcon;
+  final Color? prefixIconColor;
   final TextInputType? textInputType;
   final void Function(String?)? onSaved;
   final bool obscureText;
+  final Color? fillColor;
+  final double? borderWidth;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -30,24 +41,29 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: textInputType,
       decoration: InputDecoration(
         filled: true,
-        fillColor: const Color(0xffF9FAFA),
+        fillColor: fillColor ?? const Color(0xffF9FAFA),
         border: buildOutlineInputBorder(),
         hint: Text(
           hintText,
           style: TextStyles.bold13.copyWith(color: const Color(0xFF949D9E)),
         ),
+        prefixIcon: prefixIcon,
+        prefixIconColor: prefixIconColor,
         suffixIcon: suffixIcon,
-        suffixIconColor: const Color(0xFFC9CECE),
-        enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(),
+        suffixIconColor: suffixIconColor ?? const Color(0xFFC9CECE),
+        enabledBorder: buildOutlineInputBorder(borderWidth),
+        focusedBorder: buildOutlineInputBorder(borderWidth),
       ),
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder() {
+  OutlineInputBorder buildOutlineInputBorder([double? borderWidth]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
-      borderSide: const BorderSide(width: 1, color: Color(0xFFE6E9E9)),
+      borderSide: BorderSide(
+        width: borderWidth ?? 1,
+        color: const Color(0xFFE6E9E9),
+      ),
     );
   }
 }
