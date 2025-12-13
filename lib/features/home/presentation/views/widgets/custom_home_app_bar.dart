@@ -35,12 +35,12 @@ class CustomHomeAppBar extends StatelessWidget {
       trailing: Container(
         width: 34,
         height: 34,
-        decoration: ShapeDecoration(
-          color: const Color(0xFFEEF8ED) /* green-50 */,
+        decoration: const ShapeDecoration(
+          color: Color(0xFFEEF8ED),
           shape: OvalBorder(),
         ),
         child: Padding(
-          padding: EdgeInsets.all(4),
+          padding: const EdgeInsets.all(4),
           child: SvgPicture.asset(
             Assets.assetsImagesNotificationComeIcon,
             fit: BoxFit.contain,
