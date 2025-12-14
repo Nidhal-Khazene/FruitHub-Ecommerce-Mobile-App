@@ -3,27 +3,42 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.onPressed, required this.text});
+  const CustomButton({
+    super.key,
+    this.onPressed,
+    required this.text,
+    this.backgroundColor,
+    this.width,
+    this.height,
+    this.borderRadiusValue,
+    this.textStyle,
+  });
 
   final void Function()? onPressed;
   final String text;
+  final Color? backgroundColor;
+  final double? width, height;
+  final double? borderRadiusValue;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 54,
+      width: width ?? double.infinity,
+      height: height ?? 54,
       child: TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: ColorData.kPrimaryColor,
+          backgroundColor: backgroundColor ?? ColorData.kPrimaryColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(borderRadiusValue ?? 16),
           ),
         ),
         onPressed: onPressed,
-        child: Text(
-          text,
-          style: TextStyles.bold16.copyWith(color: Colors.white),
+        child: Center(
+          child: Text(
+            text,
+            style: textStyle ?? TextStyles.bold16.copyWith(color: Colors.white),
+          ),
         ),
       ),
     );
