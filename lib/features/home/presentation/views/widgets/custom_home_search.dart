@@ -1,14 +1,15 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
-import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+
+import '../../../../../core/widgets/custom_search_bar.dart';
 
 class CustomHomeSearch extends StatelessWidget {
   const CustomHomeSearch({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextFormField(
+    return CustomSearchBar(
       borderWidth: 0,
       fillColor: Colors.transparent,
       hintText: "ابحث عن.......",
