@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/features/home/presentation/views/widgets/featured_item.dart';
+import 'package:ecommerce_app/core/widgets/fruit_item.dart';
 import 'package:flutter/material.dart';
 
-class FeaturedGridView extends StatelessWidget {
-  const FeaturedGridView({super.key});
+class BestSellingGridView extends StatelessWidget {
+  const BestSellingGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,8 @@ class FeaturedGridView extends StatelessWidget {
         mainAxisSpacing: 8,
         crossAxisSpacing: 16,
       ),
-      itemBuilder: (context, index) => FeaturedItem(),
+      itemCount: 10,
+      itemBuilder: (context, index) => const FruitItem(),
     );
   }
 }

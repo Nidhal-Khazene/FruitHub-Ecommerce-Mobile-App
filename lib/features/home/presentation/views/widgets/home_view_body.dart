@@ -3,6 +3,8 @@ import 'package:ecommerce_app/features/home/presentation/views/widgets/custom_ho
 import 'package:ecommerce_app/features/home/presentation/views/widgets/featured_section.dart';
 import 'package:flutter/material.dart';
 
+import 'best_selling_grid_view.dart';
+
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
@@ -14,6 +16,7 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(child: CustomHomeSearch()),
         SliverToBoxAdapter(child: SizedBox(height: 24)),
         SliverToBoxAdapter(child: FeaturedSection()),
+        BestSellingGridView(),
       ],
     );
   }
