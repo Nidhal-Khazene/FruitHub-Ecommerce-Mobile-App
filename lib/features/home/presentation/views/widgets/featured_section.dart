@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/widgets/fruit_item.dart';
 import 'package:flutter/material.dart';
 
 import 'best_seller_header.dart';
@@ -14,6 +15,7 @@ class FeaturedSection extends StatelessWidget {
         SizedBox(height: 12),
         BestSellerHeader(),
         SizedBox(height: 12),
+        FruitItem(),
       ],
     );
   }
