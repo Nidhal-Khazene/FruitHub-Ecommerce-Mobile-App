@@ -61,5 +61,9 @@ class Assets {
   /// Assets for assetsImagesProfileImage
   /// assets/images/profile_image.png
   static const String assetsImagesProfileImage = "assets/images/profile_image.png";
+
+  /// Assets for assetsImagesStrawberry
+  /// assets/images/strawberry.png
+  static const String assetsImagesStrawberry = "assets/images/strawberry.png";
 }
 
