@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'best_seller_header.dart';
 import 'featured_carousel_view.dart';
 
 class FeaturedSection extends StatelessWidget {
@@ -7,6 +8,13 @@ class FeaturedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(children: [FeaturedCarouselView()]);
+    return const Column(
+      children: [
+        FeaturedCarouselView(),
+        SizedBox(height: 4),
+        BestSellerHeader(),
+        SizedBox(height: 4),
+      ],
+    );
   }
 }
