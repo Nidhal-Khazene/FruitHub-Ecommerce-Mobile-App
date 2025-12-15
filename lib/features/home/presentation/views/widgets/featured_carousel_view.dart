@@ -16,7 +16,7 @@ class _FeaturedCarouselViewState extends State<FeaturedCarouselView> {
     _carouselController = CarouselController();
     _carouselController.animateTo(
       150,
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
     );
     super.initState();
@@ -26,11 +26,11 @@ class _FeaturedCarouselViewState extends State<FeaturedCarouselView> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      child: CarouselView.weighted(
+      child: CarouselView(
         controller: _carouselController,
-        flexWeights: [1, 20, 1],
         itemSnapping: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        itemExtent: MediaQuery.sizeOf(context).width,
         children: List.generate(3, (index) => const FeaturedItem()),
       ),
     );

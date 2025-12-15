@@ -11,9 +11,9 @@ class FeaturedSection extends StatelessWidget {
     return const Column(
       children: [
         FeaturedCarouselView(),
-        SizedBox(height: 4),
+        SizedBox(height: 12),
         BestSellerHeader(),
-        SizedBox(height: 4),
+        SizedBox(height: 12),
       ],
     );
   }

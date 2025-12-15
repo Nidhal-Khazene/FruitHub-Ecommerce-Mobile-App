@@ -3,7 +3,7 @@ import 'package:ecommerce_app/core/services/custom_bloc_observer.dart';
 import 'package:ecommerce_app/core/services/service_locator.dart';
 import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
-import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
+import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +42,7 @@ class FruitHubApp extends StatelessWidget {
       locale: const Locale("ar"),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoutes,
-      initialRoute: SplashView.routeName,
+      initialRoute: HomeView.routeName,
     );
   }
 }

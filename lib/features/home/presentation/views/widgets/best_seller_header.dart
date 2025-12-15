@@ -10,7 +10,7 @@ class BestSellerHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("الأكثر مبيعًا", style: TextStyles.bold13),
+        const Text("الأكثر مبيعًا", style: TextStyles.bold13),
         Text(
           "المزيد",
           style: TextStyles.regular13.copyWith(
