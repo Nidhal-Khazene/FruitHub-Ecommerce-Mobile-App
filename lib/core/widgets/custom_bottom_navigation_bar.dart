@@ -1,7 +1,22 @@
+import 'package:ecommerce_app/features/home/domain/entities/bottom_nav_bar_entity.dart';
+import 'package:ecommerce_app/features/home/presentation/views/widgets/bottom_nav_bar_item.dart';
 import 'package:flutter/material.dart';
 
-class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({super.key});
+class CustomBottomNavigationBar extends StatefulWidget {
+  const CustomBottomNavigationBar({
+    super.key,
+    required this.bottomNavBarEntity,
+  });
+
+  final BottomNavBarEntity bottomNavBarEntity;
+
+  @override
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +39,36 @@ class CustomBottomNavigationBar extends StatelessWidget {
             spreadRadius: 0,
           ),
         ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: widget.bottomNavBarEntity.getBottomNavBarEntityList
+            .asMap()
+            .entries
+            .map((entry) {
+              var index = entry.key;
+              var e = entry.value;
+              return Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      right: currentIndex == 0 ? 27 : 0,
+                      left: currentIndex == 3 ? 27 : 0,
+                    ),
+                    child: BottomNavBarItem(
+                      bottomNavBarEntity: e,
+                      isSelected: currentIndex == index,
+                    ),
+                  ),
+                ),
+              );
+            })
+            .toList(),
       ),
     );
   }

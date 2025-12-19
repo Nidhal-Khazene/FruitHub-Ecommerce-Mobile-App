@@ -2,14 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class BottomNavBarEntity {
-  final IconData activeIcon, inActiveIcon;
-  final String iconTitle;
+  final IconData? activeIcon, inActiveIcon;
+  final String? iconTitle;
 
-  BottomNavBarEntity({
-    required this.activeIcon,
-    required this.inActiveIcon,
-    required this.iconTitle,
-  });
+  BottomNavBarEntity({this.activeIcon, this.inActiveIcon, this.iconTitle});
 
   List<BottomNavBarEntity> get getBottomNavBarEntityList => [
     BottomNavBarEntity(
