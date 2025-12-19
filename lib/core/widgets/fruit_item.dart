@@ -52,7 +52,7 @@ class FruitItem extends StatelessWidget {
                         TextSpan(
                           text: '/ الكيلو',
                           style: TextStyles.semiBold13.copyWith(
-                            color: ColorData.kThirdlyColor,
+                            color: ColorData.kLightSecondaryColor,
                           ),
                         ),
                       ],
