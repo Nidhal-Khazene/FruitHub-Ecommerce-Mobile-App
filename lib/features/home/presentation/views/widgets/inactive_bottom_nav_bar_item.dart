@@ -5,6 +5,6 @@ class InactiveBottomNavBarItem extends StatelessWidget {
   final IconData inActiveIcon;
   @override
   Widget build(BuildContext context) {
-    return Icon(inActiveIcon);
+    return Icon(inActiveIcon,size: 16,);
   }
 }
