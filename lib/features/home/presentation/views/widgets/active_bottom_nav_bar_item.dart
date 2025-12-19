@@ -13,8 +13,10 @@ class ActiveBottomNavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30,
+    return AnimatedContainer(
+      curve: Curves.easeOutCubic,
+      duration: const Duration(milliseconds: 250),
+      height: 32,
       decoration: ShapeDecoration(
         color: const Color(0xFFEEEEEE),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
