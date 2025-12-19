@@ -49,6 +49,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               var index = entry.key;
               var e = entry.value;
               return Expanded(
+                flex: currentIndex == index ? 3 : 2,
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
