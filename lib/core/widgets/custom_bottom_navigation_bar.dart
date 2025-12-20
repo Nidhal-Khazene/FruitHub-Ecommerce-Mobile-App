@@ -49,7 +49,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               var index = entry.key;
               var e = entry.value;
               return Expanded(
-                flex: currentIndex == index ? 3 : 2,
+                flex: index == currentIndex ? 3 : 2,
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
@@ -59,7 +59,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   child: Padding(
                     padding: EdgeInsets.only(
                       right: currentIndex == 0 ? 27 : 0,
-                      left: currentIndex == 3 ? 27 : 0,
+                      left: currentIndex == 3 ? 27 : 32,
                     ),
                     child: BottomNavBarItem(
                       bottomNavBarEntity: e,
