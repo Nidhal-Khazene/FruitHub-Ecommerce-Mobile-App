@@ -13,36 +13,43 @@ class ActiveBottomNavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      curve: Curves.easeOutCubic,
-      duration: const Duration(milliseconds: 250),
-      height: 32,
-      decoration: ShapeDecoration(
-        color: const Color(0xFFEEEEEE),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: ShapeDecoration(
-              color: ColorData.kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+    return Center(
+      child: AnimatedContainer(
+        padding: EdgeInsets.only(left: 16),
+        curve: Curves.easeOutCubic,
+        duration: const Duration(milliseconds: 250),
+        height: 32,
+        decoration: ShapeDecoration(
+          color: const Color(0xFFEEEEEE),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 30,
+              height: 30,
+              decoration: ShapeDecoration(
+                color: ColorData.kPrimaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              child: Center(
+                child: Icon(activeIcon, color: Colors.white, size: 16),
               ),
             ),
-            child: Icon(activeIcon, color: Colors.white, size: 16),
-          ),
-          const SizedBox(width: 4),
-          Text(
-            title,
-            style: TextStyles.semiBold11.copyWith(
-              color: ColorData.kPrimaryColor,
+            const SizedBox(width: 4),
+            Text(
+              title,
+              style: TextStyles.semiBold11.copyWith(
+                color: ColorData.kPrimaryColor,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

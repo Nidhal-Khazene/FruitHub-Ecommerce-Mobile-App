@@ -41,7 +41,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         ],
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         children: widget.bottomNavBarEntity.getBottomNavBarEntityList
             .asMap()
             .entries
@@ -56,15 +55,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                       currentIndex = index;
                     });
                   },
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      right: currentIndex == 0 ? 27 : 0,
-                      left: currentIndex == 3 ? 27 : 32,
-                    ),
-                    child: BottomNavBarItem(
-                      bottomNavBarEntity: e,
-                      isSelected: currentIndex == index,
-                    ),
+                  child: BottomNavBarItem(
+                    bottomNavBarEntity: e,
+                    isSelected: currentIndex == index,
                   ),
                 ),
               );
