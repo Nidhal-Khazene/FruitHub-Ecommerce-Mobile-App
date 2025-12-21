@@ -5,6 +5,7 @@ import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dar
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/views/signup_view.dart';
+import '../../features/best_selling/presentation/views/best_selling_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
@@ -18,6 +19,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SignUpView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
+    case BestSellingView.routeName:
+      return MaterialPageRoute(builder: (context) => const BestSellingView());
     default:
       return MaterialPageRoute(builder: (context) => const OnBoardingView());
   }
