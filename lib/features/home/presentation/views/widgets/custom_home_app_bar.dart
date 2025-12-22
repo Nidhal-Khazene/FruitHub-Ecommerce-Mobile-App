@@ -2,7 +2,8 @@ import 'package:ecommerce_app/core/utils/assets.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
+import '../../../../../core/widgets/notification_container.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
@@ -32,21 +33,7 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
       ),
       subtitle: const Text("أحمد مصطفي", style: TextStyles.bold16),
-      trailing: Container(
-        width: 34,
-        height: 34,
-        decoration: const ShapeDecoration(
-          color: Color(0xFFEEF8ED),
-          shape: OvalBorder(),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: SvgPicture.asset(
-            Assets.assetsImagesNotificationComeIcon,
-            fit: BoxFit.contain,
-          ),
-        ),
-      ),
+      trailing: const NotificationContainer(),
     );
   }
 }
