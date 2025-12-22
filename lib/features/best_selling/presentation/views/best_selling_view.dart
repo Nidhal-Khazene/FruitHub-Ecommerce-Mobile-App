@@ -2,6 +2,8 @@ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/features/best_selling/presentation/views/widgets/best_selling_view_body.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/helper/build_app_bar.dart';
+
 class BestSellingView extends StatelessWidget {
   const BestSellingView({super.key});
 
@@ -10,10 +12,11 @@ class BestSellingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      appBar: buildAppBar(context, title: "الأكثر مبيعًا"),
+      body: const SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,
-          child: const BestSellingViewBody(),
+          child: BestSellingViewBody(),
         ),
       ),
     );
