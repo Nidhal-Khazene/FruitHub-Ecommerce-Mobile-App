@@ -68,6 +68,7 @@ class AuthRepoImpl extends AuthRepo {
         password: password,
       );
       UserEntity userEntity = await getUserData(uId: userCredential.user!.uid);
+      await saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(message: e.message));
