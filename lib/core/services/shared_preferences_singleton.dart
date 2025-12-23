@@ -20,6 +20,6 @@ class SharedPreferencesSingleton {
   }
 
   static String? getString(String key) {
-    return _instance.getString(key) ?? "";
+    return _instance.getString(key);
   }
 }
