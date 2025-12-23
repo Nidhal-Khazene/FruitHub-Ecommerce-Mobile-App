@@ -14,4 +14,8 @@ class SharedPreferencesSingleton {
   static bool getBool(String key) {
     return _instance.getBool(key) ?? false;
   }
+
+  static void setString(String key, String value) {
+    _instance.setString(key, value);
+  }
 }
