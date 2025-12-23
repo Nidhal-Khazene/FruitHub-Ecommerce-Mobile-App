@@ -1,10 +1,13 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/errors/custom_exceptions.dart';
 import 'package:ecommerce_app/core/errors/failures.dart';
 import 'package:ecommerce_app/core/services/database_service.dart';
 import 'package:ecommerce_app/core/services/firebase_auth_service.dart';
+import 'package:ecommerce_app/core/services/shared_preferences_singleton.dart';
 import 'package:ecommerce_app/features/auth/data/models/user_model.dart';
 import 'package:ecommerce_app/features/auth/domain/entities/user_entity.dart';
 import 'package:ecommerce_app/features/auth/domain/repos/auth_repo.dart';
@@ -132,7 +135,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<void> addUserData({required UserEntity user}) async {
     await databaseService.addData(
       path: BackendBreakPoint.addUserData,
-      data: user.toMap(),
+      data: UserModel.fromEntity(user).toMap(),
       documentId: user.userId,
     );
   }
@@ -150,5 +153,11 @@ class AuthRepoImpl extends AuthRepo {
       path: BackendBreakPoint.getUserData,
     );
     return UserModel.fromJson(userData);
+  }
+
+  @override
+  Future<void> saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await SharedPreferencesSingleton.setString(kSaveDataSharedPref, jsonData);
   }
 }
