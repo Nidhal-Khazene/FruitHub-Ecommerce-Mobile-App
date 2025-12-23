@@ -15,7 +15,7 @@ class SharedPreferencesSingleton {
     return _instance.getBool(key) ?? false;
   }
 
-  static void setString(String key, String value) {
-    _instance.setString(key, value);
+  static Future<void> setString(String key, String value) async {
+    await _instance.setString(key, value);
   }
 }
