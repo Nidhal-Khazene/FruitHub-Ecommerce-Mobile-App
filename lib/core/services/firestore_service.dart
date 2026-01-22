@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/core/services/database_service.dart';
 
 class FirestoreService extends DatabaseService {
-  FirebaseFirestore db = FirebaseFirestore.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   Future<void> addData({
@@ -11,19 +11,21 @@ class FirestoreService extends DatabaseService {
     required String? documentId,
   }) async {
     if (documentId != null) {
-      await db.collection(path).doc(documentId).set(data);
+      await firestore.collection(path).doc(documentId).set(data);
     } else {
-      await db.collection(path).add(data);
+      await firestore.collection(path).add(data);
     }
   }
 
   @override
-  Future<Map<String, dynamic>> getData({
-    required String documentsId,
-    required String path,
-  }) async {
-    var data = await db.collection(path).doc(documentsId).get();
-    return data.data()!;
+  Future<dynamic> getData({String? documentsId, required String path}) async {
+    if (documentsId != null) {
+      var data = await firestore.collection(path).doc(documentsId).get();
+      return data.data();
+    } else {
+      var data = await firestore.collection(path).get();
+      return data.docs.map((e) => e.data()).toList();
+    }
   }
 
   @override
@@ -31,7 +33,7 @@ class FirestoreService extends DatabaseService {
     required String documentId,
     required String path,
   }) {
-    var data = db.collection(path).doc(documentId).get();
+    var data = firestore.collection(path).doc(documentId).get();
     return data.then((doc) => doc.exists);
   }
 }
