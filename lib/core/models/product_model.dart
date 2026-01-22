@@ -1,7 +1,5 @@
 import 'package:ecommerce_app/core/models/review_model.dart';
 
-import '../entities/product_entity.dart';
-
 class ProductModel {
   final String productName;
   final String productCode;
@@ -16,8 +14,10 @@ class ProductModel {
   final num ratingCount;
   final int unitAmount;
   final List<ReviewModel> reviews;
+  final int sellingCount;
 
   ProductModel({
+    required this.sellingCount,
     required this.reviews,
     this.avrRating = 0,
     this.ratingCount = 0,
@@ -33,26 +33,27 @@ class ProductModel {
     this.urlImage,
   });
 
-  factory ProductModel.fromEntity(ProductEntity entity) {
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      reviews: entity.reviews.map((e) => ReviewModel.fromEntity(e)).toList(),
-      productName: entity.productName,
-      productCode: entity.productCode,
-      productDescription: entity.productDescription,
-      productPrice: entity.productPrice,
-      isFeatured: entity.isFeatured,
-      urlImage: entity.urlImage,
-      expirationsMonth: entity.expirationsMonth,
-      isOrganic: entity.isOrganic,
-      numberOfCalories: entity.numberOfCalories,
-      unitAmount: entity.unitAmount,
-      avrRating: entity.avrRating,
-      ratingCount: entity.ratingCount,
+      sellingCount: json["sellingCount"],
+      reviews: json["reviews"] != null
+          ? List<ReviewModel>.from(
+              json["reviews"].map((e) => ReviewModel.fromEntity(e)),
+            )
+          : [],
+      expirationsMonth: json["expirationsMonth"],
+      numberOfCalories: json["numberOfCalories"],
+      unitAmount: json["unitAmount"],
+      productName: json["productName"],
+      productCode: json["productCode"],
+      productDescription: json["productDescription"],
+      productPrice: json["productPrice"],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
+      "sellingCount": sellingCount,
       "productName": productName,
       "productCode": productCode,
       "productDescription": productDescription,
