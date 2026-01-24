@@ -2,7 +2,7 @@ import 'package:ecommerce_app/core/helper/show_snack_bar.dart';
 import 'package:ecommerce_app/features/auth/presentation/manager/cubits/log_in_cubit/login_cubit.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/custom_loading_indicator.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/login_view_body.dart';
-import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
+import 'package:ecommerce_app/features/home/presentation/views/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -19,7 +19,7 @@ class BlocConsumerLoginViewBody extends StatelessWidget {
         }
         if (state is LoginSuccess) {
           showSnackBar(context, "لقد قمت بتسجيل الدخول");
-          Navigator.of(context).pushNamed(HomeView.routeName);
+          Navigator.of(context).pushNamed(MainView.routeName);
         }
       },
       builder: (context, state) {
