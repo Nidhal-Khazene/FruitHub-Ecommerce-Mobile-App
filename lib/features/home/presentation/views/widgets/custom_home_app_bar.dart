@@ -33,7 +33,7 @@ class CustomHomeAppBar extends StatelessWidget {
           color: ColorData.kFontSecondaryColor,
         ),
       ),
-      subtitle: Text(getUser().name, style: TextStyles.bold16),
+      subtitle: Text(getUser()?.name ?? 'Guest', style: TextStyles.bold16),
       trailing: const NotificationContainer(),
     );
   }
