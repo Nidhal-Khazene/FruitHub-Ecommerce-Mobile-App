@@ -36,19 +36,25 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      sellingCount: json["sellingCount"],
+      sellingCount: json["sellingCount"] ?? 0,
       reviews: json["reviews"] != null
           ? List<ReviewModel>.from(
-              json["reviews"].map((e) => ReviewModel.fromEntity(e)),
+              json["reviews"].map((e) => ReviewModel.fromJson(e)),
             )
           : [],
-      expirationsMonth: json["expirationsMonth"],
-      numberOfCalories: json["numberOfCalories"],
-      unitAmount: json["unitAmount"],
-      productName: json["productName"],
-      productCode: json["productCode"],
-      productDescription: json["productDescription"],
-      productPrice: json["productPrice"],
+      expirationsMonth: json["expirationsMonth"] ?? 0,
+      numberOfCalories: json["numberOfCalories"] ?? 0,
+      unitAmount: json["unitAmount"] ?? 0,
+      productName: json["productName"] ?? '',
+      productCode: json["productCode"] ?? '',
+      productDescription: json["productDescription"] ?? '',
+      productPrice: json["productPrice"] ?? 0,
+      // ✅ Add missing fields
+      isFeatured: json["isFeatured"] ?? false,
+      urlImage: json["urlImage"],
+      isOrganic: json["isOrganic"] ?? false,
+      avrRating: json["avrRating"] ?? 0,
+      ratingCount: json["ratingCount"] ?? 0,
     );
   }
 
