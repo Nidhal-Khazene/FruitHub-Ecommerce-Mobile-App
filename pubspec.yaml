@@ -55,6 +55,7 @@ dependencies:
 #  google_sign_in: ^5.4.2   # last version with old API
   cloud_firestore: ^6.1.0
   iconsax_flutter: ^1.0.1
+  skeletonizer: ^2.1.2
 
 
 dev_dependencies:
