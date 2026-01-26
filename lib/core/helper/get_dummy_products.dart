@@ -12,6 +12,8 @@ ProductEntity getDummyProduct() {
     productDescription: 'good fruit',
     productPrice: 25,
     isFeatured: true,
+    urlImage:
+        "https://img.freepik.com/free-psd/fresh-red-apple-with-single-green-leaf-stem-sits-isolated-against-solid-black-background_84443-59661.jpg?t=st=1769351952~exp=1769355552~hmac=43ca26c3fea4f95e546413074f1b593bcc24e94bea2acb2914b271dd07e41a46",
   );
 }
 
