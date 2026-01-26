@@ -1,5 +1,6 @@
+import 'package:ecommerce_app/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
-import 'package:ecommerce_app/features/home/presentation/views/main_view.dart';
+import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
@@ -18,12 +19,16 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const LoginView());
     case SignUpView.routeName:
       return MaterialPageRoute(builder: (context) => const SignUpView());
-    case MainView.routeName:
-      return MaterialPageRoute(builder: (context) => const MainView());
+    case HomeView.routeName:
+      return MaterialPageRoute(builder: (context) => const HomeView());
     case BestSellingView.routeName:
       return MaterialPageRoute(builder: (context) => const BestSellingView());
     case ProductsView.routeName:
       return MaterialPageRoute(builder: (context) => const ProductsView());
+    case CustomBottomNavigationBar.routeName:
+      return MaterialPageRoute(
+        builder: (context) => CustomBottomNavigationBar(),
+      );
     default:
       return MaterialPageRoute(builder: (context) => const OnBoardingView());
   }
