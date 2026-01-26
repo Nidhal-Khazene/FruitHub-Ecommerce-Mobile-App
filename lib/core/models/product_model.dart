@@ -49,7 +49,6 @@ class ProductModel {
       productCode: json["productCode"] ?? '',
       productDescription: json["productDescription"] ?? '',
       productPrice: json["productPrice"] ?? 0,
-      // ✅ Add missing fields
       isFeatured: json["isFeatured"] ?? false,
       urlImage: json["urlImage"],
       isOrganic: json["isOrganic"] ?? false,

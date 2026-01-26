@@ -1,11 +1,14 @@
-import 'package:ecommerce_app/core/utils/assets.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../entities/product_entity.dart';
+
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key, required this.productEntity});
+
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +34,33 @@ class FruitItem extends StatelessWidget {
           Positioned.fill(
             child: Column(
               children: [
-                SizedBox(height: 17),
-                Image.asset(
-                  Assets.assetsImagesStrawberry,
-                  height: 105,
-                  width: 114,
-                ),
-                SizedBox(height: 24),
+                const SizedBox(height: 17),
+                productEntity.urlImage != null
+                    ? Flexible(
+                        child: Image.network(
+                          productEntity.urlImage!,
+                          height: 105,
+                          width: 114,
+                        ),
+                      )
+                    : Flexible(
+                        child: Container(
+                          color: Colors.grey,
+                          height: 105,
+                          width: 114,
+                        ),
+                      ),
+                const SizedBox(height: 24),
                 ListTile(
-                  title: Text("فراولة", style: TextStyles.semiBold13),
+                  title: Text(
+                    productEntity.productName,
+                    style: TextStyles.semiBold13,
+                  ),
                   subtitle: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '30جنية ',
+                          text: '${productEntity.productPrice}جنية ',
                           style: TextStyles.bold13.copyWith(
                             color: ColorData.kSecondaryColor,
                           ),
