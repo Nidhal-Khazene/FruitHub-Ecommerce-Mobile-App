@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../entities/product_entity.dart';
+import 'custom_image_network.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.productEntity});
@@ -37,10 +38,8 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(height: 17),
                 productEntity.urlImage != null
                     ? Flexible(
-                        child: Image.network(
-                          productEntity.urlImage!,
-                          height: 105,
-                          width: 114,
+                        child: CustomImageNetwork(
+                          urlImage: productEntity.urlImage!,
                         ),
                       )
                     : Flexible(
