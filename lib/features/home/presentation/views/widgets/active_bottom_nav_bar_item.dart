@@ -15,9 +15,9 @@ class ActiveBottomNavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedContainer(
-        padding: EdgeInsets.only(left: 16),
-        curve: Curves.easeOutCubic,
-        duration: const Duration(milliseconds: 250),
+        padding: const EdgeInsets.only(left: 16),
+        curve: Curves.ease,
+        duration: const Duration(milliseconds: 500),
         height: 32,
         decoration: ShapeDecoration(
           color: const Color(0xFFEEEEEE),
