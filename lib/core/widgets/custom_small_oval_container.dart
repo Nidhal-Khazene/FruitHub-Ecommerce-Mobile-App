@@ -8,6 +8,7 @@ class CustomSmallOvalContainer extends StatelessWidget {
     return Container(
       width: 64,
       height: 64,
+      padding: const EdgeInsets.all(8),
       decoration: const ShapeDecoration(
         color: Color(0xFFF3F5F7),
         shape: OvalBorder(),
