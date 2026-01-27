@@ -58,6 +58,30 @@ class Assets {
   /// assets/images/plant.svg
   static const String assetsImagesPlant = "assets/images/plant.svg";
 
+  /// Assets for assetsImagesProductsAnanas
+  /// assets/images/products/ananas.png
+  static const String assetsImagesProductsAnanas = "assets/images/products/ananas.png";
+
+  /// Assets for assetsImagesProductsAvocado
+  /// assets/images/products/avocado.png
+  static const String assetsImagesProductsAvocado = "assets/images/products/avocado.png";
+
+  /// Assets for assetsImagesProductsBananas
+  /// assets/images/products/bananas.png
+  static const String assetsImagesProductsBananas = "assets/images/products/bananas.png";
+
+  /// Assets for assetsImagesProductsMango
+  /// assets/images/products/mango.png
+  static const String assetsImagesProductsMango = "assets/images/products/mango.png";
+
+  /// Assets for assetsImagesProductsStrawberry
+  /// assets/images/products/strawberry.png
+  static const String assetsImagesProductsStrawberry = "assets/images/products/strawberry.png";
+
+  /// Assets for assetsImagesProductsWatermelon
+  /// assets/images/products/watermelon.png
+  static const String assetsImagesProductsWatermelon = "assets/images/products/watermelon.png";
+
   /// Assets for assetsImagesProfileImage
   /// assets/images/profile_image.png
   static const String assetsImagesProfileImage = "assets/images/profile_image.png";
