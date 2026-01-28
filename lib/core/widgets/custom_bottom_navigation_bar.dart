@@ -17,17 +17,19 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final BottomNavBarEntity bottomNavBarEntity = BottomNavBarEntity();
   int selectedIndex = 0;
-  final List<Widget> screens = const [
-    HomeView(),
-    ProductsView(),
-    Placeholder(),
-    Placeholder(),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[selectedIndex],
+      body: IndexedStack(
+        index: selectedIndex,
+        children: const [
+          HomeView(),
+          ProductsView(),
+          Placeholder(),
+          Placeholder(),
+        ],
+      ),
       bottomNavigationBar: Container(
         width: MediaQuery.sizeOf(context).width,
         height: 70,
