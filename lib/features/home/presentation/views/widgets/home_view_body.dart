@@ -6,6 +6,8 @@ import 'package:ecommerce_app/features/home/presentation/views/widgets/featured_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'best_seller_header.dart';
+
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
@@ -28,6 +30,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         SliverToBoxAdapter(child: CustomHomeSearch()),
         SliverToBoxAdapter(child: SizedBox(height: 24)),
         SliverToBoxAdapter(child: FeaturedSection()),
+        SliverToBoxAdapter(child: BestSellerHeader()),
+        SliverToBoxAdapter(child: SizedBox(height: 12)),
         BestSellingGridViewBlocBuilder(),
       ],
     );
