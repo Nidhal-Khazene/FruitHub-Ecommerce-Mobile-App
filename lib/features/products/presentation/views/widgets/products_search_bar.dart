@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/bottom_sheet_line_header.dart';
+import 'package:ecommerce_app/core/widgets/price_dynamic_range.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -58,7 +59,8 @@ class ProductsSearchBar extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 8),
                       child: RowPrice(),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 48),
+                    PriceDynamicRange(),
                   ],
                 ),
               ),
