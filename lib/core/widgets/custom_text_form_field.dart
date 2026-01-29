@@ -14,9 +14,14 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.suffixIconColor,
     this.borderWidth,
+    this.borderRadius,
+    this.hintTextAlign,
+    this.hintStyle,
   });
 
   final String hintText;
+  final TextAlign? hintTextAlign;
+  final TextStyle? hintStyle;
   final Widget? suffixIcon;
   final Color? suffixIconColor;
   final Widget? prefixIcon;
@@ -26,6 +31,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final Color? fillColor;
   final double? borderWidth;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +50,11 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: fillColor ?? const Color(0xffF9FAFA),
         border: buildOutlineInputBorder(),
         hint: Text(
+          textAlign: hintTextAlign,
           hintText,
           style: TextStyles.bold13.copyWith(color: const Color(0xFF949D9E)),
         ),
+        hintStyle: hintStyle,
         prefixIcon: prefixIcon,
         prefixIconColor: prefixIconColor,
         suffixIcon: suffixIcon,
@@ -59,7 +67,7 @@ class CustomTextFormField extends StatelessWidget {
 
   OutlineInputBorder buildOutlineInputBorder([double? borderWidth]) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: borderRadius ?? BorderRadius.circular(4),
       borderSide: BorderSide(
         width: borderWidth ?? 1,
         color: const Color(0xFFE6E9E9),
