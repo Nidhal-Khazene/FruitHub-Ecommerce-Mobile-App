@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/products/presentation/views/widgets/products_search_filter_content.dart';
+import 'package:ecommerce_app/features/products/presentation/views/widgets/products_search_classification_content.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -17,7 +17,7 @@ class ProductsSearchBar extends StatelessWidget {
           backgroundColor: Colors.white,
           context: context,
           builder: (context) {
-            return const ProductsSearchFilterContent();
+            return const ProductsSearchClassificationContent();
           },
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
