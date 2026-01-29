@@ -1,8 +1,8 @@
 import 'package:ecommerce_app/core/cubits/products_cubit/products_cubit.dart';
-import 'package:ecommerce_app/features/home/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/custom_home_search.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/featured_section.dart';
+import 'package:ecommerce_app/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +32,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         SliverToBoxAdapter(child: FeaturedSection()),
         SliverToBoxAdapter(child: BestSellerHeader()),
         SliverToBoxAdapter(child: SizedBox(height: 12)),
-        BestSellingGridViewBlocBuilder(),
+        ProductsGridViewBlocBuilder(),
       ],
     );
   }
