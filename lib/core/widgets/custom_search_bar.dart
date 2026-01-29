@@ -12,6 +12,7 @@ class CustomSearchBar extends StatelessWidget {
     this.prefixIconColor,
     this.fillColor,
     this.borderWidth,
+    this.onTap,
   });
   final String hintText;
   final Widget? suffixIcon;
@@ -20,6 +21,7 @@ class CustomSearchBar extends StatelessWidget {
   final Color? prefixIconColor;
   final Color? fillColor;
   final double? borderWidth;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class CustomSearchBar extends StatelessWidget {
         ),
         prefixIcon: prefixIcon,
         prefixIconColor: prefixIconColor,
-        suffixIcon: suffixIcon,
+        suffixIcon: GestureDetector(onTap: onTap, child: suffixIcon),
         suffixIconColor: suffixIconColor ?? const Color(0xFFC9CECE),
         enabledBorder: buildOutlineInputBorder(borderWidth),
         focusedBorder: buildOutlineInputBorder(borderWidth),
