@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
 class BottomSheetLineHeader extends StatelessWidget {
-  const BottomSheetLineHeader({super.key});
-
+  const BottomSheetLineHeader({
+    super.key,
+    required this.lineColor,
+    this.width,
+    this.height,
+  });
+  final Color? lineColor;
+  final double? width;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 24,
-      height: 4,
+      width: width ?? 24,
+      height: height ?? 4,
       decoration: ShapeDecoration(
-        color: const Color(0xFFE8ECFF),
+        color: lineColor ?? const Color(0xFFE8ECFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
       ),
     );
