@@ -8,8 +8,8 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/price_dynamic_range.dart';
 import '../../../../../core/widgets/row_price.dart';
 
-class ProductsSearchFilterContent extends StatelessWidget {
-  const ProductsSearchFilterContent({super.key});
+class ProductsSearchClassificationContent extends StatelessWidget {
+  const ProductsSearchClassificationContent({super.key});
 
   @override
   Widget build(BuildContext context) {
