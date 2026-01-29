@@ -6,7 +6,7 @@ import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/bottom_sheet_line_header.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
-class ProductsRankingContent extends StatelessWidget {
+class ProductsRankingContent extends StatefulWidget {
   const ProductsRankingContent({super.key});
   static List<String> list = const [
     "السعر ( الأقل الي الأعلي )",
@@ -14,6 +14,12 @@ class ProductsRankingContent extends StatelessWidget {
     "الأبجديه",
   ];
 
+  @override
+  State<ProductsRankingContent> createState() => _ProductsRankingContentState();
+}
+
+class _ProductsRankingContentState extends State<ProductsRankingContent> {
+  int selectBoxIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,12 +43,24 @@ class ProductsRankingContent extends StatelessWidget {
             const SizedBox(height: 32),
             Column(
               spacing: 16,
-              children: List.generate(list.length, (index) {
+              children: List.generate(ProductsRankingContent.list.length, (
+                index,
+              ) {
                 return Row(
                   children: [
-                    const CircleCheckBox(),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectBoxIndex = index;
+                        });
+                      },
+                      child: CircleCheckBox(isActive: selectBoxIndex == index),
+                    ),
                     const SizedBox(width: 16),
-                    Text(list[index], style: TextStyles.bold13),
+                    Text(
+                      ProductsRankingContent.list[index],
+                      style: TextStyles.bold13,
+                    ),
                   ],
                 );
               }),
