@@ -19,7 +19,7 @@ class ProductsRankingContent extends StatefulWidget {
 }
 
 class _ProductsRankingContentState extends State<ProductsRankingContent> {
-  int selectBoxIndex = 0;
+  int selectBoxIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Padding(
