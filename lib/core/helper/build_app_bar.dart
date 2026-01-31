@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import '../utils/styles.dart';
 import '../widgets/notification_container.dart';
 
-AppBar buildAppBar(BuildContext context, {required String title}) {
+AppBar buildAppBar(
+  BuildContext context, {
+  required String title,
+  bool isNotificationIconShow = true,
+}) {
   return AppBar(
     automaticallyImplyLeading: false,
     leadingWidth: 70,
@@ -24,13 +28,19 @@ AppBar buildAppBar(BuildContext context, {required String title}) {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(Icons.arrow_forward_ios, size: 22),
+            child: const Icon(Icons.arrow_forward_ios, size: 22),
           ),
         ),
       ),
     ),
     actionsPadding: const EdgeInsets.only(left: 16),
-    actions: [const NotificationContainer()],
+    actions: [
+      Visibility(
+        replacement: const SizedBox(),
+        visible: isNotificationIconShow,
+        child: const NotificationContainer(),
+      ),
+    ],
     elevation: 0,
     backgroundColor: Colors.white,
     centerTitle: true,
