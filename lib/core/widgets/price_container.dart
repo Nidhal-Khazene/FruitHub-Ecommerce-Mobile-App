@@ -12,7 +12,7 @@ class PriceContainer extends StatelessWidget {
     return CustomTextFormField(
       hintTextAlign: TextAlign.center,
       hintText: "0",
-      hintStyle: TextStyles.regular13.copyWith(
+      hintStyle: AppStyles.regular13.copyWith(
         color: ColorData.kFontSecondaryColor,
       ),
       borderRadius: BorderRadius.circular(8),

@@ -52,7 +52,7 @@ class CustomTextFormField extends StatelessWidget {
         hint: Text(
           textAlign: hintTextAlign,
           hintText,
-          style: TextStyles.bold13.copyWith(color: const Color(0xFF949D9E)),
+          style: AppStyles.bold13.copyWith(color: const Color(0xFF949D9E)),
         ),
         hintStyle: hintStyle,
         prefixIcon: prefixIcon,

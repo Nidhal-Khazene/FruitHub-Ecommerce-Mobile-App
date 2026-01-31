@@ -44,6 +44,6 @@ AppBar buildAppBar(
     elevation: 0,
     backgroundColor: Colors.white,
     centerTitle: true,
-    title: Text(title, style: TextStyles.bold19),
+    title: Text(title, style: AppStyles.bold19),
   );
 }

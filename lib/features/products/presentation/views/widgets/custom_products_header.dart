@@ -16,7 +16,7 @@ class CustomProductsHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(text, style: TextStyles.bold16),
+        Text(text, style: AppStyles.bold16),
         GestureDetector(
           onTap: () {
             showModalBottomSheet(

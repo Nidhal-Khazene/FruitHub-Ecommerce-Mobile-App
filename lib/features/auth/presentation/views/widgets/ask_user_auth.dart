@@ -19,14 +19,14 @@ class AskUserAuth extends StatelessWidget {
         children: [
           TextSpan(
             text: questionText,
-            style: TextStyles.semiBold16.copyWith(
+            style: AppStyles.semiBold16.copyWith(
               color: const Color(0xFF616A6B),
             ),
           ),
           TextSpan(
             recognizer: gestureRecognizer,
             text: doText,
-            style: TextStyles.semiBold16.copyWith(
+            style: AppStyles.semiBold16.copyWith(
               color: const Color(0xFF1B5E37),
             ),
           ),

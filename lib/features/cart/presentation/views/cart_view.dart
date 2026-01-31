@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -17,9 +16,7 @@ class CartView extends StatelessWidget {
         title: "السلة",
         isNotificationIconShow: false,
       ),
-      body: const SafeArea(
-        child: Padding(padding: kPrimaryScreenPadding, child: CartViewBody()),
-      ),
+      body: const SafeArea(child: CartViewBody()),
     );
   }
 }

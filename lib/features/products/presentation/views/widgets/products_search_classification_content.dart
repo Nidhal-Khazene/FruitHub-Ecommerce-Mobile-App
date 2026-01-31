@@ -30,7 +30,7 @@ class ProductsSearchClassificationContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 7),
-            const Text("تصنيف حسب :", style: TextStyles.bold19),
+            const Text("تصنيف حسب :", style: AppStyles.bold19),
             const SizedBox(height: 11),
             const Padding(
               padding: EdgeInsets.only(right: 8),
@@ -38,7 +38,7 @@ class ProductsSearchClassificationContent extends StatelessWidget {
                 children: [
                   Icon(Iconsax.tag_copy, color: Colors.black),
                   SizedBox(width: 8),
-                  Text("السعر :", style: TextStyles.bold13),
+                  Text("السعر :", style: AppStyles.bold13),
                 ],
               ),
             ),
@@ -53,7 +53,7 @@ class ProductsSearchClassificationContent extends StatelessWidget {
             CustomButton(
               backgroundColor: ColorData.kPrimaryColor,
               text: "تصفيه",
-              textStyle: TextStyles.bold16.copyWith(color: Colors.white),
+              textStyle: AppStyles.bold16.copyWith(color: Colors.white),
             ),
             const SizedBox(height: 32),
           ],

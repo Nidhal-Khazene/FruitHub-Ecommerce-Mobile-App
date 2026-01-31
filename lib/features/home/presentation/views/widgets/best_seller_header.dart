@@ -11,14 +11,14 @@ class BestSellerHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text("الأكثر مبيعًا", style: TextStyles.bold13),
+        const Text("الأكثر مبيعًا", style: AppStyles.bold13),
         GestureDetector(
           onDoubleTap: () {
             Navigator.pushNamed(context, BestSellingView.routeName);
           },
           child: Text(
             "المزيد",
-            style: TextStyles.regular13.copyWith(
+            style: AppStyles.regular13.copyWith(
               color: ColorData.kFontSecondaryColor,
             ),
           ),

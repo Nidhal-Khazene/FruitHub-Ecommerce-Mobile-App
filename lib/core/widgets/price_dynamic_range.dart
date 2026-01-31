@@ -99,7 +99,7 @@ class _PriceLabel extends StatelessWidget {
       textDirection: Directionality.of(context),
       child: Text(
         '\$${value.round()}',
-        style: TextStyles.semiBold13.copyWith(color: ColorData.kPrimaryColor),
+        style: AppStyles.semiBold13.copyWith(color: ColorData.kPrimaryColor),
       ),
     );
   }

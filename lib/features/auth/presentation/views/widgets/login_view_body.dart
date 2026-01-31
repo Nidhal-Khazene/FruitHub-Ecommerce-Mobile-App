@@ -56,7 +56,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 children: [
                   Text(
                     "نسيت كلمة المرور؟",
-                    style: TextStyles.semiBold13.copyWith(
+                    style: AppStyles.semiBold13.copyWith(
                       color: ColorData.kLightPrimaryColor,
                     ),
                   ),

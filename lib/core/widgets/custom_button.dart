@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: textStyle ?? TextStyles.bold16.copyWith(color: Colors.white),
+            style: textStyle ?? AppStyles.bold16.copyWith(color: Colors.white),
           ),
         ),
       ),

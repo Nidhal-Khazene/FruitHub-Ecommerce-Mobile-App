@@ -14,7 +14,7 @@ class OurProductRowItem extends StatelessWidget {
       children: [
         CustomSmallOvalContainer(widget: Image.asset(productItem.productImage)),
         const SizedBox(height: 2),
-        Text(productItem.productName, style: TextStyles.semiBold13),
+        Text(productItem.productName, style: AppStyles.semiBold13),
       ],
     );
   }

@@ -33,7 +33,7 @@ class CustomSocialMediaButton extends StatelessWidget {
           ),
           title: Text(
             title,
-            style: TextStyles.semiBold16,
+            style: AppStyles.semiBold16,
             textAlign: TextAlign.center,
           ),
           titleAlignment: ListTileTitleAlignment.center,

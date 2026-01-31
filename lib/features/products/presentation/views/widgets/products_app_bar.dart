@@ -19,7 +19,7 @@ class ProductsAppBar extends StatelessWidget {
                 kHorizontalPadding * 2,
           ),
         ),
-        Text("المنتجات", style: TextStyles.bold19),
+        Text("المنتجات", style: AppStyles.bold19),
         NotificationContainer(),
       ],
     );

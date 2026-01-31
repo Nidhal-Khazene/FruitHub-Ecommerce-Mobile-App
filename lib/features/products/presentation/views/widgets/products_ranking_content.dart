@@ -39,7 +39,7 @@ class _ProductsRankingContentState extends State<ProductsRankingContent> {
               ),
             ),
             const SizedBox(height: 26),
-            const Text("ترتيب حسب :", style: TextStyles.bold19),
+            const Text("ترتيب حسب :", style: AppStyles.bold19),
             const SizedBox(height: 32),
             Column(
               spacing: 16,
@@ -59,7 +59,7 @@ class _ProductsRankingContentState extends State<ProductsRankingContent> {
                     const SizedBox(width: 16),
                     Text(
                       ProductsRankingContent.list[index],
-                      style: TextStyles.bold13,
+                      style: AppStyles.bold13,
                     ),
                   ],
                 );
@@ -69,7 +69,7 @@ class _ProductsRankingContentState extends State<ProductsRankingContent> {
             CustomButton(
               backgroundColor: ColorData.kPrimaryColor,
               text: "تصفيه",
-              textStyle: TextStyles.bold16.copyWith(color: Colors.white),
+              textStyle: AppStyles.bold16.copyWith(color: Colors.white),
             ),
           ],
         ),

@@ -53,20 +53,20 @@ class FruitItem extends StatelessWidget {
                 ListTile(
                   title: Text(
                     productEntity.productName,
-                    style: TextStyles.semiBold13,
+                    style: AppStyles.semiBold13,
                   ),
                   subtitle: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
                           text: '${productEntity.productPrice}جنية ',
-                          style: TextStyles.bold13.copyWith(
+                          style: AppStyles.bold13.copyWith(
                             color: ColorData.kSecondaryColor,
                           ),
                         ),
                         TextSpan(
                           text: '/ الكيلو',
-                          style: TextStyles.semiBold13.copyWith(
+                          style: AppStyles.semiBold13.copyWith(
                             color: ColorData.kLightSecondaryColor,
                           ),
                         ),

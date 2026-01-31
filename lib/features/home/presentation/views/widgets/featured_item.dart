@@ -32,12 +32,12 @@ class FeaturedItem extends StatelessWidget {
                   children: [
                     Text(
                       "عروض العيد",
-                      style: TextStyles.regular13.copyWith(color: Colors.white),
+                      style: AppStyles.regular13.copyWith(color: Colors.white),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       "خصم 25%",
-                      style: TextStyles.bold19.copyWith(color: Colors.white),
+                      style: AppStyles.bold19.copyWith(color: Colors.white),
                     ),
                     const SizedBox(height: 7),
                     CustomButton(
@@ -45,7 +45,7 @@ class FeaturedItem extends StatelessWidget {
                       width: 116,
                       height: 34,
                       text: "تسوق الان",
-                      textStyle: TextStyles.bold13.copyWith(
+                      textStyle: AppStyles.bold13.copyWith(
                         color: ColorData.kPrimaryColor,
                       ),
                       backgroundColor: Colors.white,

@@ -12,7 +12,7 @@ class RowPrice extends StatelessWidget {
       children: [
         Expanded(child: PriceContainer()),
         SizedBox(width: 14),
-        Text("الي", style: TextStyles.bold13),
+        Text("الي", style: AppStyles.bold13),
         SizedBox(width: 14),
         Expanded(child: PriceContainer()),
       ],

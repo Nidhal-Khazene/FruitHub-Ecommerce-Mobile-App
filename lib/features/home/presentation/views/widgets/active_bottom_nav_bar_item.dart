@@ -44,7 +44,7 @@ class ActiveBottomNavBarItem extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               title,
-              style: TextStyles.semiBold11.copyWith(
+              style: AppStyles.semiBold11.copyWith(
                 color: ColorData.kPrimaryColor,
               ),
             ),

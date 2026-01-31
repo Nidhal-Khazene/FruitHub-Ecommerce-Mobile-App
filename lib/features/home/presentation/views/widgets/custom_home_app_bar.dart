@@ -29,11 +29,11 @@ class CustomHomeAppBar extends StatelessWidget {
       ),
       title: Text(
         "صباح الخير !..",
-        style: TextStyles.regular16.copyWith(
+        style: AppStyles.regular16.copyWith(
           color: ColorData.kFontSecondaryColor,
         ),
       ),
-      subtitle: Text(getUser()?.name ?? 'Guest', style: TextStyles.bold16),
+      subtitle: Text(getUser()?.name ?? 'Guest', style: AppStyles.bold16),
       trailing: const NotificationContainer(),
     );
   }
