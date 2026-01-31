@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,12 @@ class CartView extends StatelessWidget {
         context,
         title: "السلة",
         isNotificationIconShow: false,
+        goBackNavigatorFunc: () {
+          Navigator.pushReplacementNamed(
+            context,
+            CustomBottomNavigationBar.routeName,
+          );
+        },
       ),
       body: const SafeArea(child: CartViewBody()),
     );
