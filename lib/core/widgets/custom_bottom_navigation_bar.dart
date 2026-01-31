@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/home/domain/entities/bottom_nav_bar_entity.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/bottom_nav_bar_item.dart';
@@ -23,12 +24,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       body: IndexedStack(
         index: selectedIndex,
-        children: const [
-          HomeView(),
-          ProductsView(),
-          Placeholder(),
-          Placeholder(),
-        ],
+        children: const [HomeView(), ProductsView(), CartView(), Placeholder()],
       ),
       bottomNavigationBar: Container(
         width: MediaQuery.sizeOf(context).width,
