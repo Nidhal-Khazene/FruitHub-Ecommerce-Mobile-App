@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/features/home/domain/entities/bottom_nav_bar_entity.dart';
-import 'package:ecommerce_app/features/home/presentation/views/widgets/active_bottom_nav_bar_item.dart';
-import 'package:ecommerce_app/features/home/presentation/views/widgets/inactive_bottom_nav_bar_item.dart';
+import 'package:ecommerce_app/core/entities/bottom_nav_bar_entity.dart';
+import 'package:ecommerce_app/core/widgets/active_bottom_nav_bar_item.dart';
+import 'package:ecommerce_app/core/widgets/inactive_bottom_nav_bar_item.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBarItem extends StatelessWidget {
