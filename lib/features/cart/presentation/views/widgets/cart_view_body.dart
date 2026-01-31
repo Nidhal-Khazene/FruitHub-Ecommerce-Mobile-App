@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -28,6 +29,8 @@ class CartViewBody extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 24),
+          CartItem(),
         ],
       ),
     );
