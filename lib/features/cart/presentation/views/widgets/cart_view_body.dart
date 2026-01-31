@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
@@ -8,31 +10,38 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 16),
-          Center(
-            child: Container(
-              height: 41,
-              width: double.infinity,
-              color: const Color(0xFFEBF9F1),
-              child: Center(
-                child: Text(
-                  "لديك 3 منتجات في سله التسوق",
-                  textAlign: TextAlign.center,
-                  style: AppStyles.regular13.copyWith(
-                    color: ColorData.kPrimaryColor,
-                  ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 16),
+        Center(
+          child: Container(
+            height: 41,
+            width: double.infinity,
+            color: const Color(0xFFEBF9F1),
+            child: Center(
+              child: Text(
+                "لديك 3 منتجات في سله التسوق",
+                textAlign: TextAlign.center,
+                style: AppStyles.regular13.copyWith(
+                  color: ColorData.kPrimaryColor,
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 24),
-          Column(children: List.generate(3, (_) => const CartItem())),
-        ],
-      ),
+        ),
+        const SizedBox(height: 24),
+        Column(children: List.generate(3, (_) => const CartItem())),
+        const Expanded(child: SizedBox()),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+          child: CustomButton(
+            text: "الدفع  120جنيه",
+            textStyle: AppStyles.bold16.copyWith(color: Colors.white),
+          ),
+        ),
+        const SizedBox(height: 67),
+      ],
     );
   }
 }
