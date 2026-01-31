@@ -71,6 +71,7 @@ class CartItem extends StatelessWidget {
                   color: ColorData.kSecondaryColor,
                 ),
               ),
+              const SizedBox(height: 8),
             ],
           ),
         ],

@@ -30,7 +30,7 @@ class CartViewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          CartItem(),
+          Column(children: List.generate(3, (_) => const CartItem())),
         ],
       ),
     );
