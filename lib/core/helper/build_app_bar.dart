@@ -9,6 +9,7 @@ AppBar buildAppBar(
   BuildContext context, {
   required String title,
   bool isNotificationIconShow = true,
+  void Function()? goBackNavigatorFunc,
 }) {
   return AppBar(
     automaticallyImplyLeading: false,
@@ -25,9 +26,11 @@ AppBar buildAppBar(
         child: Transform.rotate(
           angle: math.pi,
           child: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap:
+                goBackNavigatorFunc ??
+                () {
+                  Navigator.pop(context);
+                },
             child: const Icon(Icons.arrow_forward_ios, size: 22),
           ),
         ),
