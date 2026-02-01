@@ -1,12 +1,15 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
 class CartViewBody extends StatelessWidget {
-  const CartViewBody({super.key});
+  const CartViewBody({super.key, required this.cartItems});
+
+  final List<CartItemEntity> cartItems;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,12 @@ class CartViewBody extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              Column(children: List.generate(3, (_) => const CartItem())),
+              Column(
+                children: List.generate(
+                  cartItems.length,
+                  (index) => CartItem(cartItemEntity: cartItems[index]),
+                ),
+              ),
             ],
           ),
         ),

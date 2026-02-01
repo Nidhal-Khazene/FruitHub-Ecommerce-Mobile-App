@@ -1,13 +1,16 @@
-import 'package:ecommerce_app/core/utils/assets.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/core/widgets/custom_image_network.dart';
+import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../../../core/widgets/add_and_minus_number.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.cartItemEntity});
+
+  final CartItemEntity cartItemEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,9 @@ class CartItem extends StatelessWidget {
             decoration: const BoxDecoration(color: Color(0xFFF3F5F7)),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 26, horizontal: 10),
-              child: Image.asset(Assets.assetsImagesProductsWatermelon),
+              child: CustomImageNetwork(
+                urlImage: cartItemEntity.productEntity.urlImage!,
+              ),
             ),
           ),
           const SizedBox(width: 17),
@@ -41,10 +46,13 @@ class CartItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("بطيخ", style: AppStyles.bold13),
+              Text(
+                cartItemEntity.productEntity.productName,
+                style: AppStyles.bold13,
+              ),
               const SizedBox(height: 4),
               Text(
-                "3 كم",
+                "${cartItemEntity.calculateTotalWeight()} كم",
                 style: AppStyles.regular13.copyWith(
                   color: ColorData.kLightSecondaryColor,
                 ),
@@ -66,7 +74,7 @@ class CartItem extends StatelessWidget {
               ),
               const Expanded(child: SizedBox()),
               Text(
-                "60 جنيه",
+                "${cartItemEntity.calculateTotalPrice()} جنيه",
                 style: AppStyles.bold16.copyWith(
                   color: ColorData.kSecondaryColor,
                 ),

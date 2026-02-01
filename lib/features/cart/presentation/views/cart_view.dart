@@ -23,7 +23,7 @@ class CartView extends StatelessWidget {
           );
         },
       ),
-      body: const SafeArea(child: CartViewBody()),
+      body: const SafeArea(child: CartViewBody(cartItems: [])),
     );
   }
 }
