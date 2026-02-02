@@ -33,6 +33,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case CartView.routeName:
       return MaterialPageRoute(builder: (context) => const CartView());
     default:
-      return MaterialPageRoute(builder: (context) => const OnBoardingView());
+      return MaterialPageRoute(
+        builder: (context) => const CustomBottomNavigationBar(),
+      );
   }
 }
