@@ -1,8 +1,10 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
+import 'package:ecommerce_app/features/cart/presentation/manager/cubits/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
@@ -29,7 +31,7 @@ class CartViewBody extends StatelessWidget {
                   color: const Color(0xFFEBF9F1),
                   child: Center(
                     child: Text(
-                      "لديك 3 منتجات في سله التسوق",
+                      "لديك ${context.watch<CartCubit>().cartEntity.cartItemsEntities.length} منتجات في سله التسوق",
                       textAlign: TextAlign.center,
                       style: AppStyles.regular13.copyWith(
                         color: ColorData.kPrimaryColor,
