@@ -3,10 +3,9 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 import '../utils/assets.dart';
-import '../utils/colors.dart';
 import '../utils/styles.dart';
 
-void showSnackBar(BuildContext context, {required String message}) {
+void showTrueSnackBar(BuildContext context, {required String message}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       elevation: 0,
@@ -15,12 +14,7 @@ void showSnackBar(BuildContext context, {required String message}) {
         children: [
           SvgPicture.asset(Assets.assetsImagesTrueCircleContainer),
           const SizedBox(width: 12),
-          Text(
-            message,
-            style: AppStyles.regular12.copyWith(
-              color: ColorsData.kFontPrimaryColor,
-            ),
-          ),
+          Text(message, style: AppStyles.regular13),
         ],
       ),
       behavior: SnackBarBehavior.floating,

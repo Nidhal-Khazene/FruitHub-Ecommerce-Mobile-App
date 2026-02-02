@@ -2,9 +2,6 @@ import 'package:ecommerce_app/core/entities/bottom_nav_bar_entity.dart';
 import 'package:ecommerce_app/core/widgets/bottom_nav_bar_item.dart';
 import 'package:ecommerce_app/core/widgets/bottom_navigation_bar_body.dart';
 import 'package:ecommerce_app/features/cart/presentation/manager/cubits/cart_cubit/cart_cubit.dart';
-import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
-import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
-import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +24,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return BlocProvider(
       create: (context) => CartCubit(),
       child: Scaffold(
-        body: CustomBottomNavigationBarBody(selectedIndex: selectedIndex),
+        body: BottomNavigationBarBody(selectedIndex: selectedIndex),
         bottomNavigationBar: Container(
           width: MediaQuery.sizeOf(context).width,
           height: 70,
