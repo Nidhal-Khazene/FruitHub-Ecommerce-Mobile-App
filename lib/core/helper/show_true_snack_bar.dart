@@ -14,7 +14,10 @@ void showTrueSnackBar(BuildContext context, {required String message}) {
         children: [
           SvgPicture.asset(Assets.assetsImagesTrueCircleContainer),
           const SizedBox(width: 12),
-          Text(message, style: AppStyles.regular13),
+          Text(
+            message,
+            style: AppStyles.regular13.copyWith(color: Colors.black),
+          ),
         ],
       ),
       behavior: SnackBarBehavior.floating,

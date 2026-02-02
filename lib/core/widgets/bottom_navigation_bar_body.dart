@@ -16,7 +16,7 @@ class BottomNavigationBarBody extends StatelessWidget {
     return BlocListener<CartCubit, CartState>(
       listener: (context, state) {
         if (state is CartAdded) {
-          showTrueSnackBar(context, message: "تمت الإضافة الى السلة.");
+          showTrueSnackBar(context, message: "تمت الإضافة الى السلة");
         }
       },
       child: IndexedStack(
