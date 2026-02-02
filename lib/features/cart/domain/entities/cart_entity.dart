@@ -2,20 +2,29 @@ import 'package:ecommerce_app/core/entities/product_entity.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 
 class CartEntity {
-  List<CartItemEntity> cartItems = [];
+  List<CartItemEntity> cartItemsEntities = [];
 
-  CartEntity({required this.cartItems});
+  CartEntity({required this.cartItemsEntities});
 
   void addCartItem(CartItemEntity cartItemEntity) {
-    cartItems.add(cartItemEntity);
+    cartItemsEntities.add(cartItemEntity);
   }
 
-  bool isCartExist(ProductEntity productEntity) {
-    for (var cartItem in cartItems) {
-      if (cartItem.productEntity == productEntity) {
+  bool isProductExist(ProductEntity productEntity) {
+    for (var cartItemEntity in cartItemsEntities) {
+      if (cartItemEntity.productEntity == productEntity) {
         return true;
       }
     }
     return false;
+  }
+
+  CartItemEntity getCartItemEntity(ProductEntity productEntity) {
+    for (var cartItemEntity in cartItemsEntities) {
+      if (cartItemEntity.productEntity == productEntity) {
+        return cartItemEntity;
+      }
+    }
+    return CartItemEntity(productEntity: productEntity, count: 1);
   }
 }
