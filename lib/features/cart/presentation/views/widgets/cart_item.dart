@@ -2,7 +2,9 @@ import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_image_network.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
+import 'package:ecommerce_app/features/cart/presentation/manager/cubits/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../../../core/widgets/add_and_minus_number.dart';
@@ -25,7 +27,8 @@ class CartItem extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: ColorData.kBorderColor, width: 1.2),
+          top: BorderSide(color: ColorData.kBorderColor, width: 1),
+          bottom: BorderSide(color: ColorData.kBorderColor, width: 1),
         ),
       ),
       child: Row(
@@ -67,10 +70,17 @@ class CartItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const SizedBox(height: 5),
-              const Icon(
-                Iconsax.trash_copy,
-                color: Color(0xFF949D9E),
-                size: 20,
+              GestureDetector(
+                onTap: () {
+                  context.read<CartCubit>().removeCartItemEntity(
+                    cartItemEntity,
+                  );
+                },
+                child: const Icon(
+                  Iconsax.trash_copy,
+                  color: Color(0xFF949D9E),
+                  size: 20,
+                ),
               ),
               const Expanded(child: SizedBox()),
               Text(

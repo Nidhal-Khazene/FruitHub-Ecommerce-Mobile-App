@@ -20,4 +20,9 @@ class CartCubit extends Cubit<CartState> {
     }
     emit(CartAdded());
   }
+
+  void removeCartItemEntity(CartItemEntity cartItemEntity) {
+    cartEntity.removeCartItem(cartItemEntity);
+    emit(CartRemoved());
+  }
 }

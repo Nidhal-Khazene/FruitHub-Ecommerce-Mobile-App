@@ -18,6 +18,9 @@ class BottomNavigationBarBody extends StatelessWidget {
         if (state is CartAdded) {
           showTrueSnackBar(context, message: "تمت الإضافة الى السلة");
         }
+        if (state is CartRemoved) {
+          showTrueSnackBar(context, message: "تم الحذف من السلة");
+        }
       },
       child: IndexedStack(
         index: selectedIndex,
