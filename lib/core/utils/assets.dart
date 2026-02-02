@@ -89,5 +89,9 @@ class Assets {
   /// Assets for assetsImagesStrawberry
   /// assets/images/strawberry.png
   static const String assetsImagesStrawberry = "assets/images/strawberry.png";
+
+  /// Assets for assetsImagesTrueCircleContainer
+  /// assets/images/true_circle_container.svg
+  static const String assetsImagesTrueCircleContainer = "assets/images/true_circle_container.svg";
 }
 
