@@ -20,7 +20,9 @@ class CartItemEntity extends Equatable {
   }
 
   void decreaseCount() {
-    count--;
+    if (count > 0) {
+      count--;
+    }
   }
 
   @override
