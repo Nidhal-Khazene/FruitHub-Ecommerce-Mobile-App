@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-AppBar buildAppBar(context, {required String title}) {
+AppBar buildCustomAppBar(context, {required String title}) {
   return AppBar(
     leading: GestureDetector(
       onTap: () {
