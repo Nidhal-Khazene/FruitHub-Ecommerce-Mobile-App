@@ -6,7 +6,7 @@ import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_item
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/widgets/custom_button.dart';
+import 'custom_cart_view_price_button.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key, required this.cartItems});
@@ -54,11 +54,7 @@ class CartViewBody extends StatelessWidget {
           left: 16,
           right: 16,
           top: MediaQuery.sizeOf(context).height * .7,
-          child: CustomButton(
-            text:
-                "الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPriceItems()}  جنيه",
-            textStyle: AppStyles.bold16.copyWith(color: Colors.white),
-          ),
+          child: const CustomCartViewPriceButton(),
         ),
       ],
     );
