@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/checkout_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
@@ -32,6 +33,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     case CartView.routeName:
       return MaterialPageRoute(builder: (context) => const CartView());
+    case CheckoutView.routeName:
+      return MaterialPageRoute(builder: (context) => const CheckoutView());
     default:
       return MaterialPageRoute(
         builder: (context) => const CustomBottomNavigationBar(),
