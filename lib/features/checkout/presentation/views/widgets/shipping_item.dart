@@ -3,7 +3,14 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class ShippingItem extends StatelessWidget {
-  const ShippingItem({super.key});
+  const ShippingItem({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.price,
+  });
+
+  final String title, subtitle, price;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +28,9 @@ class ShippingItem extends StatelessWidget {
             Container(
               width: 18,
               height: 18,
-              decoration: ShapeDecoration(
+              decoration: const ShapeDecoration(
                 shape: OvalBorder(
-                  side: BorderSide(
-                    width: 1,
-                    color: const Color(0xFF949D9E) /* Grayscale-400 */,
-                  ),
+                  side: BorderSide(width: 1, color: Color(0xFF949D9E)),
                 ),
               ),
             ),
@@ -35,11 +39,12 @@ class ShippingItem extends StatelessWidget {
               child: Row(
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("الدفع عند الاستلام", style: AppStyles.semiBold13),
-                      SizedBox(height: 6),
+                      Text(title, style: AppStyles.semiBold13),
+                      const SizedBox(height: 6),
                       Text(
-                        "التسليم من المكان",
+                        subtitle,
                         style: AppStyles.regular13.copyWith(
                           color: ColorData.kFontSecondaryColor,
                         ),
@@ -48,7 +53,7 @@ class ShippingItem extends StatelessWidget {
                   ),
                   const Expanded(child: SizedBox()),
                   Text(
-                    "40 جنيه",
+                    "$price  جنيه",
                     style: AppStyles.bold13.copyWith(
                       color: ColorData.kPrimaryColor,
                     ),
