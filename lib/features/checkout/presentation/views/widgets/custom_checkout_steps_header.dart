@@ -19,7 +19,7 @@ class CustomCheckoutStepsHeader extends StatelessWidget {
           child: StepItem(
             isActive: false,
             textContent: textList[index],
-            indexValue: index.toString(),
+            indexValue: (index + 1).toString(),
           ),
         );
       }),
