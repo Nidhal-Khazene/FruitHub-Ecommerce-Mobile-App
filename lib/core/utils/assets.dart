@@ -54,6 +54,22 @@ class Assets {
   /// assets/images/on_boarding_image2.svg
   static const String assetsImagesOnBoardingImage2 = "assets/images/on_boarding_image2.svg";
 
+  /// Assets for assetsImagesPaymentsApplePay
+  /// assets/images/payments/apple_pay.png
+  static const String assetsImagesPaymentsApplePay = "assets/images/payments/apple_pay.png";
+
+  /// Assets for assetsImagesPaymentsMastercard
+  /// assets/images/payments/mastercard.png
+  static const String assetsImagesPaymentsMastercard = "assets/images/payments/mastercard.png";
+
+  /// Assets for assetsImagesPaymentsPaypal
+  /// assets/images/payments/paypal.png
+  static const String assetsImagesPaymentsPaypal = "assets/images/payments/paypal.png";
+
+  /// Assets for assetsImagesPaymentsVisa
+  /// assets/images/payments/visa.png
+  static const String assetsImagesPaymentsVisa = "assets/images/payments/visa.png";
+
   /// Assets for assetsImagesPlant
   /// assets/images/plant.svg
   static const String assetsImagesPlant = "assets/images/plant.svg";
