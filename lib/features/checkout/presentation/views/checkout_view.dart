@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
-import 'package:ecommerce_app/features/checkout/presentation/views/widgets/shipping_view.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutView extends StatelessWidget {
@@ -13,7 +13,10 @@ class CheckoutView extends StatelessWidget {
     return Scaffold(
       appBar: buildCustomAppBar(context, title: "الشحن"),
       body: const SafeArea(
-        child: Padding(padding: kPrimaryScreenPadding, child: ShippingView()),
+        child: Padding(
+          padding: kPrimaryScreenPadding,
+          child: CheckoutViewBody(),
+        ),
       ),
     );
   }
