@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/address_view.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/shipping_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class CheckoutStepsPageView extends StatelessWidget {
   final PageController _pageController;
   static const List<Widget> pages = [
     ShippingView(),
-    SizedBox(),
+    AddressView(),
     SizedBox(),
     SizedBox(),
   ];

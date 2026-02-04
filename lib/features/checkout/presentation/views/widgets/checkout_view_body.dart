@@ -34,6 +34,12 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         const CustomCheckoutStepsHeader(),
         Expanded(child: CheckoutStepsPageView(pageController: _pageController)),
         CustomButton(
+          onPressed: () {
+            _pageController.nextPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          },
           text: "التالي",
           textStyle: AppStyles.bold16.copyWith(color: Colors.white),
         ),
