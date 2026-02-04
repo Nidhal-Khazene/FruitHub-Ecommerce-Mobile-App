@@ -9,60 +9,72 @@ class ShippingItem extends StatelessWidget {
     required this.subtitle,
     required this.price,
     required this.isSelected,
+    this.onTap,
   });
 
   final String title, subtitle, price;
   final bool isSelected;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 81,
-      padding: const EdgeInsets.only(top: 16, left: 13, right: 28, bottom: 16),
-      decoration: ShapeDecoration(
-        color: const Color(0x33D9D9D9),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: isSelected ? ColorData.kPrimaryColor : Colors.transparent,
-          ),
-          borderRadius: BorderRadius.circular(4),
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.ease,
+        height: 81,
+        padding: const EdgeInsets.only(
+          top: 16,
+          left: 13,
+          right: 28,
+          bottom: 16,
         ),
-      ),
-      child: Center(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            isSelected
-                ? const ActiveShippingItemDot()
-                : const InactiveShippingItemDot(),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(title, style: AppStyles.semiBold13),
-                      const SizedBox(height: 6),
-                      Text(
-                        subtitle,
-                        style: AppStyles.regular13.copyWith(
-                          color: ColorData.kFontSecondaryColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Expanded(child: SizedBox()),
-                  Text(
-                    price,
-                    style: AppStyles.bold13.copyWith(
-                      color: ColorData.kPrimaryColor,
-                    ),
-                  ),
-                ],
-              ),
+        decoration: ShapeDecoration(
+          color: const Color(0x33D9D9D9),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: isSelected ? ColorData.kPrimaryColor : Colors.transparent,
             ),
-          ],
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
+        child: Center(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              isSelected
+                  ? const ActiveShippingItemDot()
+                  : const InactiveShippingItemDot(),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title, style: AppStyles.semiBold13),
+                        const SizedBox(height: 6),
+                        Text(
+                          subtitle,
+                          style: AppStyles.regular13.copyWith(
+                            color: ColorData.kFontSecondaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Expanded(child: SizedBox()),
+                    Text(
+                      price,
+                      style: AppStyles.bold13.copyWith(
+                        color: ColorData.kPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
