@@ -2,6 +2,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for assetsImagesAcceptOrder
+  /// assets/images/accept_order.png
+  static const String assetsImagesAcceptOrder = "assets/images/accept_order.png";
+
   /// Assets for assetsImagesAppleIcon
   /// assets/images/apple_icon.svg
   static const String assetsImagesAppleIcon = "assets/images/apple_icon.svg";
@@ -54,6 +58,18 @@ class Assets {
   /// assets/images/on_boarding_image2.svg
   static const String assetsImagesOnBoardingImage2 = "assets/images/on_boarding_image2.svg";
 
+  /// Assets for assetsImagesOrderArrive
+  /// assets/images/order_arrive.png
+  static const String assetsImagesOrderArrive = "assets/images/order_arrive.png";
+
+  /// Assets for assetsImagesOrderExit
+  /// assets/images/order_exit.png
+  static const String assetsImagesOrderExit = "assets/images/order_exit.png";
+
+  /// Assets for assetsImagesOrderNumber
+  /// assets/images/order_number.png
+  static const String assetsImagesOrderNumber = "assets/images/order_number.png";
+
   /// Assets for assetsImagesPaymentsApplePay
   /// assets/images/payments/apple_pay.png
   static const String assetsImagesPaymentsApplePay = "assets/images/payments/apple_pay.png";
@@ -102,6 +118,10 @@ class Assets {
   /// assets/images/profile_image.png
   static const String assetsImagesProfileImage = "assets/images/profile_image.png";
 
+  /// Assets for assetsImagesShippingOrder
+  /// assets/images/shipping_order.png
+  static const String assetsImagesShippingOrder = "assets/images/shipping_order.png";
+
   /// Assets for assetsImagesStrawberry
   /// assets/images/strawberry.png
   static const String assetsImagesStrawberry = "assets/images/strawberry.png";
@@ -109,6 +129,10 @@ class Assets {
   /// Assets for assetsImagesSuccessImage
   /// assets/images/success_image.png
   static const String assetsImagesSuccessImage = "assets/images/success_image.png";
+
+  /// Assets for assetsImagesTrackOrder
+  /// assets/images/track_order.png
+  static const String assetsImagesTrackOrder = "assets/images/track_order.png";
 
   /// Assets for assetsImagesTrueCircleContainer
   /// assets/images/true_circle_container.svg

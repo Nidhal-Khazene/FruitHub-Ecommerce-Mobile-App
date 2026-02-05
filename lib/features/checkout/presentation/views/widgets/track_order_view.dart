@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/core/helper/build_app_bar.dart';
+import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/track_order_header.dart';
 import 'package:flutter/material.dart';
 
 class TrackOrderView extends StatelessWidget {
@@ -10,13 +11,12 @@ class TrackOrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(
-        context,
-        title: "تتبع الطلب",
-        isNotificationIconShow: false,
-      ),
+      appBar: buildCustomAppBar(context, title: "تتبع الطلب"),
       body: const SafeArea(
-        child: Padding(padding: kPrimaryScreenPadding, child: Column()),
+        child: Padding(
+          padding: kPrimaryScreenPadding,
+          child: Column(children: [TrackOrderHeader()]),
+        ),
       ),
     );
   }
