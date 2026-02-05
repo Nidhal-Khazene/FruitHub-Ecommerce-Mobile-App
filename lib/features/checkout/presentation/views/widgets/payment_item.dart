@@ -5,13 +5,15 @@ class PaymentItem extends StatelessWidget {
     super.key,
     required this.paymentMethod,
     this.backgroundColor,
+    this.height,
   });
   final String paymentMethod;
   final Color? backgroundColor;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 43,
+      height: height ?? 43,
       padding: const EdgeInsets.all(12),
       decoration: ShapeDecoration(
         color: backgroundColor ?? Colors.white,
