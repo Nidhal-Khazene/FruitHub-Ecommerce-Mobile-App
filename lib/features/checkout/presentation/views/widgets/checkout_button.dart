@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -43,9 +44,12 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   Widget build(BuildContext context) {
     return CustomButton(
       onPressed: () {
+        if (pageNumber == CheckoutButton.titles.length - 1) {
+          Navigator.pushNamed(context, PaymentSuccessView.routeName);
+        }
         widget._pageController.nextPage(
           duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
+          curve: Curves.ease,
         );
       },
       text: CheckoutButton
