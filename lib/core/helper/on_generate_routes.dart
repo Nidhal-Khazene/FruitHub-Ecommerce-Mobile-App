@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/best_selling/presentation/views/best_selling_view.dart';
+import '../../features/checkout/presentation/views/widgets/payment_success_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
@@ -35,6 +36,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const CartView());
     case CheckoutView.routeName:
       return MaterialPageRoute(builder: (context) => const CheckoutView());
+    case PaymentSuccessView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const PaymentSuccessView(),
+      );
     default:
       return MaterialPageRoute(
         builder: (context) => const CustomBottomNavigationBar(),
