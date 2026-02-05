@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/address_view.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_review_view.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payments_view.dart';
-import 'package:ecommerce_app/features/checkout/presentation/views/widgets/review_view.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/shipping_view.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class CheckoutStepsPageView extends StatelessWidget {
     ShippingView(),
     AddressView(),
     PaymentsView(),
-    ReviewView(),
+    PaymentReviewView(),
   ];
 
   @override

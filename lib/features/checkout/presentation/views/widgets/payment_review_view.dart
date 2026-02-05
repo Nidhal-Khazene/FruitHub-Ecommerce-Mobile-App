@@ -4,8 +4,8 @@ import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payme
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/review_payment_verified_ticket.dart';
 import 'package:flutter/material.dart';
 
-class ReviewView extends StatelessWidget {
-  const ReviewView({super.key});
+class PaymentReviewView extends StatelessWidget {
+  const PaymentReviewView({super.key});
 
   @override
   Widget build(BuildContext context) {
