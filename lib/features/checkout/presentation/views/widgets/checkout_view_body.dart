@@ -1,8 +1,7 @@
-import 'package:ecommerce_app/core/utils/styles.dart';
-import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/custom_checkout_steps_header.dart';
 import 'package:flutter/material.dart';
 
+import 'checkout_button.dart';
 import 'checkout_steps_page_view.dart';
 
 class CheckoutViewBody extends StatefulWidget {
@@ -33,16 +32,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       children: [
         const CustomCheckoutStepsHeader(),
         Expanded(child: CheckoutStepsPageView(pageController: _pageController)),
-        CustomButton(
-          onPressed: () {
-            _pageController.nextPage(
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
-          },
-          text: "التالي",
-          textStyle: AppStyles.bold16.copyWith(color: Colors.white),
-        ),
+        CheckoutButton(pageController: _pageController),
         const SizedBox(height: 64),
       ],
     );
