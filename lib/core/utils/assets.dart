@@ -106,6 +106,10 @@ class Assets {
   /// assets/images/strawberry.png
   static const String assetsImagesStrawberry = "assets/images/strawberry.png";
 
+  /// Assets for assetsImagesSuccessImage
+  /// assets/images/success_image.png
+  static const String assetsImagesSuccessImage = "assets/images/success_image.png";
+
   /// Assets for assetsImagesTrueCircleContainer
   /// assets/images/true_circle_container.svg
   static const String assetsImagesTrueCircleContainer = "assets/images/true_circle_container.svg";
