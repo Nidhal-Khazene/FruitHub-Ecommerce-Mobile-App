@@ -12,10 +12,26 @@ class TrackOrderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildCustomAppBar(context, title: "تتبع الطلب"),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,
-          child: Column(children: [TrackOrderHeader()]),
+          child: Column(
+            children: [
+              const TrackOrderHeader(),
+              const SizedBox(height: 19),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(
+                  top: 20,
+                  bottom: 20,
+                  right: 33,
+                  left: 66,
+                ),
+                decoration: const BoxDecoration(color: Color(0x7FF2F3F3)),
+                child: Row(children: [Column(children: [])]),
+              ),
+            ],
+          ),
         ),
       ),
     );
