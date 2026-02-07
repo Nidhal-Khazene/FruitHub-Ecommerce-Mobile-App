@@ -47,9 +47,10 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         if (pageNumber == CheckoutButton.titles.length - 1) {
           Navigator.pushNamed(context, PaymentSuccessView.routeName);
         }
-        widget._pageController.nextPage(
+        widget._pageController.animateToPage(
+          pageNumber + 1,
           duration: const Duration(milliseconds: 300),
-          curve: Curves.ease,
+          curve: Curves.bounceIn,
         );
       },
       text: CheckoutButton

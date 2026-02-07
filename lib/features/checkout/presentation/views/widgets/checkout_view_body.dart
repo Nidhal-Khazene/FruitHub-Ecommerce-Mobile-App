@@ -13,10 +13,16 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
+  int currentIndexPage = 0;
 
   @override
   void initState() {
     _pageController = PageController();
+    _pageController.addListener(() {
+      setState(() {
+        currentIndexPage = _pageController.page!.toInt();
+      });
+    });
     super.initState();
   }
 
@@ -30,7 +36,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomCheckoutStepsHeader(),
+        CustomCheckoutStepsHeader(
+          currentIndexPage: currentIndexPage,
+          pageController: _pageController,
+        ),
         Expanded(child: CheckoutStepsPageView(pageController: _pageController)),
         CheckoutButton(pageController: _pageController),
         const SizedBox(height: 64),

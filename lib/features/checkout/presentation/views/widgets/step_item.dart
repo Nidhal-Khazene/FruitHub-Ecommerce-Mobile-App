@@ -24,7 +24,7 @@ class StepItem extends StatelessWidget {
       crossFadeState: isActive
           ? CrossFadeState.showFirst
           : CrossFadeState.showSecond,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 100),
     );
   }
 }
