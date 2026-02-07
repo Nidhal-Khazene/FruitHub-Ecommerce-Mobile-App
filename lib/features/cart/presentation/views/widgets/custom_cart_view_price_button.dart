@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/checkout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,19 @@ class CustomCartViewPriceButton extends StatelessWidget {
     return BlocBuilder<CartItemCubit, CartItemState>(
       builder: (context, state) => CustomButton(
         onPressed: () {
-          Navigator.pushNamed(context, CheckoutView.routeName);
+          if (context
+              .read<CartCubit>()
+              .cartEntity
+              .cartItemsEntities
+              .isNotEmpty) {
+            Navigator.pushNamed(
+              context,
+              CheckoutView.routeName,
+              arguments: context.read<CartCubit>().cartEntity.cartItemsEntities,
+            );
+          } else {
+            showFalseSnackBar(context, errorMessage: "السلة فارغة");
+          }
         },
         text:
             "الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPriceItems()}  جنيه",
