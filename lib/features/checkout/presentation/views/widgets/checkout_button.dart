@@ -1,5 +1,8 @@
+import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
+import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -47,11 +50,15 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         if (pageNumber == CheckoutButton.titles.length - 1) {
           Navigator.pushNamed(context, PaymentSuccessView.routeName);
         }
-        widget._pageController.animateToPage(
-          pageNumber + 1,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.bounceIn,
-        );
+        if (context.read<OrderEntity>().payWithCash != null) {
+          widget._pageController.animateToPage(
+            pageNumber + 1,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.bounceIn,
+          );
+        } else {
+          showFalseSnackBar(context, errorMessage: "اختر طريقة الدفع ");
+        }
       },
       text: CheckoutButton
           .titles[pageNumber.clamp(0, CheckoutButton.titles.length - 1)],

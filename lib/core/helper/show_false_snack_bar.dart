@@ -12,7 +12,7 @@ void showFalseSnackBar(BuildContext context, {required String errorMessage}) {
       backgroundColor: Colors.white,
       content: Row(
         children: [
-          SvgPicture.asset(Assets.assetsImagesTrueCircleContainer),
+          SvgPicture.asset(Assets.assetsImagesFalseIcon, height: 20, width: 20),
           const SizedBox(width: 12),
           Text(
             errorMessage,

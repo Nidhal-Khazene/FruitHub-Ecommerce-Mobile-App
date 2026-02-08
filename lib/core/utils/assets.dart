@@ -22,6 +22,10 @@ class Assets {
   /// assets/images/facebook_icon.svg
   static const String assetsImagesFacebookIcon = "assets/images/facebook_icon.svg";
 
+  /// Assets for assetsImagesFalseIcon
+  /// assets/images/false_icon.svg
+  static const String assetsImagesFalseIcon = "assets/images/false_icon.svg";
+
   /// Assets for assetsImagesFeaturedImage1
   /// assets/images/featured_image_1.png
   static const String assetsImagesFeaturedImage1 = "assets/images/featured_image_1.png";
