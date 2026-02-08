@@ -26,7 +26,7 @@ void showTrueSnackBar(BuildContext context, {required String message}) {
         horizontal: kHorizontalPadding,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 1),
     ),
   );
 }
