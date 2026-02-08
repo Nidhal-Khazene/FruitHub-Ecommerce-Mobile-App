@@ -3,7 +3,7 @@ import 'package:ecommerce_app/features/checkout/domain/entities/shipping_address
 
 class OrderEntity {
   final CartEntity cartEntity;
-  final bool? payWithCash;
+  bool? payWithCash;
   final ShippingAddressEntity? shippingAddressEntity;
 
   OrderEntity({
