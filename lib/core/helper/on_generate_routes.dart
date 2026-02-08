@@ -38,9 +38,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const CartView());
     case CheckoutView.routeName:
       return MaterialPageRoute(
-        builder: (context) => CheckoutView(
-          cartItemsEntities: settings.arguments as List<CartItemEntity>,
-        ),
+        builder: (context) =>
+            CheckoutView(cartItemEntity: settings.arguments as CartItemEntity),
       );
     case PaymentSuccessView.routeName:
       return MaterialPageRoute(

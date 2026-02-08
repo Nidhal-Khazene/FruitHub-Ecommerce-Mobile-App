@@ -24,7 +24,7 @@ class CustomCartViewPriceButton extends StatelessWidget {
             Navigator.pushNamed(
               context,
               CheckoutView.routeName,
-              arguments: context.read<CartCubit>().cartEntity.cartItemsEntities,
+              arguments: context.read<CartCubit>().cartEntity,
             );
           } else {
             showFalseSnackBar(context, errorMessage: "السلة فارغة");
