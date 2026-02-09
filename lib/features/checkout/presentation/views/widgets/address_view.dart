@@ -39,55 +39,60 @@ class _AddressViewState extends State<AddressView>
                 onSaved: (value) {
                   value = context
                       .read<OrderEntity>()
-                      .shippingAddressEntity!
+                      .shippingAddressEntity
                       .fullName;
                 },
                 hintText: "الاسم كامل",
                 hintStyle: AppStyles.bold13,
+                textInputType: TextInputType.name,
               ),
               const SizedBox(height: 8),
               CustomTextFormField(
                 onSaved: (value) {
                   value = context
                       .read<OrderEntity>()
-                      .shippingAddressEntity!
+                      .shippingAddressEntity
                       .email;
                 },
                 hintText: "البريد الإلكتروني",
                 hintStyle: AppStyles.bold13,
+                textInputType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 8),
               CustomTextFormField(
                 onSaved: (value) {
                   value = context
                       .read<OrderEntity>()
-                      .shippingAddressEntity!
+                      .shippingAddressEntity
                       .address;
                 },
                 hintText: "العنوان",
                 hintStyle: AppStyles.bold13,
+                textInputType: TextInputType.streetAddress,
               ),
               const SizedBox(height: 8),
               CustomTextFormField(
                 onSaved: (value) {
                   value = context
                       .read<OrderEntity>()
-                      .shippingAddressEntity!
+                      .shippingAddressEntity
                       .city;
                 },
                 hintText: "المدينه",
                 hintStyle: AppStyles.bold13,
+                textInputType: TextInputType.text,
               ),
               const SizedBox(height: 8),
               CustomTextFormField(
                 onSaved: (value) {
                   context
                       .read<OrderEntity>()
-                      .shippingAddressEntity!
+                      .shippingAddressEntity
                       .apartmentNumber;
                 },
                 hintText: "رقم الطابق , رقم الشقه ..",
                 hintStyle: AppStyles.bold13,
+                textInputType: TextInputType.number,
               ),
               const SizedBox(height: 16),
               Row(
