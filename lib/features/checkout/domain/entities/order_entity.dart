@@ -4,7 +4,7 @@ import 'package:ecommerce_app/features/checkout/domain/entities/shipping_address
 class OrderEntity {
   final CartEntity cartEntity;
   bool? payWithCash;
-  final ShippingAddressEntity? shippingAddressEntity;
+  ShippingAddressEntity? shippingAddressEntity = ShippingAddressEntity();
 
   OrderEntity({
     required this.cartEntity,
