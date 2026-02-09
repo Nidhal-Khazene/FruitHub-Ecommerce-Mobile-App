@@ -14,6 +14,7 @@ class CheckoutViewBody extends StatefulWidget {
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
   int currentIndexPage = 0;
+  final GlobalKey<FormState> _formKey = GlobalKey();
 
   @override
   void initState() {
@@ -40,8 +41,13 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           currentIndexPage: currentIndexPage,
           pageController: _pageController,
         ),
-        Expanded(child: CheckoutStepsPageView(pageController: _pageController)),
-        CheckoutButton(pageController: _pageController),
+        Expanded(
+          child: CheckoutStepsPageView(
+            formKey: _formKey,
+            pageController: _pageController,
+          ),
+        ),
+        CheckoutButton(formKey: _formKey, pageController: _pageController),
         const SizedBox(height: 64),
       ],
     );

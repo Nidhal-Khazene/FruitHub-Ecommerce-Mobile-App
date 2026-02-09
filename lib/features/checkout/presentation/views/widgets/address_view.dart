@@ -5,7 +5,9 @@ import 'package:ecommerce_app/core/widgets/toggle_container_switch.dart';
 import 'package:flutter/material.dart';
 
 class AddressView extends StatelessWidget {
-  const AddressView({super.key});
+  const AddressView({super.key, required this.formKey});
+  final GlobalKey<FormState> formKey;
+
   @override
   Widget build(BuildContext context) {
     return Column(

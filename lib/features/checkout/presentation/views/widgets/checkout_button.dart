@@ -8,10 +8,14 @@ import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
 class CheckoutButton extends StatefulWidget {
-  const CheckoutButton({super.key, required PageController pageController})
-    : _pageController = pageController;
+  const CheckoutButton({
+    super.key,
+    required PageController pageController,
+    required this.formKey,
+  }) : _pageController = pageController;
 
   final PageController _pageController;
+  final GlobalKey<FormState> formKey;
 
   static const List<String> titles = [
     "التالي",
