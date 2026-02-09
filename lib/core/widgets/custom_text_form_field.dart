@@ -17,7 +17,6 @@ class CustomTextFormField extends StatelessWidget {
     this.borderRadius,
     this.hintTextAlign,
     this.hintStyle,
-    this.formKey,
   });
 
   final String hintText;
@@ -33,12 +32,10 @@ class CustomTextFormField extends StatelessWidget {
   final Color? fillColor;
   final double? borderWidth;
   final BorderRadius? borderRadius;
-  final Key? formKey;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      key: formKey,
       obscureText: obscureText,
       onSaved: onSaved,
       validator: (value) {
