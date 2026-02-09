@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddressView extends StatelessWidget {
+class AddressView extends StatefulWidget {
   const AddressView({
     super.key,
     required this.formKey,
@@ -16,13 +16,21 @@ class AddressView extends StatelessWidget {
 
   final GlobalKey<FormState> formKey;
   final ValueListenable<AutovalidateMode> valueListenable;
+
+  @override
+  State<AddressView> createState() => _AddressViewState();
+}
+
+class _AddressViewState extends State<AddressView>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SingleChildScrollView(
       child: ValueListenableBuilder<AutovalidateMode>(
-        valueListenable: valueListenable,
+        valueListenable: widget.valueListenable,
         builder: (context, value, child) => Form(
-          key: formKey,
+          key: widget.formKey,
           autovalidateMode: value,
           child: Column(
             children: [
@@ -100,4 +108,8 @@ class AddressView extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
