@@ -10,11 +10,13 @@ class ShippingView extends StatefulWidget {
   State<ShippingView> createState() => _ShippingViewState();
 }
 
-class _ShippingViewState extends State<ShippingView> {
+class _ShippingViewState extends State<ShippingView>
+    with AutomaticKeepAliveClientMixin {
   int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var orderEntity = context.read<OrderEntity>();
     return Column(
       children: [
@@ -59,4 +61,8 @@ class _ShippingViewState extends State<ShippingView> {
       ],
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
