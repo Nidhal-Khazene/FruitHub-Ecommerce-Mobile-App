@@ -54,14 +54,10 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         if (pageNumber == CheckoutButton.titles.length - 1) {
           Navigator.pushNamed(context, PaymentSuccessView.routeName);
         }
-        if (context.read<OrderEntity>().payWithCash != null) {
-          widget._pageController.animateToPage(
-            pageNumber + 1,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.bounceIn,
-          );
-        } else {
-          showFalseSnackBar(context, errorMessage: "اختر طريقة الدفع ");
+        if (pageNumber == 0) {
+          _handlePaymentSection(context);
+        } else if (pageNumber == 1) {
+          _handleAddressSection();
         }
       },
       text: CheckoutButton
@@ -69,4 +65,18 @@ class _CheckoutButtonState extends State<CheckoutButton> {
       textStyle: AppStyles.bold16.copyWith(color: Colors.white),
     );
   }
+
+  void _handlePaymentSection(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      widget._pageController.animateToPage(
+        pageNumber + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.bounceIn,
+      );
+    } else {
+      showFalseSnackBar(context, errorMessage: "اختر طريقة الدفع ");
+    }
+  }
+
+  void _handleAddressSection() {}
 }
