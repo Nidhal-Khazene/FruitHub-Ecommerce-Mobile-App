@@ -60,6 +60,12 @@ class _CheckoutButtonState extends State<CheckoutButton> {
           _handlePaymentSection(context);
         } else if (pageNumber == 1) {
           _handleAddressSection();
+        } else {
+          widget._pageController.animateToPage(
+            pageNumber + 1,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.bounceIn,
+          );
         }
       },
       text: CheckoutButton
