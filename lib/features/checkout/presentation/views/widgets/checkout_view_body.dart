@@ -15,7 +15,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
   int currentIndexPage = 0;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
+    AutovalidateMode.disabled,
+  );
   @override
   void initState() {
     _pageController = PageController();
@@ -30,6 +32,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   void dispose() {
     _pageController.dispose();
+    valueNotifier.dispose();
     super.dispose();
   }
 
@@ -43,11 +46,16 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         ),
         Expanded(
           child: CheckoutStepsPageView(
+            valueListenable: valueNotifier,
             formKey: _formKey,
             pageController: _pageController,
           ),
         ),
-        CheckoutButton(formKey: _formKey, pageController: _pageController),
+        CheckoutButton(
+          valueNotifier: valueNotifier,
+          formKey: _formKey,
+          pageController: _pageController,
+        ),
         const SizedBox(height: 32),
       ],
     );

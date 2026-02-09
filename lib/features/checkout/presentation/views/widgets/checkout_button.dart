@@ -12,10 +12,12 @@ class CheckoutButton extends StatefulWidget {
     super.key,
     required PageController pageController,
     required this.formKey,
+    required this.valueNotifier,
   }) : _pageController = pageController;
 
   final PageController _pageController;
   final GlobalKey<FormState> formKey;
+  final ValueNotifier<AutovalidateMode> valueNotifier;
 
   static const List<String> titles = [
     "التالي",
@@ -78,5 +80,16 @@ class _CheckoutButtonState extends State<CheckoutButton> {
     }
   }
 
-  void _handleAddressSection() {}
+  void _handleAddressSection() {
+    if (widget.formKey.currentState!.validate()) {
+      widget.formKey.currentState!.save();
+      widget._pageController.animateToPage(
+        pageNumber + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.bounceIn,
+      );
+    } else {
+      widget.valueNotifier.value = AutovalidateMode.always;
+    }
+  }
 }
