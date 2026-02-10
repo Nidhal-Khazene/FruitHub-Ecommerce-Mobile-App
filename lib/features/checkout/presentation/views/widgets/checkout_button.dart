@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,8 +27,8 @@ class CheckoutButton extends StatefulWidget {
 
 class _CheckoutButtonState extends State<CheckoutButton> {
   int pageNumber = 0;
-  late GlobalKey<FormState> formKey;
-  late AutovalidateMode autovalidateMode;
+  late AddressStepScope addressStepScope;
+  late PaymentsStepScope paymentsStepScope;
   @override
   void initState() {
     super.initState();
@@ -45,9 +46,8 @@ class _CheckoutButtonState extends State<CheckoutButton> {
 
   @override
   Widget build(BuildContext context) {
-    formKey = context.read<GlobalKey<FormState>>();
-    autovalidateMode = context.read<AutovalidateMode>();
-
+    addressStepScope = context.read<AddressStepScope>();
+    paymentsStepScope = context.read<PaymentsStepScope>();
     return CustomButton(
       onPressed: () {
         if (pageNumber == CheckoutButton.titles.length - 1) {
@@ -86,28 +86,28 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   }
 
   void _handleAddressSection() {
-    if (formKey.currentState!.validate()) {
-      formKey.currentState!.save();
+    if (addressStepScope.key.currentState!.validate()) {
+      addressStepScope.key.currentState!.save();
       widget._pageController.animateToPage(
         pageNumber + 1,
         duration: const Duration(milliseconds: 300),
         curve: Curves.bounceIn,
       );
     } else {
-      autovalidateMode = AutovalidateMode.always;
+      addressStepScope.autovalidateMode = AutovalidateMode.always;
     }
   }
 
   void _handlePaymentSection() {
-    if (formKey.currentState!.validate()) {
-      formKey.currentState!.save();
+    if (paymentsStepScope.key.currentState!.validate()) {
+      paymentsStepScope.key.currentState!.save();
       widget._pageController.animateToPage(
         pageNumber + 1,
         duration: const Duration(milliseconds: 300),
         curve: Curves.bounceIn,
       );
     } else {
-      autovalidateMode = AutovalidateMode.always;
+      paymentsStepScope.autovalidateMode = AutovalidateMode.always;
     }
   }
 }

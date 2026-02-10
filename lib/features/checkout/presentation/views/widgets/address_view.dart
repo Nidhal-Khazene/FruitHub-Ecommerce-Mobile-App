@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/core/widgets/toggle_container_switch.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,14 +18,12 @@ class _AddressViewState extends State<AddressView>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    final scope = context.read<AddressStepScope>();
     super.build(context);
-    final formKey = context.read<GlobalKey<FormState>>();
-    final autovalidateMode = context.read<AutovalidateMode>();
-
     return SingleChildScrollView(
       child: Form(
-        key: formKey,
-        autovalidateMode: autovalidateMode,
+        key: scope.key,
+        autovalidateMode: scope.autovalidateMode,
         child: Column(
           children: [
             const SizedBox(height: 24),

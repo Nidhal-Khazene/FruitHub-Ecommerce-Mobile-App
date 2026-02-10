@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payments_methods.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/virtual_card_payments_check_box.dart';
 import 'package:flutter/material.dart';
@@ -17,18 +18,14 @@ class PaymentsView extends StatefulWidget {
 
 class _PaymentsViewState extends State<PaymentsView>
     with AutomaticKeepAliveClientMixin {
-  late GlobalKey<FormState> formKey;
-  late AutovalidateMode autovalidateMode;
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    formKey = context.read<GlobalKey<FormState>>();
-    autovalidateMode = context.read<AutovalidateMode>();
+    final scope = context.read<PaymentsStepScope>();
     return SingleChildScrollView(
       child: Form(
-        key: formKey,
-        autovalidateMode: autovalidateMode,
+        key: scope.key,
+        autovalidateMode: scope.autovalidateMode,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

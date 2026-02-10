@@ -42,8 +42,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<GlobalKey<FormState>>(create: (_) => GlobalKey<FormState>()),
-        Provider<AutovalidateMode>(create: (_) => autovalidateMode),
+        Provider<AddressStepScope>(create: (_) => AddressStepScope()),
+        Provider<PaymentsStepScope>(create: (_) => PaymentsStepScope()),
       ],
       child: Column(
         children: [
@@ -60,4 +60,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       ),
     );
   }
+}
+
+class AddressStepScope {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+}
+
+class PaymentsStepScope {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 }
