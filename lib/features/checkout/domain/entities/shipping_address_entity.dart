@@ -1,10 +1,10 @@
 class ShippingAddressEntity {
-  final int? id;
-  final String? fullName;
-  final String? email;
-  final String? address;
-  final String? city;
-  final int? apartmentNumber;
+  int? id;
+  String? fullName;
+  String? email;
+  String? address;
+  String? city;
+  int? apartmentNumber;
 
   ShippingAddressEntity({
     this.fullName,

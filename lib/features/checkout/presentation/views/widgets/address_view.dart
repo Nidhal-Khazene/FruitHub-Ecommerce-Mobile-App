@@ -42,7 +42,7 @@ class _AddressViewState extends State<AddressView>
             const SizedBox(height: 8),
             CustomTextFormField(
               onSaved: (value) {
-                value = context.read<OrderEntity>().shippingAddressEntity.email;
+                context.read<OrderEntity>().shippingAddressEntity.email = value;
               },
               hintText: "البريد الإلكتروني",
               hintStyle: AppStyles.bold13,
@@ -51,10 +51,8 @@ class _AddressViewState extends State<AddressView>
             const SizedBox(height: 8),
             CustomTextFormField(
               onSaved: (value) {
-                value = context
-                    .read<OrderEntity>()
-                    .shippingAddressEntity
-                    .address;
+                context.read<OrderEntity>().shippingAddressEntity.address =
+                    value;
               },
               hintText: "العنوان",
               hintStyle: AppStyles.bold13,
@@ -63,7 +61,7 @@ class _AddressViewState extends State<AddressView>
             const SizedBox(height: 8),
             CustomTextFormField(
               onSaved: (value) {
-                value = context.read<OrderEntity>().shippingAddressEntity.city;
+                context.read<OrderEntity>().shippingAddressEntity.city = value;
               },
               hintText: "المدينه",
               hintStyle: AppStyles.bold13,
@@ -75,7 +73,9 @@ class _AddressViewState extends State<AddressView>
                 context
                     .read<OrderEntity>()
                     .shippingAddressEntity
-                    .apartmentNumber;
+                    .apartmentNumber = int.parse(
+                  value.toString(),
+                );
               },
               hintText: "رقم الطابق , رقم الشقه ..",
               hintStyle: AppStyles.bold13,
