@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payments_methods.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/virtual_card_payments_check_box.dart';
 import 'package:flutter/material.dart';
@@ -43,17 +44,48 @@ class _PaymentsViewState extends State<PaymentsView>
             const SizedBox(height: 13),
             const PaymentsMethods(),
             const SizedBox(height: 16),
-            const CustomTextFormField(hintText: "اسم حامل البطاقه"),
+            CustomTextFormField(
+              hintText: "اسم حامل البطاقه",
+              onSaved: (value) {
+                context.read<OrderEntity>().paymentCardEntity.name = value;
+              },
+            ),
             const SizedBox(height: 8),
-            const CustomTextFormField(hintText: "رقم البطاقة"),
+            CustomTextFormField(
+              hintText: "رقم البطاقة",
+              textInputType: TextInputType.number,
+              onSaved: (value) {
+                context.read<OrderEntity>().paymentCardEntity.cardNumber = value
+                    .toString();
+              },
+            ),
             const SizedBox(height: 8),
-            const Row(
+            Row(
               children: [
                 Expanded(
-                  child: CustomTextFormField(hintText: "تاريخ الصلاحيه"),
+                  child: CustomTextFormField(
+                    hintText: "تاريخ الصلاحيه",
+                    textInputType: TextInputType.datetime,
+                    onSaved: (value) {
+                      context
+                          .read<OrderEntity>()
+                          .paymentCardEntity
+                          .expirationCard = value
+                          .toString();
+                    },
+                  ),
                 ),
-                SizedBox(width: 16),
-                Expanded(child: CustomTextFormField(hintText: "CVV")),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: CustomTextFormField(
+                    hintText: "CVV",
+                    textInputType: TextInputType.number,
+                    onSaved: (value) {
+                      context.read<OrderEntity>().paymentCardEntity.cvv = value
+                          .toString();
+                    },
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 17),
