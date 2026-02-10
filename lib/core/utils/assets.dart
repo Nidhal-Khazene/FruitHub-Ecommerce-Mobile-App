@@ -44,7 +44,7 @@ class Assets {
       "assets/images/icon/fruit_hub_logo.png";
 
   /// Assets for assetsImagesLogoSplash
-  /// assets/images/logo_splash.svg
+  /// assets/images/logo_splash.png
   static const String assetsImagesLogoSplash = "assets/images/logo_splash.png";
 
   /// Assets for assetsImagesNotificationComeIcon

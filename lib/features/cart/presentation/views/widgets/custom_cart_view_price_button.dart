@@ -31,7 +31,7 @@ class CustomCartViewPriceButton extends StatelessWidget {
           }
         },
         text:
-            "الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPriceItems()}  جنيه",
+            "الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPriceItems()}  دينار",
         textStyle: AppStyles.bold16.copyWith(color: Colors.white),
       ),
     );
