@@ -14,12 +14,14 @@ class PaymentsView extends StatefulWidget {
   State<PaymentsView> createState() => _PaymentsViewState();
 }
 
-class _PaymentsViewState extends State<PaymentsView> {
+class _PaymentsViewState extends State<PaymentsView>
+    with AutomaticKeepAliveClientMixin {
   late GlobalKey<FormState> formKey;
   late AutovalidateMode autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     formKey = context.read<GlobalKey<FormState>>();
     autovalidateMode = context.read<AutovalidateMode>();
     return SingleChildScrollView(
@@ -72,4 +74,8 @@ class _PaymentsViewState extends State<PaymentsView> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
