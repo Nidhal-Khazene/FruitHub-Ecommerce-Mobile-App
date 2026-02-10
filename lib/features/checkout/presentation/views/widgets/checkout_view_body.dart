@@ -54,10 +54,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           Expanded(
             child: CheckoutStepsPageView(pageController: _pageController),
           ),
-          CheckoutButton(
-            valueNotifier: valueNotifier,
-            pageController: _pageController,
-          ),
+          CheckoutButton(pageController: _pageController),
           const SizedBox(height: 32),
         ],
       ),

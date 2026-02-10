@@ -3,16 +3,29 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payments_methods.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/virtual_card_payments_check_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
-class PaymentsView extends StatelessWidget {
+class PaymentsView extends StatefulWidget {
   const PaymentsView({super.key});
 
   @override
+  State<PaymentsView> createState() => _PaymentsViewState();
+}
+
+class _PaymentsViewState extends State<PaymentsView> {
+  late GlobalKey<FormState> formKey;
+  late AutovalidateMode autovalidateMode;
+
+  @override
   Widget build(BuildContext context) {
+    formKey = context.read<GlobalKey<FormState>>();
+    autovalidateMode = context.read<AutovalidateMode>();
     return SingleChildScrollView(
       child: Form(
+        key: formKey,
+        autovalidateMode: autovalidateMode,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

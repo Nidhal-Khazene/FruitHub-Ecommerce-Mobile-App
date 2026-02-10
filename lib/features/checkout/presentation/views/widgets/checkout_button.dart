@@ -8,14 +8,10 @@ import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
 class CheckoutButton extends StatefulWidget {
-  const CheckoutButton({
-    super.key,
-    required PageController pageController,
-    required this.valueNotifier,
-  }) : _pageController = pageController;
+  const CheckoutButton({super.key, required PageController pageController})
+    : _pageController = pageController;
 
   final PageController _pageController;
-  final ValueNotifier<AutovalidateMode> valueNotifier;
 
   static const List<String> titles = [
     "التالي",
@@ -58,9 +54,11 @@ class _CheckoutButtonState extends State<CheckoutButton> {
           Navigator.pushNamed(context, PaymentSuccessView.routeName);
         }
         if (pageNumber == 0) {
-          _handlePaymentSection(context);
+          _handleShippingSection(context);
         } else if (pageNumber == 1) {
           _handleAddressSection();
+        } else if (pageNumber == 2) {
+          _handlePaymentSection();
         } else {
           widget._pageController.animateToPage(
             pageNumber + 1,
@@ -75,7 +73,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
     );
   }
 
-  void _handlePaymentSection(BuildContext context) {
+  void _handleShippingSection(BuildContext context) {
     if (context.read<OrderEntity>().payWithCash != null) {
       widget._pageController.animateToPage(
         pageNumber + 1,
@@ -88,6 +86,19 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   }
 
   void _handleAddressSection() {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      widget._pageController.animateToPage(
+        pageNumber + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.bounceIn,
+      );
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+    }
+  }
+
+  void _handlePaymentSection() {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       widget._pageController.animateToPage(
