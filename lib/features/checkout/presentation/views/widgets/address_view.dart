@@ -8,13 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddressView extends StatefulWidget {
-  const AddressView({
-    super.key,
-    required this.formKey,
-    required this.valueListenable,
-  });
+  const AddressView({super.key, required this.valueListenable});
 
-  final GlobalKey<FormState> formKey;
   final ValueListenable<AutovalidateMode> valueListenable;
 
   @override
@@ -26,11 +21,13 @@ class _AddressViewState extends State<AddressView>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final formKey = context.read<GlobalKey<FormState>>();
+
     return SingleChildScrollView(
       child: ValueListenableBuilder<AutovalidateMode>(
         valueListenable: widget.valueListenable,
         builder: (context, value, child) => Form(
-          key: widget.formKey,
+          key: formKey,
           autovalidateMode: value,
           child: Column(
             children: [

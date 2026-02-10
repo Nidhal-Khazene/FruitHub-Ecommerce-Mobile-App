@@ -9,17 +9,15 @@ class CheckoutStepsPageView extends StatelessWidget {
   const CheckoutStepsPageView({
     super.key,
     required PageController pageController,
-    required this.formKey,
     required this.valueListenable,
   }) : _pageController = pageController;
 
   final PageController _pageController;
-  final GlobalKey<FormState> formKey;
   final ValueListenable<AutovalidateMode> valueListenable;
 
   List<Widget> get pages => [
     const ShippingView(),
-    AddressView(formKey: formKey, valueListenable: valueListenable),
+    AddressView(valueListenable: valueListenable),
     const PaymentsView(),
     const PaymentReviewView(),
   ];

@@ -11,12 +11,10 @@ class CheckoutButton extends StatefulWidget {
   const CheckoutButton({
     super.key,
     required PageController pageController,
-    required this.formKey,
     required this.valueNotifier,
   }) : _pageController = pageController;
 
   final PageController _pageController;
-  final GlobalKey<FormState> formKey;
   final ValueNotifier<AutovalidateMode> valueNotifier;
 
   static const List<String> titles = [
@@ -32,12 +30,11 @@ class CheckoutButton extends StatefulWidget {
 
 class _CheckoutButtonState extends State<CheckoutButton> {
   int pageNumber = 0;
-
+  late GlobalKey<FormState> formKey;
   @override
   void initState() {
     super.initState();
 
-    // Listen to page changes
     widget._pageController.addListener(() {
       final int newPage = widget._pageController.page?.round() ?? 0;
 
@@ -51,6 +48,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
 
   @override
   Widget build(BuildContext context) {
+    formKey = context.read<GlobalKey<FormState>>();
     return CustomButton(
       onPressed: () {
         if (pageNumber == CheckoutButton.titles.length - 1) {
@@ -87,8 +85,8 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   }
 
   void _handleAddressSection() {
-    if (widget.formKey.currentState!.validate()) {
-      widget.formKey.currentState!.save();
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
       widget._pageController.animateToPage(
         pageNumber + 1,
         duration: const Duration(milliseconds: 300),
