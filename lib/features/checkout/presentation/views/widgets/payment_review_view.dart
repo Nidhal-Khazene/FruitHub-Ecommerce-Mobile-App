@@ -9,20 +9,22 @@ class PaymentReviewView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 24),
-        Text('ملخص الطلب :', style: AppStyles.bold13),
-        SizedBox(height: 8),
-        PaymentReviewTicket(),
-        SizedBox(height: 16),
-        Text('يرجي تأكيد  طلبك', style: AppStyles.bold13),
-        SizedBox(height: 8),
-        ReviewPaymentVerifiedTicket(),
-        SizedBox(height: 8),
-        PaymentAddressTicket(),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 24),
+          Text('ملخص الطلب :', style: AppStyles.bold13),
+          SizedBox(height: 8),
+          PaymentReviewTicket(),
+          SizedBox(height: 16),
+          Text('يرجي تأكيد  طلبك', style: AppStyles.bold13),
+          SizedBox(height: 8),
+          ReviewPaymentVerifiedTicket(),
+          SizedBox(height: 8),
+          PaymentAddressTicket(),
+        ],
+      ),
     );
   }
 }
