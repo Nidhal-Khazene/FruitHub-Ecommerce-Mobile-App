@@ -31,6 +31,7 @@ class CheckoutButton extends StatefulWidget {
 class _CheckoutButtonState extends State<CheckoutButton> {
   int pageNumber = 0;
   late GlobalKey<FormState> formKey;
+  late AutovalidateMode autovalidateMode;
   @override
   void initState() {
     super.initState();
@@ -49,6 +50,8 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   @override
   Widget build(BuildContext context) {
     formKey = context.read<GlobalKey<FormState>>();
+    autovalidateMode = context.read<AutovalidateMode>();
+
     return CustomButton(
       onPressed: () {
         if (pageNumber == CheckoutButton.titles.length - 1) {
@@ -93,7 +96,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         curve: Curves.bounceIn,
       );
     } else {
-      widget.valueNotifier.value = AutovalidateMode.always;
+      autovalidateMode = AutovalidateMode.always;
     }
   }
 }

@@ -2,22 +2,19 @@ import 'package:ecommerce_app/features/checkout/presentation/views/widgets/addre
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_review_view.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payments_view.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/shipping_view.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutStepsPageView extends StatelessWidget {
   const CheckoutStepsPageView({
     super.key,
     required PageController pageController,
-    required this.valueListenable,
   }) : _pageController = pageController;
 
   final PageController _pageController;
-  final ValueListenable<AutovalidateMode> valueListenable;
 
   List<Widget> get pages => [
     const ShippingView(),
-    AddressView(valueListenable: valueListenable),
+    const AddressView(),
     const PaymentsView(),
     const PaymentReviewView(),
   ];

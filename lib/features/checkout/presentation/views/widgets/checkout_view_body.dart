@@ -15,6 +15,7 @@ class CheckoutViewBody extends StatefulWidget {
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
   int currentIndexPage = 0;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
     AutovalidateMode.disabled,
   );
@@ -42,6 +43,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     return MultiProvider(
       providers: [
         Provider<GlobalKey<FormState>>(create: (_) => GlobalKey<FormState>()),
+        Provider<AutovalidateMode>(create: (_) => autovalidateMode),
       ],
       child: Column(
         children: [
@@ -50,10 +52,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             pageController: _pageController,
           ),
           Expanded(
-            child: CheckoutStepsPageView(
-              valueListenable: valueNotifier,
-              pageController: _pageController,
-            ),
+            child: CheckoutStepsPageView(pageController: _pageController),
           ),
           CheckoutButton(
             valueNotifier: valueNotifier,
