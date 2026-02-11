@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
 
-class PaymentsMethods extends StatelessWidget {
+class PaymentsMethods extends StatefulWidget {
   const PaymentsMethods({super.key});
 
   static const List<String> payments = [
@@ -14,21 +14,51 @@ class PaymentsMethods extends StatelessWidget {
   ];
 
   @override
+  State<PaymentsMethods> createState() => _PaymentsMethodsState();
+}
+
+class _PaymentsMethodsState extends State<PaymentsMethods> {
+  int selectedItem = -1;
+
+  @override
   Widget build(BuildContext context) {
-    return Row(
-      spacing: 16,
-      children: List.generate(payments.length, (index) {
-        if (index != 3) {
-          return Expanded(child: PaymentItem(paymentMethod: payments[index]));
-        } else {
-          return Expanded(
-            child: PaymentItem(
-              paymentMethod: payments[index],
-              backgroundColor: const Color(0xff1434CB),
-            ),
-          );
-        }
-      }),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+      child: Row(
+        spacing: 16,
+        children: List.generate(PaymentsMethods.payments.length, (index) {
+          if (index != 3) {
+            return Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedItem = index;
+                  });
+                },
+                child: PaymentItem(
+                  paymentMethod: PaymentsMethods.payments[index],
+                  isActive: selectedItem == index,
+                ),
+              ),
+            );
+          } else {
+            return Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedItem = index;
+                  });
+                },
+                child: PaymentItem(
+                  paymentMethod: PaymentsMethods.payments[index],
+                  backgroundColor: const Color(0xff1434CB),
+                  isActive: selectedItem == index,
+                ),
+              ),
+            );
+          }
+        }),
+      ),
     );
   }
 }

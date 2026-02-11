@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class PaymentItem extends StatelessWidget {
@@ -6,22 +7,30 @@ class PaymentItem extends StatelessWidget {
     required this.paymentMethod,
     this.backgroundColor,
     this.height,
+    this.isActive,
   });
+
   final String paymentMethod;
   final Color? backgroundColor;
   final double? height;
+  final bool? isActive;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.bounceIn,
       height: height ?? 43,
       padding: const EdgeInsets.all(12),
       decoration: ShapeDecoration(
         color: backgroundColor ?? Colors.white,
         shape: RoundedRectangleBorder(
-          side: const BorderSide(
+          side: BorderSide(
             width: 1,
             strokeAlign: BorderSide.strokeAlignOutside,
-            color: Color(0xFFD6DCE5),
+            color: isActive ?? false
+                ? ColorData.kPrimaryColor
+                : const Color(0xFFD6DCE5),
           ),
           borderRadius: BorderRadius.circular(4),
         ),
