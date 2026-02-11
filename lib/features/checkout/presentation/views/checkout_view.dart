@@ -39,12 +39,26 @@ class _CheckoutViewState extends State<CheckoutView> {
       body: SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,
-          child: Provider.value(
-            value: orderEntity,
+          child: MultiProvider(
+            providers: [
+              Provider<OrderEntity>(create: (_) => orderEntity),
+              Provider<AddressStepScope>(create: (_) => AddressStepScope()),
+              Provider<PaymentsStepScope>(create: (_) => PaymentsStepScope()),
+            ],
             child: const CheckoutViewBody(),
           ),
         ),
       ),
     );
   }
+}
+
+class AddressStepScope {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+}
+
+class PaymentsStepScope {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 }
