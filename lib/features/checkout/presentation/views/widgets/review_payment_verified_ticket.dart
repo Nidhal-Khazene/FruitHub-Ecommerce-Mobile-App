@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_item.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/colors.dart';
@@ -51,7 +53,7 @@ class ReviewPaymentVerifiedTicket extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '**** **** **** 6522',
+                '${context.read<OrderEntity>().paymentCardEntity.cardNumber}',
                 style: AppStyles.regular16.copyWith(
                   color: ColorData.kFontMediumColor,
                 ),

@@ -1,13 +1,13 @@
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
-import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payments_methods.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/virtual_card_payments_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../checkout_view.dart';
 
 class PaymentsView extends StatefulWidget {
   const PaymentsView({super.key});

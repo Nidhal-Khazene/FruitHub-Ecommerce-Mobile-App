@@ -1,6 +1,9 @@
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_edit_address_bottom_sheet_content.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/colors.dart';
 
@@ -23,21 +26,39 @@ class PaymentAddressTicket extends StatelessWidget {
             children: [
               const Text('عنوان التوصيل', style: AppStyles.bold13),
               const Expanded(child: SizedBox()),
-              Row(
-                children: [
-                  Icon(
-                    Iconsax.edit_2_copy,
-                    size: 16,
-                    color: ColorData.kFontSecondaryColor,
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    'تعديل',
-                    style: AppStyles.semiBold13.copyWith(
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.white,
+                    context: context,
+                    builder: (context) {
+                      return const PaymentEditAddressBottomSheetContent();
+                    },
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        topRight: Radius.circular(8),
+                      ),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Iconsax.edit_2_copy,
+                      size: 16,
                       color: ColorData.kFontSecondaryColor,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 4),
+                    Text(
+                      'تعديل',
+                      style: AppStyles.semiBold13.copyWith(
+                        color: ColorData.kFontSecondaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -47,7 +68,7 @@ class PaymentAddressTicket extends StatelessWidget {
               const Icon(Iconsax.location_copy, color: Color(0xFF292D32)),
               const SizedBox(width: 8),
               Text(
-                'شارع النيل، مبنى رقم ١٢٣',
+                context.read<OrderEntity>().shippingAddressEntity.getAddress(),
                 textAlign: TextAlign.right,
                 style: AppStyles.regular16.copyWith(
                   color: ColorData.kFontSecondaryColor,

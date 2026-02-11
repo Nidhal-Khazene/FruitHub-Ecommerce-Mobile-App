@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/styles.dart';
@@ -8,6 +10,7 @@ class PaymentReviewTicket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final orderEntity = context.read<OrderEntity>();
     return Container(
       width: double.infinity,
       height: 128,
@@ -28,8 +31,8 @@ class PaymentReviewTicket extends StatelessWidget {
                 ),
               ),
               const Expanded(child: SizedBox()),
-              const Text(
-                '150 جنيه',
+              Text(
+                '${orderEntity.cartEntity.calculateTotalPriceItems()} دينار',
                 textAlign: TextAlign.right,
                 style: AppStyles.semiBold16,
               ),
@@ -46,7 +49,7 @@ class PaymentReviewTicket extends StatelessWidget {
               ),
               const Expanded(child: SizedBox()),
               Text(
-                '30جنية',
+                '40 دينار',
                 textAlign: TextAlign.right,
                 style: AppStyles.semiBold13.copyWith(
                   color: ColorData.kFontSecondaryColor,
@@ -68,12 +71,12 @@ class PaymentReviewTicket extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          const Row(
+          Row(
             children: [
-              Text('الكلي', style: AppStyles.bold16),
-              Expanded(child: SizedBox()),
+              const Text('الكلي', style: AppStyles.bold16),
+              const Expanded(child: SizedBox()),
               Text(
-                '180 جنيه',
+                '${orderEntity.cartEntity.calculateTotalPriceItems() + 40} دينار',
                 textAlign: TextAlign.right,
                 style: AppStyles.bold16,
               ),

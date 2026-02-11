@@ -6,12 +6,12 @@ class CustomCheckoutStepsHeader extends StatelessWidget {
     super.key,
     required this.currentIndexPage,
     required this.pageController,
-    this.onTap,
+    required this.onTap,
   });
 
   final int currentIndexPage;
   final PageController pageController;
-  final Function()? onTap;
+  final ValueChanged<int> onTap;
 
   static const List<String> textList = [
     "الشحن",
@@ -26,7 +26,9 @@ class CustomCheckoutStepsHeader extends StatelessWidget {
       children: List.generate(textList.length, (index) {
         return Expanded(
           child: GestureDetector(
-            onTap: onTap,
+            onTap: () {
+              onTap(index);
+            },
             child: StepItem(
               isActive: index <= currentIndexPage,
               textContent: textList[index],

@@ -1,12 +1,12 @@
 import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
-import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../checkout_view.dart';
 
 class CheckoutButton extends StatefulWidget {
   const CheckoutButton({super.key, required PageController pageController})

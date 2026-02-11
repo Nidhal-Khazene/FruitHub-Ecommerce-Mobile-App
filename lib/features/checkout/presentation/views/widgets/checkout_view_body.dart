@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/helper/show_false_snack_bar.dart';
 import '../../../domain/entities/order_entity.dart';
+import '../checkout_view.dart';
 import 'checkout_button.dart';
 import 'checkout_steps_page_view.dart';
 
@@ -18,10 +19,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
   int currentIndexPage = 0;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
-    AutovalidateMode.disabled,
-  );
 
+  late AddressStepScope addressStepScope;
+  late PaymentsStepScope paymentsStepScope;
   @override
   void initState() {
     _pageController = PageController();
@@ -36,54 +36,76 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   void dispose() {
     _pageController.dispose();
-    valueNotifier.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<AddressStepScope>(create: (_) => AddressStepScope()),
-        Provider<PaymentsStepScope>(create: (_) => PaymentsStepScope()),
+    addressStepScope = context.read<AddressStepScope>();
+    paymentsStepScope = context.read<PaymentsStepScope>();
+    return Column(
+      children: [
+        CustomCheckoutStepsHeader(
+          onTap: (index) {
+            if (index == 1) {
+              _handleShippingSection(context);
+            } else if (index == 2) {
+              _handleAddressSection();
+            } else if (index == 3) {
+              _handlePaymentSection();
+            } else {
+              _pageController.animateToPage(
+                currentIndexPage,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+              );
+            }
+          },
+          currentIndexPage: currentIndexPage,
+          pageController: _pageController,
+        ),
+        Expanded(child: CheckoutStepsPageView(pageController: _pageController)),
+        CheckoutButton(pageController: _pageController),
+        const SizedBox(height: 32),
       ],
-      child: Column(
-        children: [
-          CustomCheckoutStepsHeader(
-            onTap: () {
-              if (context.read<OrderEntity>().payWithCash != null) {
-                _pageController.animateToPage(
-                  currentIndexPage,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-              } else {
-                showFalseSnackBar(
-                  context,
-                  errorMessage: "يرجى تحديد طريقة الدفع",
-                );
-              }
-            },
-            currentIndexPage: currentIndexPage,
-            pageController: _pageController,
-          ),
-          Expanded(
-            child: CheckoutStepsPageView(pageController: _pageController),
-          ),
-          CheckoutButton(pageController: _pageController),
-          const SizedBox(height: 32),
-        ],
-      ),
     );
   }
-}
 
-class AddressStepScope {
-  final GlobalKey<FormState> key = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-}
+  void _handleShippingSection(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      _pageController.animateToPage(
+        currentIndexPage + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.bounceIn,
+      );
+    } else {
+      showFalseSnackBar(context, errorMessage: "اختر طريقة الدفع ");
+    }
+  }
 
-class PaymentsStepScope {
-  final GlobalKey<FormState> key = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  void _handleAddressSection() {
+    if (addressStepScope.key.currentState!.validate()) {
+      addressStepScope.key.currentState!.save();
+      _pageController.animateToPage(
+        currentIndexPage + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.bounceIn,
+      );
+    } else {
+      addressStepScope.autovalidateMode = AutovalidateMode.always;
+    }
+  }
+
+  void _handlePaymentSection() {
+    if (paymentsStepScope.key.currentState!.validate()) {
+      paymentsStepScope.key.currentState!.save();
+      _pageController.animateToPage(
+        currentIndexPage + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.bounceIn,
+      );
+    } else {
+      paymentsStepScope.autovalidateMode = AutovalidateMode.always;
+    }
+  }
 }

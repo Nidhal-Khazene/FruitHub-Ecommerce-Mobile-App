@@ -3,9 +3,10 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce_app/core/widgets/toggle_container_switch.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
-import 'package:ecommerce_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../checkout_view.dart';
 
 class AddressView extends StatefulWidget {
   const AddressView({super.key});
