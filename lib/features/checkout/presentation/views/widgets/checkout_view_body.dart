@@ -2,6 +2,8 @@ import 'package:ecommerce_app/features/checkout/presentation/views/widgets/custo
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/helper/show_false_snack_bar.dart';
+import '../../../domain/entities/order_entity.dart';
 import 'checkout_button.dart';
 import 'checkout_steps_page_view.dart';
 
@@ -48,6 +50,20 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       child: Column(
         children: [
           CustomCheckoutStepsHeader(
+            onTap: () {
+              if (context.read<OrderEntity>().payWithCash != null) {
+                _pageController.animateToPage(
+                  currentIndexPage,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn,
+                );
+              } else {
+                showFalseSnackBar(
+                  context,
+                  errorMessage: "يرجى تحديد طريقة الدفع",
+                );
+              }
+            },
             currentIndexPage: currentIndexPage,
             pageController: _pageController,
           ),
