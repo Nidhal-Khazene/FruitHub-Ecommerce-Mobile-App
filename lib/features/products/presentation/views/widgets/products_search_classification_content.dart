@@ -14,49 +14,56 @@ class ProductsSearchClassificationContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 32, bottom: 32, left: 13, right: 22),
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Align(
-              alignment: Alignment.center,
-              child: BottomSheetLineHeader(
-                lineColor: Color(0xFF131F46),
-                width: 60,
-                height: 3,
+      padding: EdgeInsets.only(
+        top: 32,
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+        left: 13,
+        right: 22,
+      ),
+      child: SingleChildScrollView(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Align(
+                alignment: Alignment.center,
+                child: BottomSheetLineHeader(
+                  lineColor: Color(0xFF131F46),
+                  width: 60,
+                  height: 3,
+                ),
               ),
-            ),
-            const SizedBox(height: 7),
-            const Text("تصنيف حسب :", style: AppStyles.bold19),
-            const SizedBox(height: 11),
-            const Padding(
-              padding: EdgeInsets.only(right: 8),
-              child: Row(
-                children: [
-                  Icon(Iconsax.tag_copy, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text("السعر :", style: AppStyles.bold13),
-                ],
+              const SizedBox(height: 7),
+              const Text("تصنيف حسب :", style: AppStyles.bold19),
+              const SizedBox(height: 11),
+              const Padding(
+                padding: EdgeInsets.only(right: 8),
+                child: Row(
+                  children: [
+                    Icon(Iconsax.tag_copy, color: Colors.black),
+                    SizedBox(width: 8),
+                    Text("السعر :", style: AppStyles.bold13),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: RowPrice(),
-            ),
-            const SizedBox(height: 48),
-            const PriceDynamicRange(),
-            const SizedBox(height: 24),
-            CustomButton(
-              backgroundColor: ColorData.kPrimaryColor,
-              text: "تصفيه",
-              textStyle: AppStyles.bold16.copyWith(color: Colors.white),
-            ),
-            const SizedBox(height: 32),
-          ],
+              const SizedBox(height: 16),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: RowPrice(),
+              ),
+              const SizedBox(height: 48),
+              const PriceDynamicRange(),
+              const SizedBox(height: 24),
+              CustomButton(
+                backgroundColor: ColorData.kPrimaryColor,
+                text: "تصفيه",
+                textStyle: AppStyles.bold16.copyWith(color: Colors.white),
+              ),
+              const SizedBox(height: 32),
+            ],
+          ),
         ),
       ),
     );
