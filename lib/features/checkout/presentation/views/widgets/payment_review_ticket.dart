@@ -10,7 +10,7 @@ class PaymentReviewTicket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orderEntity = context.read<OrderEntity>();
+    final orderEntity = context.watch<OrderEntity>();
     return Container(
       width: double.infinity,
       height: 128,

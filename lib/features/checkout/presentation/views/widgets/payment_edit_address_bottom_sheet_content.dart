@@ -6,9 +6,20 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/styles.dart';
 import '../../../domain/entities/order_entity.dart';
+import 'edit_address_button.dart';
 
-class PaymentEditAddressBottomSheetContent extends StatelessWidget {
+class PaymentEditAddressBottomSheetContent extends StatefulWidget {
   const PaymentEditAddressBottomSheetContent({super.key});
+
+  @override
+  State<PaymentEditAddressBottomSheetContent> createState() =>
+      _PaymentEditAddressBottomSheetContentState();
+}
+
+class _PaymentEditAddressBottomSheetContentState
+    extends State<PaymentEditAddressBottomSheetContent> {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
@@ -22,50 +33,63 @@ class PaymentEditAddressBottomSheetContent extends StatelessWidget {
       child: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.only(bottom: 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              BottomSheetLineHeader(
-                lineColor: ColorData.kFontSecondaryColor,
-                width: 100,
-                height: 2,
-              ),
-              const SizedBox(height: 24),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity.address =
-                      value;
-                },
-                hintText: "العنوان",
-                hintStyle: AppStyles.bold13,
-                textInputType: TextInputType.streetAddress,
-              ),
-              const SizedBox(height: 8),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity.city =
-                      value;
-                },
-                hintText: "المدينه",
-                hintStyle: AppStyles.bold13,
-                textInputType: TextInputType.text,
-              ),
-              const SizedBox(height: 8),
-              CustomTextFormField(
-                onSaved: (value) {
-                  context
-                      .read<OrderEntity>()
-                      .shippingAddressEntity
-                      .apartmentNumber = int.parse(
-                    value.toString(),
-                  );
-                },
-                hintText: "رقم الطابق , رقم الشقه ..",
-                hintStyle: AppStyles.bold13,
-                textInputType: TextInputType.number,
-              ),
-            ],
+          padding: const EdgeInsets.only(bottom: 32),
+          child: Form(
+            key: key,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                BottomSheetLineHeader(
+                  lineColor: ColorData.kFontSecondaryColor,
+                  width: 100,
+                  height: 2,
+                ),
+                const SizedBox(height: 24),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.watch<OrderEntity>().shippingAddressEntity.address =
+                        value;
+                  },
+                  hintText: "العنوان",
+                  hintStyle: AppStyles.bold13,
+                  textInputType: TextInputType.streetAddress,
+                ),
+                const SizedBox(height: 8),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context.watch<OrderEntity>().shippingAddressEntity.city =
+                        value;
+                  },
+                  hintText: "المدينه",
+                  hintStyle: AppStyles.bold13,
+                  textInputType: TextInputType.text,
+                ),
+                const SizedBox(height: 8),
+                CustomTextFormField(
+                  onSaved: (value) {
+                    context
+                        .watch<OrderEntity>()
+                        .shippingAddressEntity
+                        .apartmentNumber = int.parse(
+                      value.toString(),
+                    );
+                  },
+                  hintText: "رقم الطابق , رقم الشقه ..",
+                  hintStyle: AppStyles.bold13,
+                  textInputType: TextInputType.number,
+                ),
+                const SizedBox(height: 16),
+                EditAddressButton(
+                  onPressed: () {
+                    if (key.currentState!.validate()) {
+                      key.currentState!.save();
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

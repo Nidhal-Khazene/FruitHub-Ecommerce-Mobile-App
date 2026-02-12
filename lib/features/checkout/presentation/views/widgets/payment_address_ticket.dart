@@ -32,7 +32,7 @@ class PaymentAddressTicket extends StatelessWidget {
                     isScrollControlled: true,
                     backgroundColor: Colors.white,
                     context: context,
-                    builder: (context) {
+                    builder: (_) {
                       return const PaymentEditAddressBottomSheetContent();
                     },
                     shape: const RoundedRectangleBorder(
@@ -68,7 +68,7 @@ class PaymentAddressTicket extends StatelessWidget {
               const Icon(Iconsax.location_copy, color: Color(0xFF292D32)),
               const SizedBox(width: 8),
               Text(
-                context.read<OrderEntity>().shippingAddressEntity.getAddress(),
+                context.watch<OrderEntity>().shippingAddressEntity.getAddress(),
                 textAlign: TextAlign.right,
                 style: AppStyles.regular16.copyWith(
                   color: ColorData.kFontSecondaryColor,
