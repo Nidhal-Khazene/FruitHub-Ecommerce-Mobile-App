@@ -44,6 +44,9 @@ class _CheckoutViewState extends State<CheckoutView> {
               Provider<OrderEntity>(create: (_) => orderEntity),
               Provider<AddressStepScope>(create: (_) => AddressStepScope()),
               Provider<PaymentsStepScope>(create: (_) => PaymentsStepScope()),
+              Provider<PaymentsReviewStepScope>(
+                create: (_) => PaymentsReviewStepScope(),
+              ),
             ],
             child: const CheckoutViewBody(),
           ),
@@ -59,6 +62,11 @@ class AddressStepScope {
 }
 
 class PaymentsStepScope {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+}
+
+class PaymentsReviewStepScope {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 }
