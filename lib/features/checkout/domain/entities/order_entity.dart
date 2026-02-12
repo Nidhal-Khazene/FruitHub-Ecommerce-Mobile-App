@@ -3,12 +3,14 @@ import 'package:ecommerce_app/features/checkout/domain/entities/payment_card_ent
 import 'package:ecommerce_app/features/checkout/domain/entities/shipping_address_entity.dart';
 
 class OrderEntity {
+  final String uID;
   final CartEntity cartEntity;
   PaymentCardEntity paymentCardEntity;
   bool? payWithCash;
   ShippingAddressEntity shippingAddressEntity;
 
   OrderEntity({
+    required this.uID,
     required this.cartEntity,
     this.payWithCash,
     required this.paymentCardEntity,

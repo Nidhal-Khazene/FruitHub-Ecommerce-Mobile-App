@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/helper/get_user.dart';
 import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
@@ -25,6 +26,7 @@ class _CheckoutViewState extends State<CheckoutView> {
   @override
   void initState() {
     orderEntity = OrderEntity(
+      uID: getUser()!.userId,
       paymentCardEntity: PaymentCardEntity(),
       cartEntity: widget.cartEntity,
       shippingAddressEntity: ShippingAddressEntity(),
