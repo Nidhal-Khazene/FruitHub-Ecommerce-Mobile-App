@@ -16,7 +16,7 @@ class AddAndMinusNumber extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            cartItemEntity.increaseCount();
+            cartItemEntity.increaseQuantity();
             context.read<CartItemCubit>().updateCartItem(cartItemEntity);
           },
           child: CircleAvatar(
@@ -26,11 +26,11 @@ class AddAndMinusNumber extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 16),
-        Text(cartItemEntity.count.toString(), style: AppStyles.bold16),
+        Text(cartItemEntity.quantity.toString(), style: AppStyles.bold16),
         const SizedBox(width: 16),
         GestureDetector(
           onTap: () {
-            cartItemEntity.decreaseCount();
+            cartItemEntity.decreaseQuantity();
             context.read<CartItemCubit>().updateCartItem(cartItemEntity);
           },
           child: const CircleAvatar(
