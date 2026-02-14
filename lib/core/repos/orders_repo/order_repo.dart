@@ -1,0 +1,7 @@
+import 'package:dartz/dartz.dart';
+import 'package:ecommerce_app/core/errors/failures.dart';
+import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+
+abstract class OrderRepo {
+  Future<Either<Failure, void>> addOrder(OrderEntity orderEntity);
+}
