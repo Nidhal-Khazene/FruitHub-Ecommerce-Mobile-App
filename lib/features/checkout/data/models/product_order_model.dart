@@ -1,13 +1,13 @@
 import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 
-class ProductOrderModel {
+class OrderProductsModel {
   final String productCode;
   final String productName;
   final num productPrice;
   final String imageUrl;
   final int quantity;
 
-  ProductOrderModel({
+  OrderProductsModel({
     required this.productCode,
     required this.productName,
     required this.productPrice,
@@ -15,8 +15,8 @@ class ProductOrderModel {
     required this.quantity,
   });
 
-  factory ProductOrderModel.fromEntity(CartItemEntity cartItemEntity) {
-    return ProductOrderModel(
+  factory OrderProductsModel.fromEntity(CartItemEntity cartItemEntity) {
+    return OrderProductsModel(
       productCode: cartItemEntity.productEntity.productCode,
       productName: cartItemEntity.productEntity.productName,
       productPrice: cartItemEntity.productEntity.productPrice,
