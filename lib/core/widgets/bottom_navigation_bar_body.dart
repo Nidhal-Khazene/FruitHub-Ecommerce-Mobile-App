@@ -3,6 +3,7 @@ import 'package:ecommerce_app/features/cart/presentation/manager/cubits/cart_cub
 import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +25,7 @@ class BottomNavigationBarBody extends StatelessWidget {
       },
       child: IndexedStack(
         index: selectedIndex,
-        children: const [HomeView(), ProductsView(), CartView(), Placeholder()],
+        children: const [HomeView(), ProductsView(), CartView(), ProfileView()],
       ),
     );
   }
