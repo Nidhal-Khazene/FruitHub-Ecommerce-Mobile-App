@@ -24,4 +24,14 @@ class ProductOrderModel {
       quantity: cartItemEntity.quantity,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "productCode": productCode,
+      "productName": productName,
+      "productPrice": productPrice,
+      "imageUrl": imageUrl,
+      "quantity": quantity,
+    };
+  }
 }
