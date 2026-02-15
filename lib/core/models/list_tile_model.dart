@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class ListTileModel {
   final String title;
-  final String subTitle;
-  final Widget trailing;
+  final String? subTitle;
   final Widget leading;
+  final Widget trailing;
 
   ListTileModel({
     required this.title,
-    required this.subTitle,
-    required this.trailing,
+    this.subTitle,
     required this.leading,
+    required this.trailing,
   });
 }
