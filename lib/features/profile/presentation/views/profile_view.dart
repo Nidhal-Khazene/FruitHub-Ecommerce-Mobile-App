@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/helper/build_app_bar.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/profile_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +8,13 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      appBar: buildAppBar(
+        context,
+        title: "حسابي",
+        isNotificationIconShow: false,
+      ),
+      body: const SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,
           child: ProfileViewBody(),
