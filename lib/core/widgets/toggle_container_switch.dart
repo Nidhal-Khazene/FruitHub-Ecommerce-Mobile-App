@@ -6,10 +6,18 @@ class ToggleContainerSwitch extends StatefulWidget {
     super.key,
     this.activeCircleColor,
     this.inactiveCircleColor,
+    this.activeBackgroundColor,
+    this.activeBorderColor,
+    this.inactiveBackgroundColor,
+    this.inactiveBorderColor,
   });
 
   final Color? activeCircleColor;
   final Color? inactiveCircleColor;
+  final Color? activeBackgroundColor;
+  final Color? activeBorderColor;
+  final Color? inactiveBackgroundColor;
+  final Color? inactiveBorderColor;
 
   @override
   State<ToggleContainerSwitch> createState() => _ToggleContainerSwitchState();
@@ -32,13 +40,15 @@ class _ToggleContainerSwitchState extends State<ToggleContainerSwitch> {
         width: 40,
         height: 24,
         decoration: ShapeDecoration(
-          color: isActive ? ColorData.kPrimaryColor : Colors.transparent,
+          color: isActive
+              ? widget.activeBackgroundColor ?? ColorData.kPrimaryColor
+              : widget.inactiveBackgroundColor ?? Colors.transparent,
           shape: RoundedRectangleBorder(
             side: BorderSide(
               width: 1,
               color: isActive
-                  ? ColorData.kPrimaryColor
-                  : ColorData.kBorderColor,
+                  ? widget.activeBorderColor ?? ColorData.kPrimaryColor
+                  : widget.inactiveBorderColor ?? ColorData.kBorderColor,
             ),
             borderRadius: BorderRadius.circular(100),
           ),
