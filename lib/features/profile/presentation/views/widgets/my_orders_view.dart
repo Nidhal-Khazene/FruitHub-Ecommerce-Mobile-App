@@ -1,0 +1,22 @@
+import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
+import 'package:flutter/material.dart';
+
+class MyOrdersView extends StatelessWidget {
+  const MyOrdersView({super.key});
+
+  static const routeName = "MyOrdersView";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: buildCustomAppBar(context, title: "طلباتي"),
+      body: const SafeArea(
+        child: Padding(
+          padding: kPrimaryScreenPadding,
+          child: Column(children: []),
+        ),
+      ),
+    );
+  }
+}
