@@ -16,7 +16,7 @@ class LogOutButton extends StatelessWidget {
         shape: RoundedRectangleBorder(),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50),
+        padding: const EdgeInsets.symmetric(horizontal: 50),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -1,14 +1,13 @@
 import 'package:ecommerce_app/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/login_view.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_entity.dart';
-import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
-import 'package:ecommerce_app/features/cart/presentation/views/widgets/cart_item.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/checkout_view.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/track_order_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/personal_profile_view.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +48,11 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     case TrackOrderView.routeName:
       return MaterialPageRoute(builder: (context) => const TrackOrderView());
+    case PersonalProfileView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const PersonalProfileView(),
+      );
+
     default:
       return MaterialPageRoute(
         builder: (context) => const CustomBottomNavigationBar(),

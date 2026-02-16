@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/models/list_tile_model.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/toggle_container_switch.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/personal_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -103,20 +104,26 @@ class ProfileBodySection extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Column(
-          children: List.generate(
-            listTileItems.length,
-            (index) => ListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(
-                listTileItems[index].title,
-                style: AppStyles.bold13.copyWith(
-                  color: const Color(0xFF949D9E),
+          children: List.generate(listTileItems.length, (index) {
+            return GestureDetector(
+              onTap: () {
+                if (index == 0) {
+                  Navigator.pushNamed(context, PersonalProfileView.routeName);
+                }
+              },
+              child: ListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(
+                  listTileItems[index].title,
+                  style: AppStyles.bold13.copyWith(
+                    color: const Color(0xFF949D9E),
+                  ),
                 ),
+                leading: listTileItems[index].leading,
+                trailing: listTileItems[index].trailing,
               ),
-              leading: listTileItems[index].leading,
-              trailing: listTileItems[index].trailing,
-            ),
-          ),
+            );
+          }),
         ),
         const SizedBox(height: 16),
         Text(
