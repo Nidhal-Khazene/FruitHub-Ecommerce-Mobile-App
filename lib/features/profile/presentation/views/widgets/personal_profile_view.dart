@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/core/helper/build_app_bar.dart';
+import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class PersonalProfileView extends StatelessWidget {
@@ -10,12 +10,8 @@ class PersonalProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(
-        context,
-        title: "الملف الشخصي",
-        isNotificationIconShow: false,
-      ),
-      body: SafeArea(
+      appBar: buildCustomAppBar(context, title: "الملف الشخصي"),
+      body: const SafeArea(
         child: Padding(padding: kPrimaryScreenPadding, child: Column()),
       ),
     );
