@@ -94,58 +94,52 @@ class ProfileBodySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'عام',
-            style: AppStyles.semiBold13.copyWith(
-              color: const Color(0xFF0C0D0D),
-            ),
-          ),
-          const SizedBox(height: 16),
-          Column(
-            children: List.generate(
-              listTileItems.length,
-              (index) => ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(
-                  listTileItems[index].title,
-                  style: AppStyles.bold13.copyWith(
-                    color: const Color(0xFF949D9E),
-                  ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'عام',
+          style: AppStyles.semiBold13.copyWith(color: const Color(0xFF0C0D0D)),
+        ),
+        const SizedBox(height: 16),
+        Column(
+          children: List.generate(
+            listTileItems.length,
+            (index) => ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(
+                listTileItems[index].title,
+                style: AppStyles.bold13.copyWith(
+                  color: const Color(0xFF949D9E),
                 ),
-                leading: listTileItems[index].leading,
-                trailing: listTileItems[index].trailing,
               ),
+              leading: listTileItems[index].leading,
+              trailing: listTileItems[index].trailing,
             ),
           ),
-          const SizedBox(height: 22),
-          Text(
-            'المساعده',
+        ),
+        const SizedBox(height: 16),
+        Text(
+          'المساعده',
+          style: AppStyles.semiBold13.copyWith(color: const Color(0xFF0C0D0D)),
+        ),
+        const SizedBox(height: 8),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            'من نحن',
             style: AppStyles.semiBold13.copyWith(
-              color: const Color(0xFF0C0D0D),
+              color: const Color(0xFF949D9E),
             ),
           ),
-          const SizedBox(height: 16),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'من نحن',
-              style: AppStyles.semiBold13.copyWith(
-                color: const Color(0xFF949D9E),
-              ),
-            ),
-            leading: Icon(
-              Iconsax.info_circle_copy,
-              color: ColorData.kPrimaryColor,
-              size: 20,
-            ),
-            trailing: const Icon(Icons.arrow_forward_ios, size: 20),
+          leading: Icon(
+            Iconsax.info_circle_copy,
+            color: ColorData.kPrimaryColor,
+            size: 20,
           ),
-        ],
-      ),
+          trailing: const Icon(Icons.arrow_forward_ios, size: 20),
+        ),
+      ],
     );
   }
 }
