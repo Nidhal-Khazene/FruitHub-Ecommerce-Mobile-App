@@ -2,7 +2,14 @@ import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ToggleContainerSwitch extends StatefulWidget {
-  const ToggleContainerSwitch({super.key});
+  const ToggleContainerSwitch({
+    super.key,
+    this.activeCircleColor,
+    this.inactiveCircleColor,
+  });
+
+  final Color? activeCircleColor;
+  final Color? inactiveCircleColor;
 
   @override
   State<ToggleContainerSwitch> createState() => _ToggleContainerSwitchState();
@@ -39,8 +46,20 @@ class _ToggleContainerSwitchState extends State<ToggleContainerSwitch> {
         child: Stack(
           children: [
             isActive
-                ? const Positioned(left: 17, top: 1, child: ActiveCircle())
-                : const Positioned(left: 2, top: 1, child: InActiveCircle()),
+                ? Positioned(
+                    left: 17,
+                    top: 1,
+                    child: ActiveCircle(
+                      activeCircleColor: widget.activeCircleColor,
+                    ),
+                  )
+                : Positioned(
+                    left: 2,
+                    top: 1,
+                    child: InActiveCircle(
+                      inactiveCircleColor: widget.inactiveCircleColor,
+                    ),
+                  ),
           ],
         ),
       ),
@@ -49,32 +68,36 @@ class _ToggleContainerSwitchState extends State<ToggleContainerSwitch> {
 }
 
 class ActiveCircle extends StatelessWidget {
-  const ActiveCircle({super.key});
+  const ActiveCircle({super.key, this.activeCircleColor});
+
+  final Color? activeCircleColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 20,
       height: 20,
-      decoration: const ShapeDecoration(
-        color: Colors.white,
-        shape: OvalBorder(),
+      decoration: ShapeDecoration(
+        color: activeCircleColor ?? Colors.white,
+        shape: const OvalBorder(),
       ),
     );
   }
 }
 
 class InActiveCircle extends StatelessWidget {
-  const InActiveCircle({super.key});
+  const InActiveCircle({super.key, this.inactiveCircleColor});
+
+  final Color? inactiveCircleColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 20,
       height: 20,
-      decoration: const ShapeDecoration(
-        color: Color(0xFF8C8B8B),
-        shape: OvalBorder(),
+      decoration: ShapeDecoration(
+        color: inactiveCircleColor ?? const Color(0xFF8C8B8B),
+        shape: const OvalBorder(),
       ),
     );
   }
