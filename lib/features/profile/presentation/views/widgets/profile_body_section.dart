@@ -52,7 +52,11 @@ class ProfileBodySection extends StatelessWidget {
         size: 20,
         color: ColorData.kPrimaryColor,
       ),
-      trailing: const ToggleContainerSwitch(),
+      trailing: const ToggleContainerSwitch(
+        inactiveCircleColor: Colors.white,
+        inactiveBackgroundColor: Color(0x7F888FA0),
+        inactiveBorderColor: Colors.transparent,
+      ),
     ),
     ListTileModel(
       title: "اللغة",
@@ -80,7 +84,11 @@ class ProfileBodySection extends StatelessWidget {
         size: 20,
         color: ColorData.kPrimaryColor,
       ),
-      trailing: const ToggleContainerSwitch(),
+      trailing: const ToggleContainerSwitch(
+        inactiveCircleColor: Colors.white,
+        inactiveBackgroundColor: Color(0x7F888FA0),
+        inactiveBorderColor: Colors.transparent,
+      ),
     ),
   ];
 
