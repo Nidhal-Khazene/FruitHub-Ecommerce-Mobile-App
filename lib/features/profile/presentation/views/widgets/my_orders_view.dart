@@ -15,7 +15,15 @@ class MyOrdersView extends StatelessWidget {
       body: const SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,
-          child: Column(children: [MyOrdersViewItem()]),
+          child: Column(
+            children: [
+              MyOrdersViewItem(),
+              SizedBox(height: 8),
+              MyOrdersViewItem(),
+              SizedBox(height: 8),
+              MyOrdersViewItem(),
+            ],
+          ),
         ),
       ),
     );
