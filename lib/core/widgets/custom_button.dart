@@ -6,16 +6,18 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.onPressed,
-    required this.text,
+    this.text,
     this.backgroundColor,
     this.width,
     this.height,
     this.borderRadiusValue,
     this.textStyle,
+    this.content,
   });
 
   final void Function()? onPressed;
-  final String text;
+  final String? text;
+  final Widget? content;
   final Color? backgroundColor;
   final double? width, height;
   final double? borderRadiusValue;
@@ -26,21 +28,24 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: width ?? double.infinity,
       height: height ?? 54,
-      child: TextButton(
-        style: TextButton.styleFrom(
-          backgroundColor: backgroundColor ?? ColorData.kPrimaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadiusValue ?? 16),
+      child:
+          content ??
+          TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: backgroundColor ?? ColorData.kPrimaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadiusValue ?? 16),
+              ),
+            ),
+            onPressed: onPressed,
+            child: Center(
+              child: Text(
+                text ?? "Empty text",
+                style:
+                    textStyle ?? AppStyles.bold16.copyWith(color: Colors.white),
+              ),
+            ),
           ),
-        ),
-        onPressed: onPressed,
-        child: Center(
-          child: Text(
-            text,
-            style: textStyle ?? AppStyles.bold16.copyWith(color: Colors.white),
-          ),
-        ),
-      ),
     );
   }
 }
