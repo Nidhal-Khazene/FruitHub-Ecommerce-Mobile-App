@@ -6,13 +6,21 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../checkout/presentation/views/widgets/order_tracking_item.dart';
 
-class MyOrdersViewItem extends StatelessWidget {
+class MyOrdersViewItem extends StatefulWidget {
   const MyOrdersViewItem({super.key});
 
   @override
+  State<MyOrdersViewItem> createState() => _MyOrdersViewItemState();
+}
+
+class _MyOrdersViewItemState extends State<MyOrdersViewItem> {
+  bool isVisible = false;
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 19, bottom: 19, left: 32, right: 0),
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.bounceInOut,
+      padding: const EdgeInsets.only(top: 19),
       decoration: const BoxDecoration(color: Color(0x7FF2F3F3)),
       child: Column(
         children: [
@@ -70,11 +78,25 @@ class MyOrdersViewItem extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                const Icon(Iconsax.arrow_down_1_copy),
+                Padding(
+                  padding: const EdgeInsets.only(left: 32),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    child: const Icon(Iconsax.arrow_down_1_copy),
+                  ),
+                ),
               ],
             ),
           ),
-          Visibility(child: MyOrdersViewItemDetails()),
+          const SizedBox(height: 24),
+          Visibility(
+            visible: isVisible,
+            child: const MyOrdersViewItemDetails(),
+          ),
         ],
       ),
     );

@@ -10,7 +10,7 @@ class OrderTrackVerticalLine extends StatelessWidget {
         Positioned(
           left: 0,
           top: 0,
-          child: Container(
+          child: SizedBox(
             width: 10,
             height: 142,
             child: Stack(
@@ -23,12 +23,12 @@ class OrderTrackVerticalLine extends StatelessWidget {
                       ..translate(0.0, 0.0)
                       ..rotateZ(1.57),
                     width: 65,
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
                           width: 1,
                           strokeAlign: BorderSide.strokeAlignCenter,
-                          color: const Color(0xFF28B446),
+                          color: Color(0xFF28B446),
                         ),
                       ),
                     ),
@@ -42,12 +42,12 @@ class OrderTrackVerticalLine extends StatelessWidget {
                       ..translate(0.0, 0.0)
                       ..rotateZ(1.57),
                     width: 57,
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
                           width: 1,
                           strokeAlign: BorderSide.strokeAlignCenter,
-                          color: const Color(0xFFF4F5F9),
+                          color: Color(0xFFF4F5F9),
                         ),
                       ),
                     ),
@@ -59,8 +59,8 @@ class OrderTrackVerticalLine extends StatelessWidget {
                   child: Container(
                     width: 10,
                     height: 10,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF1B5E37),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFF1B5E37),
                       shape: OvalBorder(),
                     ),
                   ),
@@ -71,8 +71,8 @@ class OrderTrackVerticalLine extends StatelessWidget {
                   child: Container(
                     width: 10,
                     height: 10,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF1B5E37),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFF1B5E37),
                       shape: OvalBorder(),
                     ),
                   ),
@@ -83,8 +83,8 @@ class OrderTrackVerticalLine extends StatelessWidget {
                   child: Container(
                     width: 10,
                     height: 10,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF1B5E37),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFF1B5E37),
                       shape: OvalBorder(),
                     ),
                   ),
@@ -95,8 +95,8 @@ class OrderTrackVerticalLine extends StatelessWidget {
                   child: Container(
                     width: 10,
                     height: 10,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFFEBEBEB),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFFEBEBEB),
                       shape: OvalBorder(),
                     ),
                   ),
@@ -107,8 +107,8 @@ class OrderTrackVerticalLine extends StatelessWidget {
                   child: Container(
                     width: 10,
                     height: 10,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFFEBEBEB),
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFFEBEBEB),
                       shape: OvalBorder(),
                     ),
                   ),
