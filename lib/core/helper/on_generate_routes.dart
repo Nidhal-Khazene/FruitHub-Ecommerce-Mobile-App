@@ -9,6 +9,7 @@ import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boardin
 import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/my_orders_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/personal_profile_view.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/profile_payments_view.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     case MyOrdersView.routeName:
       return MaterialPageRoute(builder: (context) => const MyOrdersView());
+    case ProfilePaymentsView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const ProfilePaymentsView(),
+      );
     default:
       return MaterialPageRoute(
         builder: (context) => const CustomBottomNavigationBar(),
