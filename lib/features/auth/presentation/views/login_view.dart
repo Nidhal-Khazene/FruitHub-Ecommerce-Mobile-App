@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/services/service_locator.dart';
-import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
+import 'package:ecommerce_app/core/widgets/app_bar_with_back_arrow.dart';
 import 'package:ecommerce_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:ecommerce_app/features/auth/presentation/manager/cubits/log_in_cubit/login_cubit.dart';
 import 'package:ecommerce_app/features/auth/presentation/views/widgets/bloc_consumer_login_view_body.dart';
@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(getIt<AuthRepo>()),
       child: Scaffold(
-        appBar: buildCustomAppBar(context, title: "تسجيل دخول"),
+        appBar: buildAppBarWithBackArrow(context, title: "تسجيل دخول"),
         body: const BlocConsumerLoginViewBody(),
       ),
     );

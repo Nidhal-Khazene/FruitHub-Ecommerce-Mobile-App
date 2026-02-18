@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/constants.dart';
-import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
+import 'package:ecommerce_app/core/widgets/app_bar_with_back_arrow.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/track_order_header.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class TrackOrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildCustomAppBar(context, title: "تتبع الطلب"),
+      appBar: buildAppBarWithBackArrow(context, title: "تتبع الطلب"),
       body: SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,

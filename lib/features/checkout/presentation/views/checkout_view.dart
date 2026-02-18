@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/helper/get_user.dart';
 import 'package:ecommerce_app/core/repos/orders_repo/order_repo.dart';
-import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
+import 'package:ecommerce_app/core/widgets/app_bar_with_back_arrow.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/payment_card_entity.dart';
@@ -44,7 +44,7 @@ class _CheckoutViewState extends State<CheckoutView> {
     return BlocProvider(
       create: (context) => AddOrderCubit(orderRepo: getIt.get<OrderRepo>()),
       child: Scaffold(
-        appBar: buildCustomAppBar(context, title: "الشحن"),
+        appBar: buildAppBarWithBackArrow(context, title: "الشحن"),
         body: SafeArea(
           child: Padding(
             padding: kPrimaryScreenPadding,

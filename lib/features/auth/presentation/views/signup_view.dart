@@ -5,7 +5,7 @@ import 'package:ecommerce_app/features/auth/presentation/views/widgets/bloc_cons
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../core/widgets/app_bar_with_back_arrow.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -17,7 +17,7 @@ class SignUpView extends StatelessWidget {
     return BlocProvider<SignUpCubit>(
       create: (context) => SignUpCubit(getIt<AuthRepo>()),
       child: Scaffold(
-        appBar: buildCustomAppBar(context, title: 'حساب جديد'),
+        appBar: buildAppBarWithBackArrow(context, title: 'حساب جديد'),
         body: const BlocConsumerSignUpViewBody(),
       ),
     );

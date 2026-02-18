@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
+import 'package:ecommerce_app/core/widgets/app_bar_with_back_arrow.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/my_orders_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class MyOrdersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildCustomAppBar(context, title: "طلباتي"),
+      appBar: buildAppBarWithBackArrow(context, title: "طلباتي"),
       body: const SafeArea(
         child: Padding(
           padding: kPrimaryScreenPadding,
