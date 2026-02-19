@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/add_new_payment_card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -97,27 +98,37 @@ class ProfilePaymentsView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 346),
-                    CustomButton(
-                      content: Container(
-                        decoration: ShapeDecoration(
-                          color: ColorData.kPrimaryColor,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(16)),
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.add, color: Colors.white),
-                            const SizedBox(width: 6.5),
-                            Text(
-                              'أضف وسيلة دفع جديده',
-                              textAlign: TextAlign.center,
-                              style: AppStyles.bold16.copyWith(
-                                color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AddNewPaymentCardView.routeName,
+                        );
+                      },
+                      child: CustomButton(
+                        content: Container(
+                          decoration: ShapeDecoration(
+                            color: ColorData.kPrimaryColor,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
                               ),
                             ),
-                          ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.add, color: Colors.white),
+                              const SizedBox(width: 6.5),
+                              Text(
+                                'أضف وسيلة دفع جديده',
+                                textAlign: TextAlign.center,
+                                style: AppStyles.bold16.copyWith(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

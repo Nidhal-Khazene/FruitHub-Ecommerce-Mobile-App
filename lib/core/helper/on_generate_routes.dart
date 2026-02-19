@@ -7,6 +7,7 @@ import 'package:ecommerce_app/features/checkout/presentation/views/widgets/track
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:ecommerce_app/features/products/presentation/views/products_view.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/add_new_payment_card_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/my_orders_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/personal_profile_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/profile_payments_view.dart';
@@ -60,6 +61,11 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const ProfilePaymentsView(),
       );
+    case AddNewPaymentCardView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const AddNewPaymentCardView(),
+      );
+
     default:
       return MaterialPageRoute(
         builder: (context) => const CustomBottomNavigationBar(),
