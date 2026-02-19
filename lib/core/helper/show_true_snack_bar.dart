@@ -5,7 +5,11 @@ import '../../constants.dart';
 import '../utils/assets.dart';
 import '../utils/styles.dart';
 
-void showTrueSnackBar(BuildContext context, {required String message}) {
+void showTrueSnackBar(
+  BuildContext context, {
+  required String message,
+  int? secondsDuration,
+}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       elevation: 0,
@@ -26,7 +30,7 @@ void showTrueSnackBar(BuildContext context, {required String message}) {
         horizontal: kHorizontalPadding,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      duration: const Duration(seconds: 1),
+      duration: Duration(seconds: secondsDuration ?? 1),
     ),
   );
 }
