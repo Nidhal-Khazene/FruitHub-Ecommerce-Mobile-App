@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/custom_checkout_steps_header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,8 @@ import 'checkout_steps_page_view.dart';
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
 
+  List<String> get pages => ["الشحن", "العنوان", "الدفع", "المراجعه"];
+
   @override
   State<CheckoutViewBody> createState() => _CheckoutViewBodyState();
 }
@@ -22,6 +25,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   late AddressStepScope addressStepScope;
   late PaymentsStepScope paymentsStepScope;
+
   @override
   void initState() {
     _pageController = PageController();
@@ -45,6 +49,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     paymentsStepScope = context.read<PaymentsStepScope>();
     return Column(
       children: [
+        CustomAppBar(title: widget.pages[currentIndexPage]),
+        const SizedBox(height: 24),
         CustomCheckoutStepsHeader(
           onTap: (index) {
             if (index == 1) {
