@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/models/list_tile_model.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/toggle_container_switch.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/favourites_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/my_orders_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/personal_profile_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/profile_payments_view.dart';
@@ -115,6 +116,8 @@ class ProfileBodySection extends StatelessWidget {
                   Navigator.pushNamed(context, MyOrdersView.routeName);
                 } else if (index == 2) {
                   Navigator.pushNamed(context, ProfilePaymentsView.routeName);
+                } else if (index == 3) {
+                  Navigator.pushNamed(context, FavouritesView.routeName);
                 }
               },
               child: ListTile(
