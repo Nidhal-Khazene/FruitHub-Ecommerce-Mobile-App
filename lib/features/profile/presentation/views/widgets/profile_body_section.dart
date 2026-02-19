@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/models/list_tile_model.dart';
 import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/toggle_container_switch.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/about_us_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/favourites_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/my_orders_view.dart';
 import 'package:ecommerce_app/features/profile/presentation/views/widgets/personal_profile_view.dart';
@@ -140,20 +141,25 @@ class ProfileBodySection extends StatelessWidget {
           style: AppStyles.semiBold13.copyWith(color: const Color(0xFF0C0D0D)),
         ),
         const SizedBox(height: 8),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          title: Text(
-            'من نحن',
-            style: AppStyles.semiBold13.copyWith(
-              color: const Color(0xFF949D9E),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, AboutUsView.routeName);
+          },
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'من نحن',
+              style: AppStyles.semiBold13.copyWith(
+                color: const Color(0xFF949D9E),
+              ),
             ),
+            leading: Icon(
+              Iconsax.info_circle_copy,
+              color: ColorData.kPrimaryColor,
+              size: 20,
+            ),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 20),
           ),
-          leading: Icon(
-            Iconsax.info_circle_copy,
-            color: ColorData.kPrimaryColor,
-            size: 20,
-          ),
-          trailing: const Icon(Icons.arrow_forward_ios, size: 20),
         ),
       ],
     );
