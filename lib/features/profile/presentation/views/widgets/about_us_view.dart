@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/widgets/app_bar_with_back_arrow.dart';
+import 'package:ecommerce_app/features/profile/presentation/views/widgets/about_us_text_content.dart';
 import 'package:flutter/material.dart';
 
 class AboutUsView extends StatelessWidget {
@@ -12,7 +13,10 @@ class AboutUsView extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBarWithBackArrow(context, title: "من نحن"),
       body: const SafeArea(
-        child: Padding(padding: kPrimaryScreenPadding, child: Placeholder()),
+        child: Padding(
+          padding: kPrimaryScreenPadding,
+          child: AboutUsTextContent(),
+        ),
       ),
     );
   }
