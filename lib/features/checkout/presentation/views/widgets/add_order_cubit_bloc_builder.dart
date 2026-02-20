@@ -21,10 +21,18 @@ class AddOrderCubitBlocBuilder extends StatelessWidget {
       },
       listener: (context, state) {
         if (state is AddOrderSuccess) {
-          showTrueSnackBar(context, message: "لقد تم اضافة طلب الشراء بنجاح");
+          showTrueSnackBar(
+            context,
+            message: "لقد تم اضافة طلب الشراء بنجاح",
+            secondsDuration: 2,
+          );
         }
         if (state is AddOrderFailure) {
-          showFalseSnackBar(context, errorMessage: "فشل اضافة طلب الشراء");
+          showFalseSnackBar(
+            context,
+            errorMessage: "فشل اضافة طلب الشراء",
+            secondsDuration: 2,
+          );
         }
       },
     );

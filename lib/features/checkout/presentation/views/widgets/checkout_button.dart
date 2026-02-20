@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+import 'package:ecommerce_app/features/checkout/presentation/manager/add_order_cubit/add_order_cubit.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,6 +30,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   int pageNumber = 0;
   late AddressStepScope addressStepScope;
   late PaymentsStepScope paymentsStepScope;
+
   @override
   void initState() {
     super.initState();
@@ -60,11 +62,8 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         } else if (pageNumber == 2) {
           _handlePaymentSection();
         } else {
-          widget._pageController.animateToPage(
-            pageNumber + 1,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.bounceIn,
-          );
+          var orderEntity = context.read<OrderEntity>();
+          context.read<AddOrderCubit>().addOrder(orderEntity);
         }
       },
       text: CheckoutButton
