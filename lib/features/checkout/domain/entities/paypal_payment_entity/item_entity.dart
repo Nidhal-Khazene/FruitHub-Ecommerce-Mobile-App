@@ -1,16 +1,16 @@
 import 'package:ecommerce_app/core/helper/get_currency.dart';
 import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 
-class Item {
+class ItemEntity {
   String? name;
   int? quantity;
   String? price;
   String? currency;
 
-  Item({this.name, this.quantity, this.price, this.currency});
+  ItemEntity({this.name, this.quantity, this.price, this.currency});
 
-  factory Item.fromEntity(CartItemEntity cartItemEntity) {
-    return Item(
+  factory ItemEntity.fromEntity(CartItemEntity cartItemEntity) {
+    return ItemEntity(
       currency: getCurrency(),
       name: cartItemEntity.productEntity.productName,
       price: cartItemEntity.productEntity.productPrice.toString(),

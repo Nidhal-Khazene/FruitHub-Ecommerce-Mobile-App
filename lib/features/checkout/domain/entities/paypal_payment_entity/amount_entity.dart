@@ -3,12 +3,12 @@ import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dar
 
 import 'details_entity.dart';
 
-class Amount {
+class AmountEntity {
   String? total;
   String? currency;
   DetailsEntity? details;
 
-  Amount({this.total, this.currency, this.details});
+  AmountEntity({this.total, this.currency, this.details});
 
   Map<String, dynamic> toJson() => {
     'total': total,
@@ -16,8 +16,8 @@ class Amount {
     'details': details?.toJson(),
   };
 
-  factory Amount.fromEntity(OrderEntity orderEntity) {
-    return Amount(
+  factory AmountEntity.fromEntity(OrderEntity orderEntity) {
+    return AmountEntity(
       currency: getCurrency(),
       total: orderEntity
           .calculateTotalPriceAfterShippingAndDiscount()
