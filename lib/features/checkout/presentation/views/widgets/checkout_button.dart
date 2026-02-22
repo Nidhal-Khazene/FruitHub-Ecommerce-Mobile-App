@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
+import 'package:ecommerce_app/core/utils/app_keys.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
+import 'package:ecommerce_app/features/checkout/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -112,42 +114,17 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   }
 
   void _handleProcessPayment(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+    PaypalPaymentEntity paypalPaymentEntity = PaypalPaymentEntity.fromEntity(
+      orderEntity,
+    );
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) => PaypalCheckoutView(
           sandboxMode: true,
-          clientId: "",
-          secretKey: "",
-          transactions: const [
-            {
-              "amount": {
-                "total": '70',
-                "currency": "USD",
-                "details": {
-                  "subtotal": '70',
-                  "shipping": '0',
-                  "shipping_discount": 0,
-                },
-              },
-              "description": "The payment transaction description.",
-              "item_list": {
-                "items": [
-                  {
-                    "name": "Apple",
-                    "quantity": 4,
-                    "price": '5',
-                    "currency": "USD",
-                  },
-                  {
-                    "name": "Pineapple",
-                    "quantity": 5,
-                    "price": '10',
-                    "currency": "USD",
-                  },
-                ],
-              },
-            },
-          ],
+          clientId: kPayPalClientID,
+          secretKey: kPayPalSecretKey,
+          transactions: [paypalPaymentEntity.toJson()],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
             print("onSuccess: $params");
