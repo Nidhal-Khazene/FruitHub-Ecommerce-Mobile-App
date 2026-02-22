@@ -200,3 +200,5 @@ lib/firebase_options.dart
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+
+lib/core/utils/app_keys.dart
