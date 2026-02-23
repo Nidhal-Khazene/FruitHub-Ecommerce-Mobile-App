@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
+import 'package:ecommerce_app/core/helper/show_true_snack_bar.dart';
 import 'package:ecommerce_app/core/utils/app_keys.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
@@ -127,14 +130,17 @@ class _CheckoutButtonState extends State<CheckoutButton> {
           transactions: [paypalPaymentEntity.toJson()],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
-            print("onSuccess: $params");
+            Navigator.pop(context);
+            showTrueSnackBar(context, message: "تمت عملية الدفع بنجاح");
+            log("onSuccess: $params");
           },
           onError: (error) {
-            print("onError: $error");
             Navigator.pop(context);
+            showFalseSnackBar(context, errorMessage: "فشلت عملية الدفع");
+            log("onError: $error");
           },
           onCancel: () {
-            print('cancelled:');
+            log('cancelled:');
           },
         ),
       ),
