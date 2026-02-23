@@ -53,15 +53,33 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         const SizedBox(height: 24),
         CustomCheckoutStepsHeader(
           onTap: (index) {
-            if (index == 1) {
-              _handleShippingSection(context);
+            if (index == 0) {
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+              );
+            } else if (index == 1) {
+              var orderEntity = context.read<OrderEntity>();
+              if (orderEntity.payWithCash != null) {
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn,
+                );
+              } else {
+                showFalseSnackBar(
+                  context,
+                  errorMessage: 'يرجي تحديد طريقه الدفع',
+                );
+              }
             } else if (index == 2) {
-              _handleAddressSection();
+              _handleAddressSection(index);
             } else if (index == 3) {
-              _handlePaymentSection();
+              _handlePaymentSection(index);
             } else {
               _pageController.animateToPage(
-                currentIndexPage,
+                index,
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeIn,
               );
@@ -77,23 +95,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     );
   }
 
-  void _handleShippingSection(BuildContext context) {
-    if (context.read<OrderEntity>().payWithCash != null) {
-      _pageController.animateToPage(
-        currentIndexPage + 1,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.bounceIn,
-      );
-    } else {
-      showFalseSnackBar(context, errorMessage: "اختر طريقة الدفع ");
-    }
-  }
-
-  void _handleAddressSection() {
+  void _handleAddressSection(int index) {
     if (addressStepScope.key.currentState!.validate()) {
       addressStepScope.key.currentState!.save();
       _pageController.animateToPage(
-        currentIndexPage + 1,
+        index,
         duration: const Duration(milliseconds: 300),
         curve: Curves.bounceIn,
       );
@@ -102,11 +108,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     }
   }
 
-  void _handlePaymentSection() {
+  void _handlePaymentSection(int index) {
     if (paymentsStepScope.key.currentState!.validate()) {
       paymentsStepScope.key.currentState!.save();
       _pageController.animateToPage(
-        currentIndexPage + 1,
+        index,
         duration: const Duration(milliseconds: 300),
         curve: Curves.bounceIn,
       );
