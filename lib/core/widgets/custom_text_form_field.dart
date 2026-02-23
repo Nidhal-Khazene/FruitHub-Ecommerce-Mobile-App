@@ -42,6 +42,10 @@ class CustomTextFormField extends StatelessWidget {
         if (value == null || value.isEmpty) {
           return "هذا الحقل مطلوب";
         }
+        if (textInputType == TextInputType.number &&
+            double.tryParse(value) == null) {
+          return "ادخل ارقام 1,2,3... ";
+        }
         return null;
       },
       keyboardType: textInputType,
