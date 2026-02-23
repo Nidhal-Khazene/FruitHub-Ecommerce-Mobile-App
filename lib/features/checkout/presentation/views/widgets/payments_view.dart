@@ -18,6 +18,8 @@ class PaymentsView extends StatefulWidget {
 
 class _PaymentsViewState extends State<PaymentsView>
     with AutomaticKeepAliveClientMixin {
+  bool isCardInfoVisible = false;
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -39,64 +41,78 @@ class _PaymentsViewState extends State<PaymentsView>
               ),
             ),
             const SizedBox(height: 13),
-            const PaymentsMethods(),
+            PaymentsMethods(
+              onTap: (bool isVisible) {
+                setState(() {
+                  isCardInfoVisible = isVisible;
+                });
+              },
+            ),
             const SizedBox(height: 16),
-            CustomTextFormField(
-              hintText: "اسم حامل البطاقه",
-              onSaved: (value) {
-                context.read<OrderEntity>().paymentCardEntity.name = value;
-              },
-            ),
-            const SizedBox(height: 8),
-            CustomTextFormField(
-              hintText: "رقم البطاقة",
-              textInputType: TextInputType.number,
-              onSaved: (value) {
-                context.read<OrderEntity>().paymentCardEntity.cardNumber = value
-                    .toString();
-              },
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Expanded(
-                  child: CustomTextFormField(
-                    hintText: "تاريخ الصلاحيه",
-                    textInputType: TextInputType.datetime,
+            Visibility(
+              visible: isCardInfoVisible,
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    hintText: "اسم حامل البطاقه",
                     onSaved: (value) {
-                      context
-                          .read<OrderEntity>()
-                          .paymentCardEntity
-                          .expirationCard = value
-                          .toString();
+                      context.read<OrderEntity>().paymentCardEntity.name =
+                          value;
                     },
                   ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: CustomTextFormField(
-                    hintText: "CVV",
+                  const SizedBox(height: 8),
+                  CustomTextFormField(
+                    hintText: "رقم البطاقة",
                     textInputType: TextInputType.number,
                     onSaved: (value) {
-                      context.read<OrderEntity>().paymentCardEntity.cvv = value
-                          .toString();
+                      context.read<OrderEntity>().paymentCardEntity.cardNumber =
+                          value.toString();
                     },
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 17),
-            Row(
-              children: [
-                const VirtualCardPaymentsCheckBox(),
-                const SizedBox(width: 16),
-                Text(
-                  "جعل البطاقة افتراضية",
-                  style: AppStyles.semiBold13.copyWith(
-                    color: ColorData.kFontSecondaryColor,
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomTextFormField(
+                          hintText: "تاريخ الصلاحيه",
+                          textInputType: TextInputType.datetime,
+                          onSaved: (value) {
+                            context
+                                .read<OrderEntity>()
+                                .paymentCardEntity
+                                .expirationCard = value
+                                .toString();
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: CustomTextFormField(
+                          hintText: "CVV",
+                          textInputType: TextInputType.number,
+                          onSaved: (value) {
+                            context.read<OrderEntity>().paymentCardEntity.cvv =
+                                value.toString();
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: 17),
+                  Row(
+                    children: [
+                      const VirtualCardPaymentsCheckBox(),
+                      const SizedBox(width: 16),
+                      Text(
+                        "جعل البطاقة افتراضية",
+                        style: AppStyles.semiBold13.copyWith(
+                          color: ColorData.kFontSecondaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/assets.dart';
 
 class PaymentsMethods extends StatefulWidget {
-  const PaymentsMethods({super.key});
+  const PaymentsMethods({super.key, required this.onTap});
 
+  final ValueChanged<bool> onTap;
   static const List<String> payments = [
     Assets.assetsImagesPaymentsApplePay,
     Assets.assetsImagesPaymentsPaypal,
@@ -34,6 +35,7 @@ class _PaymentsMethodsState extends State<PaymentsMethods> {
                   setState(() {
                     selectedItem = index;
                   });
+                  widget.onTap(selectedItem == 1);
                 },
                 child: PaymentItem(
                   paymentMethod: PaymentsMethods.payments[index],
