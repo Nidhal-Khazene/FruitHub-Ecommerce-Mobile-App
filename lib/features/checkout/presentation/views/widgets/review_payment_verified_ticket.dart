@@ -61,8 +61,7 @@ class ReviewPaymentVerifiedTicket extends StatelessWidget {
               const SizedBox(width: 29),
               const PaymentItem(
                 height: 34,
-                paymentMethod: Assets.assetsImagesPaymentsVisa,
-                backgroundColor: Color(0xff1434CB),
+                paymentMethod: Assets.assetsImagesPaymentsPaypal,
               ),
             ],
           ),
