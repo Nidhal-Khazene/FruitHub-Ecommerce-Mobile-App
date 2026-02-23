@@ -57,9 +57,6 @@ class _CheckoutButtonState extends State<CheckoutButton> {
     paymentsStepScope = context.read<PaymentsStepScope>();
     return CustomButton(
       onPressed: () {
-        if (pageNumber == CheckoutButton.titles.length - 1) {
-          Navigator.pushNamed(context, PaymentSuccessView.routeName);
-        }
         if (pageNumber == 0) {
           _handleShippingSection(context);
         } else if (pageNumber == 1) {
@@ -129,7 +126,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
           transactions: [paypalPaymentEntity.toJson()],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
-            Navigator.pop(context);
+            Navigator.pushNamed(context, PaymentSuccessView.routeName);
             addOrderCubit.addOrder(orderEntity);
             log("onSuccess: $params");
           },
