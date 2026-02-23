@@ -38,10 +38,10 @@ class Assets {
   /// assets/images/google_icon.svg
   static const String assetsImagesGoogleIcon = "assets/images/google_icon.svg";
 
-  /// Assets for assetsImagesIconFruitHubLogo
-  /// assets/images/icon/fruit_hub_logo.png
-  static const String assetsImagesIconFruitHubLogo =
-      "assets/images/icon/fruit_hub_logo.png";
+  /// Assets for assetsImagesIconStartingLogo
+  /// assets/images/icon/starting_logo.png
+  static const String assetsImagesIconStartingLogo =
+      "assets/images/icon/starting_logo.png";
 
   /// Assets for assetsImagesLogoSplash
   /// assets/images/logo_splash.png
