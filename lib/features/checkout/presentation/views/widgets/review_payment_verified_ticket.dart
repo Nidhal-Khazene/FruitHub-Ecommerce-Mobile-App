@@ -53,7 +53,7 @@ class ReviewPaymentVerifiedTicket extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '${context.read<OrderEntity>().paymentCardEntity.cardNumber}',
+                context.read<OrderEntity>().paymentCardEntity.cardNumber ?? "",
                 style: AppStyles.regular16.copyWith(
                   color: ColorData.kFontMediumColor,
                 ),
