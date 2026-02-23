@@ -18,7 +18,7 @@ class PaymentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 100),
       curve: Curves.bounceIn,
       height: height ?? 43,
       padding: const EdgeInsets.all(12),

@@ -34,8 +34,8 @@ class _PaymentsMethodsState extends State<PaymentsMethods> {
                 onTap: () {
                   setState(() {
                     selectedItem = index;
+                    widget.onTap(selectedItem != 1);
                   });
-                  widget.onTap(selectedItem == 1);
                 },
                 child: PaymentItem(
                   paymentMethod: PaymentsMethods.payments[index],
