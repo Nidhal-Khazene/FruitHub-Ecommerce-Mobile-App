@@ -18,11 +18,11 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SharedPreferencesSingleton.init();
   setupGetIt();
-  runApp(const FruitHubApp());
+  runApp(const ThimarHubApp());
 }
 
-class FruitHubApp extends StatelessWidget {
-  const FruitHubApp({super.key});
+class ThimarHubApp extends StatelessWidget {
+  const ThimarHubApp({super.key});
 
   @override
   Widget build(BuildContext context) {
