@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:ecommerce_app/core/helper/show_false_snack_bar.dart';
-import 'package:ecommerce_app/core/helper/show_true_snack_bar.dart';
 import 'package:ecommerce_app/core/utils/app_keys.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:ecommerce_app/features/checkout/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
+import 'package:ecommerce_app/features/checkout/presentation/manager/add_order_cubit/add_order_cubit.dart';
 import 'package:ecommerce_app/features/checkout/presentation/views/widgets/payment_success_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -67,8 +67,6 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         } else if (pageNumber == 2) {
           _handlePaymentSection();
         } else {
-          // var orderEntity = context.read<OrderEntity>();
-          // context.read<AddOrderCubit>().addOrder(orderEntity);
           _handleProcessPayment(context);
         }
       },
@@ -121,6 +119,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
     PaypalPaymentEntity paypalPaymentEntity = PaypalPaymentEntity.fromEntity(
       orderEntity,
     );
+    var addOrderCubit = context.read<AddOrderCubit>();
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) => PaypalCheckoutView(
@@ -131,7 +130,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
             Navigator.pop(context);
-            showTrueSnackBar(context, message: "تمت عملية الدفع بنجاح");
+            addOrderCubit.addOrder(orderEntity);
             log("onSuccess: $params");
           },
           onError: (error) {
