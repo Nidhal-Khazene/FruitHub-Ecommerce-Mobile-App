@@ -27,6 +27,9 @@ class CheckoutView extends StatefulWidget {
 
 class _CheckoutViewState extends State<CheckoutView> {
   late OrderEntity orderEntity;
+  late AddressStepScope addressStepScope;
+  late PaymentsStepScope paymentsStepScope;
+  late PaymentsReviewStepScope paymentsReviewStepScope;
 
   @override
   void initState() {
@@ -36,6 +39,9 @@ class _CheckoutViewState extends State<CheckoutView> {
       cartEntity: widget.cartEntity,
       shippingAddressEntity: ShippingAddressEntity(),
     );
+    addressStepScope = AddressStepScope();
+    paymentsStepScope = PaymentsStepScope();
+    paymentsReviewStepScope = PaymentsReviewStepScope();
     super.initState();
   }
 
@@ -50,10 +56,10 @@ class _CheckoutViewState extends State<CheckoutView> {
             child: MultiProvider(
               providers: [
                 Provider<OrderEntity>(create: (_) => orderEntity),
-                Provider<AddressStepScope>(create: (_) => AddressStepScope()),
-                Provider<PaymentsStepScope>(create: (_) => PaymentsStepScope()),
+                Provider<AddressStepScope>(create: (_) => addressStepScope),
+                Provider<PaymentsStepScope>(create: (_) => paymentsStepScope),
                 Provider<PaymentsReviewStepScope>(
-                  create: (_) => PaymentsReviewStepScope(),
+                  create: (_) => paymentsReviewStepScope,
                 ),
               ],
               child: const AddOrderCubitBlocBuilder(child: CheckoutViewBody()),
