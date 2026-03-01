@@ -31,7 +31,7 @@ class _AddressViewState extends State<AddressView>
             CustomTextFormField(
               onSaved: (value) {
                 value = context
-                    .read<OrderEntity>()
+                    .read<OrderInputEntity>()
                     .shippingAddressEntity
                     .fullName;
               },
@@ -42,7 +42,8 @@ class _AddressViewState extends State<AddressView>
             const SizedBox(height: 8),
             CustomTextFormField(
               onSaved: (value) {
-                context.read<OrderEntity>().shippingAddressEntity.email = value;
+                context.read<OrderInputEntity>().shippingAddressEntity.email =
+                    value;
               },
               hintText: "البريد الإلكتروني",
               hintStyle: AppStyles.bold13,
@@ -51,7 +52,7 @@ class _AddressViewState extends State<AddressView>
             const SizedBox(height: 8),
             CustomTextFormField(
               onSaved: (value) {
-                context.read<OrderEntity>().shippingAddressEntity.address =
+                context.read<OrderInputEntity>().shippingAddressEntity.address =
                     value;
               },
               hintText: "العنوان",
@@ -61,7 +62,8 @@ class _AddressViewState extends State<AddressView>
             const SizedBox(height: 8),
             CustomTextFormField(
               onSaved: (value) {
-                context.read<OrderEntity>().shippingAddressEntity.city = value;
+                context.read<OrderInputEntity>().shippingAddressEntity.city =
+                    value;
               },
               hintText: "المدينه",
               hintStyle: AppStyles.bold13,
@@ -71,7 +73,7 @@ class _AddressViewState extends State<AddressView>
             CustomTextFormField(
               onSaved: (value) {
                 context
-                    .read<OrderEntity>()
+                    .read<OrderInputEntity>()
                     .shippingAddressEntity
                     .apartmentNumber = int.parse(
                   value.toString(),

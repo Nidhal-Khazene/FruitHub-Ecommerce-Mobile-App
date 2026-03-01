@@ -12,7 +12,7 @@ class OrderRepoImpl extends OrderRepo {
   OrderRepoImpl({required this.databaseService});
 
   @override
-  Future<Either<Failure, void>> addOrder(OrderEntity orderEntity) async {
+  Future<Either<Failure, void>> addOrder(OrderInputEntity orderEntity) async {
     try {
       await databaseService.addData(
         path: BackendBreakPoint.addOrder,

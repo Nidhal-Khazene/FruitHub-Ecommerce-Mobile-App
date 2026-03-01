@@ -60,7 +60,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 curve: Curves.easeIn,
               );
             } else if (index == 1) {
-              var orderEntity = context.read<OrderEntity>();
+              var orderEntity = context.read<OrderInputEntity>();
               if (orderEntity.payWithCash != null) {
                 _pageController.animateToPage(
                   index,

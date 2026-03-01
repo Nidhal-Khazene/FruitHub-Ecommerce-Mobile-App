@@ -74,7 +74,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   }
 
   void _handleShippingSection(BuildContext context) {
-    if (context.read<OrderEntity>().payWithCash != null) {
+    if (context.read<OrderInputEntity>().payWithCash != null) {
       widget._pageController.animateToPage(
         pageNumber + 1,
         duration: const Duration(milliseconds: 300),
@@ -112,7 +112,7 @@ class _CheckoutButtonState extends State<CheckoutButton> {
   }
 
   void _handleProcessPayment(BuildContext context) {
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     PaypalPaymentEntity paypalPaymentEntity = PaypalPaymentEntity.fromEntity(
       orderEntity,
     );

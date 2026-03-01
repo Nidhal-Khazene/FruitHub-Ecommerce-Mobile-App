@@ -26,14 +26,14 @@ class CheckoutView extends StatefulWidget {
 }
 
 class _CheckoutViewState extends State<CheckoutView> {
-  late OrderEntity orderEntity;
+  late OrderInputEntity orderEntity;
   late AddressStepScope addressStepScope;
   late PaymentsStepScope paymentsStepScope;
   late PaymentsReviewStepScope paymentsReviewStepScope;
 
   @override
   void initState() {
-    orderEntity = OrderEntity(
+    orderEntity = OrderInputEntity(
       uID: getUser()!.userId,
       paymentCardEntity: PaymentCardEntity(),
       cartEntity: widget.cartEntity,
@@ -55,7 +55,7 @@ class _CheckoutViewState extends State<CheckoutView> {
             padding: kPrimaryScreenPadding,
             child: MultiProvider(
               providers: [
-                Provider<OrderEntity>(create: (_) => orderEntity),
+                Provider<OrderInputEntity>(create: (_) => orderEntity),
                 Provider<AddressStepScope>(create: (_) => addressStepScope),
                 Provider<PaymentsStepScope>(create: (_) => paymentsStepScope),
                 Provider<PaymentsReviewStepScope>(

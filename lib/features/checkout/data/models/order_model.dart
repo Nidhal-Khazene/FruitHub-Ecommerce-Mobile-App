@@ -20,7 +20,7 @@ class OrderModel {
     required this.shippingAddressModel,
   });
 
-  factory OrderModel.fromEntity(OrderEntity orderEntity) {
+  factory OrderModel.fromEntity(OrderInputEntity orderEntity) {
     return OrderModel(
       paymentCardModel: PaymentCardModel.fromEntity(
         orderEntity.paymentCardEntity,

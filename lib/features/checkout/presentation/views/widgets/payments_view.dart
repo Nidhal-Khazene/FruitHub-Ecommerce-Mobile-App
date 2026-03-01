@@ -56,7 +56,7 @@ class _PaymentsViewState extends State<PaymentsView>
                   CustomTextFormField(
                     hintText: "اسم حامل البطاقه",
                     onSaved: (value) {
-                      context.read<OrderEntity>().paymentCardEntity.name =
+                      context.read<OrderInputEntity>().paymentCardEntity.name =
                           value;
                     },
                   ),
@@ -65,8 +65,11 @@ class _PaymentsViewState extends State<PaymentsView>
                     hintText: "رقم البطاقة",
                     textInputType: TextInputType.number,
                     onSaved: (value) {
-                      context.read<OrderEntity>().paymentCardEntity.cardNumber =
-                          value.toString();
+                      context
+                          .read<OrderInputEntity>()
+                          .paymentCardEntity
+                          .cardNumber = value
+                          .toString();
                     },
                   ),
                   const SizedBox(height: 8),
@@ -78,7 +81,7 @@ class _PaymentsViewState extends State<PaymentsView>
                           textInputType: TextInputType.datetime,
                           onSaved: (value) {
                             context
-                                .read<OrderEntity>()
+                                .read<OrderInputEntity>()
                                 .paymentCardEntity
                                 .expirationCard = value
                                 .toString();
@@ -91,8 +94,11 @@ class _PaymentsViewState extends State<PaymentsView>
                           hintText: "CVV",
                           textInputType: TextInputType.number,
                           onSaved: (value) {
-                            context.read<OrderEntity>().paymentCardEntity.cvv =
-                                value.toString();
+                            context
+                                .read<OrderInputEntity>()
+                                .paymentCardEntity
+                                .cvv = value
+                                .toString();
                           },
                         ),
                       ),

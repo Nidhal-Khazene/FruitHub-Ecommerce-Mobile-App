@@ -68,7 +68,10 @@ class PaymentAddressTicket extends StatelessWidget {
               const Icon(Iconsax.location_copy, color: Color(0xFF292D32)),
               const SizedBox(width: 8),
               Text(
-                context.watch<OrderEntity>().shippingAddressEntity.getAddress(),
+                context
+                    .watch<OrderInputEntity>()
+                    .shippingAddressEntity
+                    .getAddress(),
                 textAlign: TextAlign.right,
                 style: AppStyles.regular16.copyWith(
                   color: ColorData.kFontSecondaryColor,

@@ -47,7 +47,10 @@ class _PaymentEditAddressBottomSheetContentState
                 const SizedBox(height: 24),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.watch<OrderEntity>().shippingAddressEntity.address =
+                    context
+                            .watch<OrderInputEntity>()
+                            .shippingAddressEntity
+                            .address =
                         value;
                   },
                   hintText: "العنوان",
@@ -57,7 +60,10 @@ class _PaymentEditAddressBottomSheetContentState
                 const SizedBox(height: 8),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.watch<OrderEntity>().shippingAddressEntity.city =
+                    context
+                            .watch<OrderInputEntity>()
+                            .shippingAddressEntity
+                            .city =
                         value;
                   },
                   hintText: "المدينه",
@@ -68,7 +74,7 @@ class _PaymentEditAddressBottomSheetContentState
                 CustomTextFormField(
                   onSaved: (value) {
                     context
-                        .watch<OrderEntity>()
+                        .watch<OrderInputEntity>()
                         .shippingAddressEntity
                         .apartmentNumber = int.parse(
                       value.toString(),

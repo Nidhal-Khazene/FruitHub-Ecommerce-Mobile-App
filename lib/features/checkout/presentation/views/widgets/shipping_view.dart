@@ -17,7 +17,7 @@ class _ShippingViewState extends State<ShippingView>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     return Column(
       children: [
         const SizedBox(height: 32),
@@ -33,7 +33,7 @@ class _ShippingViewState extends State<ShippingView>
           subtitle: "التسليم من المكان",
           price:
               (context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .cartEntity
                           .calculateTotalPriceItems() +
                       40)
@@ -52,7 +52,7 @@ class _ShippingViewState extends State<ShippingView>
             title: "الدفع اونلاين ",
             subtitle: "يرجي تحديد طريقه الدفع",
             price: context
-                .read<OrderEntity>()
+                .read<OrderInputEntity>()
                 .cartEntity
                 .calculateTotalPriceItems()
                 .toString(),

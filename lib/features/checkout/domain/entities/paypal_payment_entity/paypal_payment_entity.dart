@@ -10,7 +10,7 @@ class PaypalPaymentEntity {
 
   PaypalPaymentEntity({this.amount, this.description, this.itemList});
 
-  factory PaypalPaymentEntity.fromEntity(OrderEntity orderEntity) {
+  factory PaypalPaymentEntity.fromEntity(OrderInputEntity orderEntity) {
     return PaypalPaymentEntity(
       amount: AmountEntity.fromEntity(orderEntity),
       description: "PayPal Payment Description",
