@@ -40,7 +40,7 @@ class OnBoardingPageView extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: ' Fruit',
+                  text: ' Thimar',
                   style: TextStyle(
                     color: Color(0xFF1B5E37) /* Green1-500 */,
                     fontSize: 23,
