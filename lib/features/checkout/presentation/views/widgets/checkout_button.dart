@@ -64,7 +64,12 @@ class _CheckoutButtonState extends State<CheckoutButton> {
         } else if (pageNumber == 2) {
           _handlePaymentSection();
         } else {
-          _handleProcessPayment(context);
+          var orderEntity = context.read<OrderInputEntity>();
+          var addOrderCubit = context.read<AddOrderCubit>();
+          addOrderCubit.addOrder(orderEntity);
+          Navigator.pushNamed(context, PaymentSuccessView.routeName);
+
+          // _handleProcessPayment(context);
         }
       },
       text: CheckoutButton

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/enums/order_status_enum.dart';
 import 'package:ecommerce_app/features/checkout/data/models/payment_card_model.dart';
 import 'package:ecommerce_app/features/checkout/data/models/product_order_model.dart';
 import 'package:ecommerce_app/features/checkout/data/models/shipping_address_model.dart';
@@ -10,8 +11,12 @@ class OrderModel {
   final List<OrderProductsModel> orderProducts;
   final PaymentCardModel paymentCardModel;
   final String paymentMethod;
+  final String date;
+  final String status;
 
   OrderModel({
+    required this.date,
+    required this.status,
     required this.paymentCardModel,
     required this.orderProducts,
     required this.paymentMethod,
@@ -22,6 +27,8 @@ class OrderModel {
 
   factory OrderModel.fromEntity(OrderInputEntity orderEntity) {
     return OrderModel(
+      date: DateTime.now().toString(),
+      status: OrderStatusEnum.pending.name.toString(),
       paymentCardModel: PaymentCardModel.fromEntity(
         orderEntity.paymentCardEntity,
       ),
@@ -41,8 +48,8 @@ class OrderModel {
     return {
       "totalPrice": totalPrice,
       "uID": uID,
-      "status": "pending",
-      "date": DateTime.now().toString(),
+      "status": status,
+      "date": date,
       "shippingAddressModel": shippingAddressModel.toJson(),
       "orderProducts": orderProducts.map((e) => e.toJson()).toList(),
       "paymentCardModel": paymentCardModel.toJson(),
