@@ -17,11 +17,15 @@ class _FeaturedCarouselViewState extends State<FeaturedCarouselView> {
     _carouselController = CarouselController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _carouselController.animateTo(
-        150,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.ease,
-      );
+      Future.delayed(const Duration(milliseconds: 100), () {
+        if (mounted && _carouselController.hasClients) {
+          _carouselController.animateTo(
+            150,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.ease,
+          );
+        }
+      });
     });
   }
 

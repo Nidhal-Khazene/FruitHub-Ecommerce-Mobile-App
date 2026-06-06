@@ -80,7 +80,7 @@ class ReviewItem extends StatelessWidget {
           child: Text(
             'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
             textAlign: TextAlign.right,
-            style: AppStyles.regular13.copyWith(color: Color(0xFF949D9E)),
+            style: AppStyles.regular13.copyWith(color: const Color(0xFF949D9E)),
           ),
         ),
       ],

@@ -28,7 +28,7 @@ class TrackOrderView extends StatelessWidget {
                   left: 66,
                 ),
                 decoration: const BoxDecoration(color: Color(0x7FF2F3F3)),
-                child: Row(children: [Column(children: [])]),
+                child: const Row(children: [Column(children: [])]),
               ),
             ],
           ),

@@ -68,7 +68,7 @@ class NotReadNotificationsItem extends StatelessWidget {
             width: 8,
             height: 8,
             decoration: const ShapeDecoration(
-              color: const Color(0xFF1B5E37) /* Green1-500 */,
+              color: Color(0xFF1B5E37) /* Green1-500 */,
               shape: OvalBorder(),
             ),
           ),
