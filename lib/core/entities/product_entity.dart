@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ecommerce_app/core/entities/review_entity.dart';
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class ProductEntity extends Equatable {
   final String productName, productCode, productDescription;
   String? urlImage;

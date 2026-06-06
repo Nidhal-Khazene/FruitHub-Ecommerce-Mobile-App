@@ -23,8 +23,7 @@ class CustomAppBar extends StatelessWidget {
           title,
           style: AppStyles.bold19.copyWith(color: const Color(0xFF0C0D0D)),
         ),
-        Icon(leadingIcon, color: const Color(0xFF949D9E), size: 20) ??
-            const SizedBox(),
+        Icon(leadingIcon, color: const Color(0xFF949D9E), size: 20),
       ],
     );
   }
